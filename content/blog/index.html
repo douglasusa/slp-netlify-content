@@ -3,19 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | Strategic Lab Partners</title>
-  <link rel="stylesheet" href="/styles.css" />
+  <title>SLP Blog | Strategic Lab Partners</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Insights, updates, and strategic perspectives from Strategic Lab Partners." />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="SLP Blog" />
+  <meta property="og:description" content="Insights, updates, and strategic perspectives from Strategic Lab Partners." />
+  <meta property="og:image" content="/assets/slp-og-default.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styles -->
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+    }
+
     .blog-container {
       max-width: 1100px;
       margin: 60px auto;
       padding: 0 20px;
     }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #searchBox {
+      width: 100%;
+      padding: 12px;
+      margin: 20px 0;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    #categoryFilter {
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 30px;
     }
+
     .blog-card {
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -23,27 +66,167 @@
       background: #fff;
       transition: transform 0.2s ease;
     }
+
     .blog-card:hover {
       transform: translateY(-4px);
     }
+
     .blog-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+
     .blog-card-content {
       padding: 20px;
     }
+
     .blog-card h3 {
       margin-top: 0;
       font-size: 1.3rem;
     }
-    .blog-card p {
-      color: #555;
+
+    .pagination {
+      text-align: center;
+      margin: 40px 0;
     }
-    .blog-card a {
-      text-decoration: none;
-      color: inherit;
+
+    .pagination button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1rem;
+      cursor: pointer;
     }
   </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "SLP Blog",
+    "description": "Insights, updates, and strategic perspectives from Strategic Lab Partners.",
+    "url": "https://slp-via-netlify-content.netlify.app/blog"
+  }
+  </script>
 </head>
+
+<body>
+
+  <div class="blog-container">
+    <h1>SLP Blog</h1>
+    <p>Insights, updates, and strategic perspectives from Strategic Lab Partners.</p>
+
+    <input id="searchBox" type="text" placeholder="Search posts…" oninput="searchPosts(this.value)" />
+
+    <select id="categoryFilter" onchange="filterByCategory(this.value)">
+      <option value="">All Categories</option>
+    </select>
+
+    <div id="blogGrid" class="blog-grid"></div>
+
+    <div class="pagination">
+      <button onclick="prevPage()">Previous</button>
+      <span id="pageNumber">1</span>
+      <button onclick="nextPage()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    let allPosts = [];
+    let filteredPosts = [];
+    let currentPage = 1;
+    const postsPerPage = 6;
+
+    // Load posts.json (relative path = bulletproof)
+    fetch('posts.json')
+      .then(response => response.json())
+      .then(posts => {
+        allPosts = posts;
+        filteredPosts = posts;
+
+        populateCategories(posts);
+        renderPage();
+      });
+
+    function populateCategories(posts) {
+      const categories = new Set();
+
+      posts.forEach(p => {
+        if (p.category) categories.add(p.category);
+      });
+
+      const filter = document.getElementById('categoryFilter');
+      categories.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        filter.appendChild(opt);
+      });
+    }
+
+    function renderPage() {
+      const grid = document.getElementById('blogGrid');
+      grid.innerHTML = '';
+
+      const start = (currentPage - 1) * postsPerPage;
+      const end = start + postsPerPage;
+      const pagePosts = filteredPosts.slice(start, end);
+
+      pagePosts.forEach(post => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+
+        card.innerHTML = `
+          <a href="/blog/${post.slug}/">
+            <img src="${post.hero}" alt="${post.title}">
+            <div class="blog-card-content">
+              <h3>${post.title}</h3>
+              <p>${post.excerpt}</p>
+            </div>
+          </a>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      document.getElementById('pageNumber').innerText = currentPage;
+    }
+
+    function searchPosts(query) {
+      query = query.toLowerCase();
+      filteredPosts = allPosts.filter(p =>
+        p.title.toLowerCase().includes(query) ||
+        p.excerpt.toLowerCase().includes(query)
+      );
+      currentPage = 1;
+      renderPage();
+    }
+
+    function filterByCategory(cat) {
+      if (!cat) {
+        filteredPosts = allPosts;
+      } else {
+        filteredPosts = allPosts.filter(p => p.category === cat);
+      }
+      currentPage = 1;
+      renderPage();
+    }
+
+    function nextPage() {
+      if (currentPage * postsPerPage < filteredPosts.length) {
+        currentPage++;
+        renderPage();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        renderPage();
+      }
+    }
+  </script>
+
+</body>
+</html>
