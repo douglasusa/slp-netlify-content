@@ -5,320 +5,180 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SLP Blog | Strategic Lab Partners</title>
 
-  <!-- SEO -->
   <meta name="description" content="Insights, updates, and strategic perspectives from Strategic Lab Partners." />
-  <link rel="canonical" href="https://slp-via-netlify-content.netlify.app/blog" />
+  <link rel="canonical" href="https://strategiclabpartners.com/blog" />
 
-  <!-- OpenGraph -->
-  <meta property="og:title" content="SLP Blog" />
-  <meta property="og:description" content="Insights, updates, and strategic perspectives from Strategic Lab Partners." />
-  <meta property="og:image" content="/assets/slp-og-default.png" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Styles -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #222;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #ffffff; color: #222; }
 
     /* HEADER */
-    .slp-header {
-      width: 100%;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 20px 0;
-    }
+    .slp-header { width: 100%; background: #ffffff; border-bottom: 1px solid #e5e5e5; padding: 20px 0; }
+    .slp-header-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
+    .slp-header-left img { height: 60px; }
+    .slp-header-right img { height: 50px; display: block; margin-left: auto; }
+    .slp-tagline { font-size: 0.9rem; margin-top: 6px; color: #003366; font-weight: 600; }
 
-    .slp-header-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .slp-header-left img {
-      height: 60px;
-    }
-
-    .slp-header-right {
-      text-align: right;
-    }
-
-    .slp-header-right img {
-      height: 50px;
-      display: block;
-      margin-left: auto;
-    }
-
-    .slp-tagline {
-      font-size: 0.9rem;
-      margin-top: 6px;
-      color: #444;
-      font-weight: 500;
-    }
+    /* BREADCRUMBS */
+    .breadcrumbs { max-width: 960px; margin: 20px auto 0; padding: 0 20px; font-size: 0.9rem; color: #003366; }
+    .breadcrumbs a { color: #003366; text-decoration: none; }
+    .breadcrumbs span { color: #666; }
 
     /* BLOG CONTAINER */
-    .blog-container {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+    .blog-container { max-width: 960px; margin: 20px auto; padding: 0 20px; }
+    h1 { margin-bottom: 10px; font-size: 2rem; font-weight: 700; }
 
-    h1 {
-      margin-bottom: 10px;
-      font-size: 2rem;
-      font-weight: 700;
-    }
+    #searchBox { width: 100%; padding: 12px; margin: 20px 0; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+    #categoryFilter { padding: 10px; margin-bottom: 20px; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc; }
 
-    #searchBox {
-      width: 100%;
-      padding: 12px;
-      margin: 20px 0;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+    .blog-card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: #fff; transition: transform 0.2s ease; }
+    .blog-card:hover { transform: translateY(-4px); }
+    .blog-card img { width: 100%; height: 180px; object-fit: cover; }
+    .blog-card-content { padding: 20px; }
+    .blog-card h3 { margin-top: 0; font-size: 1.3rem; }
 
-    #categoryFilter {
-      padding: 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .blog-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      transition: transform 0.2s ease;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .blog-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .blog-card-content {
-      padding: 20px;
-    }
-
-    .blog-card h3 {
-      margin-top: 0;
-      font-size: 1.3rem;
-    }
-
-    .pagination {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    .pagination button {
-      padding: 10px 20px;
-      margin: 0 10px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
+    .pagination { text-align: center; margin: 40px 0; }
+    .pagination button { padding: 10px 20px; margin: 0 10px; font-size: 1rem; cursor: pointer; }
 
     /* FOOTER */
-    .slp-footer {
-      background: #f7f7f7;
-      padding: 40px 20px;
-      border-top: 1px solid #e5e5e5;
-      margin-top: 60px;
-    }
-
-    .slp-footer-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #444;
-    }
-
-    .slp-footer-copy {
-      margin-top: 20px;
-      font-size: 0.85rem;
-      color: #666;
-      text-align: center;
-    }
+    .slp-footer { background: #f7f7f7; padding: 40px 20px; border-top: 1px solid #e5e5e5; margin-top: 60px; }
+    .slp-footer-inner { max-width: 960px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6; color: #444; }
+    .slp-footer-copy { margin-top: 20px; font-size: 0.85rem; color: #666; text-align: center; }
   </style>
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "SLP Blog",
-    "description": "Insights, updates, and strategic perspectives from Strategic Lab Partners.",
-    "url": "https://slp-via-netlify-content.netlify.app/blog",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Strategic Lab Partners",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://slp-via-netlify-content.netlify.app/assets/logos/slp-full-logo.png"
-      }
-    }
-  }
-  </script>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="slp-header">
-    <div class="slp-header-inner">
-      <div class="slp-header-left">
-        <img src="/assets/logos/slp-full-logo.png" alt="SLP Logo">
-      </div>
-      <div class="slp-header-right">
-        <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT Logo">
-        <div class="slp-tagline">BUILDING TRUST While Unlocking Discovery</div>
-      </div>
+<header class="slp-header">
+  <div class="slp-header-inner">
+    <div class="slp-header-left">
+      <img src="/assets/logos/slp-full-logo.png" alt="SLP Logo">
     </div>
-  </header>
-
-  <!-- BLOG CONTENT -->
-  <div class="blog-container">
-    <h1>SLP Blog</h1>
-    <p>Insights, updates, and strategic perspectives from Strategic Lab Partners.</p>
-
-    <input id="searchBox" type="text" placeholder="Search posts…" oninput="searchPosts(this.value)" />
-
-    <select id="categoryFilter" onchange="filterByCategory(this.value)">
-      <option value="">All Categories</option>
-    </select>
-
-    <div id="blogGrid" class="blog-grid"></div>
-
-    <div class="pagination">
-      <button onclick="prevPage()">Previous</button>
-      <span id="pageNumber">1</span>
-      <button onclick="nextPage()">Next</button>
+    <div class="slp-header-right">
+      <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT Logo">
+      <div class="slp-tagline">BUILDING TRUST While Unlocking Discovery</div>
     </div>
   </div>
+</header>
 
-  <!-- FOOTER -->
-  <footer class="slp-footer">
-    <div class="slp-footer-inner">
-      <strong>MISSION | Strategic Lab Partners (SLP)</strong> transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized Management Platform, we integrate precision kit production, global logistics, and real-time digital visibility to ensure complete control from design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare supply chains with universal kitting, serialized tracking, and value-based logistics—strengthening quality, reducing variability, and accelerating scientific discovery.
+<div class="breadcrumbs">
+  <a href="https://strategiclabpartners.com">Home</a> <span>›</span> Blog
+</div>
 
-      <div class="slp-footer-copy">
-        © 2026 Strategic Lab Partners. All Rights Reserved.
-      </div>
+<div class="blog-container">
+  <h1>SLP Blog</h1>
+  <p>Insights, updates, and strategic perspectives from Strategic Lab Partners.</p>
+
+  <input id="searchBox" type="text" placeholder="Search posts…" oninput="searchPosts(this.value)" />
+  <select id="categoryFilter" onchange="filterByCategory(this.value)">
+    <option value="">All Categories</option>
+  </select>
+
+  <div id="blogGrid" class="blog-grid"></div>
+
+  <div class="pagination">
+    <button onclick="prevPage()">Previous</button>
+    <span id="pageNumber">1</span>
+    <button onclick="nextPage()">Next</button>
+  </div>
+</div>
+
+<footer class="slp-footer">
+  <div class="slp-footer-inner">
+    <strong>MISSION | Strategic Lab Partners (SLP)</strong> transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized Management Platform, we integrate precision kit production, global logistics, and real-time digital visibility to ensure complete control from design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare supply chains with universal kitting, serialized tracking, and value-based logistics—strengthening quality, reducing variability, and accelerating scientific discovery.
+
+    <div class="slp-footer-copy">
+      © 2026 Strategic Lab Partners. All Rights Reserved.
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- BLOG ENGINE -->
-  <script>
-    let allPosts = [];
-    let filteredPosts = [];
-    let currentPage = 1;
-    const postsPerPage = 6;
+<script>
+  let allPosts = [];
+  let filteredPosts = [];
+  let currentPage = 1;
+  const postsPerPage = 6;
 
-    fetch('posts.json')
-      .then(response => response.json())
-      .then(posts => {
-        allPosts = posts;
-        filteredPosts = posts;
+  fetch('posts.json')
+    .then(response => response.json())
+    .then(posts => {
+      allPosts = posts;
+      filteredPosts = posts;
+      populateCategories(posts);
+      renderPage();
+    });
 
-        populateCategories(posts);
-        renderPage();
-      });
+  function populateCategories(posts) {
+    const categories = new Set();
+    posts.forEach(p => { if (p.category) categories.add(p.category); });
 
-    function populateCategories(posts) {
-      const categories = new Set();
-      posts.forEach(p => { if (p.category) categories.add(p.category); });
+    const filter = document.getElementById('categoryFilter');
+    categories.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat;
+      opt.textContent = cat;
+      filter.appendChild(opt);
+    });
+  }
 
-      const filter = document.getElementById('categoryFilter');
-      categories.forEach(cat => {
-        const opt = document.createElement('option');
-        opt.value = cat;
-        opt.textContent = cat;
-        filter.appendChild(opt);
-      });
-    }
+  function renderPage() {
+    const grid = document.getElementById('blogGrid');
+    grid.innerHTML = '';
 
-    function renderPage() {
-      const grid = document.getElementById('blogGrid');
-      grid.innerHTML = '';
+    const start = (currentPage - 1) * postsPerPage;
+    const end = start + postsPerPage;
+    const pagePosts = filteredPosts.slice(start, end);
 
-      const start = (currentPage - 1) * postsPerPage;
-      const end = start + postsPerPage;
-      const pagePosts = filteredPosts.slice(start, end);
+    pagePosts.forEach(post => {
+      const card = document.createElement('div');
+      card.className = 'blog-card';
 
-      pagePosts.forEach(post => {
-        const card = document.createElement('div');
-        card.className = 'blog-card';
+      card.innerHTML = `
+        <a href="/blog/${post.slug}/">
+          <img src="${post.hero}" alt="${post.title}">
+          <div class="blog-card-content">
+            <h3>${post.title}</h3>
+            <p>${post.excerpt}</p>
+          </div>
+        </a>
+      `;
 
-        card.innerHTML = `
-          <a href="/blog/${post.slug}/">
-            <img src="${post.hero}" alt="${post.title}">
-            <div class="blog-card-content">
-              <h3>${post.title}</h3>
-              <p>${post.excerpt}</p>
-            </div>
-          </a>
-        `;
+      grid.appendChild(card);
+    });
 
-        grid.appendChild(card);
-      });
+    document.getElementById('pageNumber').innerText = currentPage;
+  }
 
-      document.getElementById('pageNumber').innerText = currentPage;
-    }
+  function searchPosts(query) {
+    query = query.toLowerCase();
+    filteredPosts = allPosts.filter(p =>
+      p.title.toLowerCase().includes(query) ||
+      p.excerpt.toLowerCase().includes(query)
+    );
+    currentPage = 1;
+    renderPage();
+  }
 
-    function searchPosts(query) {
-      query = query.toLowerCase();
-      filteredPosts = allPosts.filter(p =>
-        p.title.toLowerCase().includes(query) ||
-        p.excerpt.toLowerCase().includes(query)
-      );
-      currentPage = 1;
+  function filterByCategory(cat) {
+    filteredPosts = cat ? allPosts.filter(p => p.category === cat) : allPosts;
+    currentPage = 1;
+    renderPage();
+  }
+
+  function nextPage() {
+    if (currentPage * postsPerPage < filteredPosts.length) {
+      currentPage++;
       renderPage();
     }
+  }
 
-    function filterByCategory(cat) {
-      filteredPosts = cat ? allPosts.filter(p => p.category === cat) : allPosts;
-      currentPage = 1;
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
       renderPage();
     }
-
-    function nextPage() {
-      if (currentPage * postsPerPage < filteredPosts.length) {
-        currentPage++;
-        renderPage();
-      }
-    }
-
-    function prevPage() {
-      if (currentPage > 1) {
-        currentPage--;
-        renderPage();
-      }
-    }
-  </script>
+  }
+</script>
 
 </body>
 </html>
