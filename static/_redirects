@@ -1,0 +1,2 @@
+# Redirect /blog trailing-slash-less to /blog/
+/blog    /blog/    301
