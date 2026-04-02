@@ -5,34 +5,62 @@ date: 2024-04-02
 slug: "kitting-and-supplies"
 ---
 
-Healthcare training programs rely on consistent, high‑quality supplies to deliver hands‑on learning. Strategic Lab Partners provides turnkey kitting and bulk supply solutions designed specifically for healthcare educators, simulation centers, and workforce development programs.
+<div class="post-header">
+    <img src="/assets/images/kitting-hero.jpg" alt="Kitting and Bulk Supplies" class="hero-image">
+    <div class="post-title-block">
+        <h1>Kitting & Bulk Supplies for Healthcare Training</h1>
+        <p class="lead">
+            Strategic Lab Partners provides turnkey kitting and bulk supply solutions designed specifically for healthcare educators, simulation centers, and workforce development programs.
+        </p>
+    </div>
+</div>
 
-## Why Standardized Kitting Matters
-- Ensures every learner receives identical materials  
-- Reduces prep time for instructors  
-- Eliminates supply inconsistencies  
-- Supports accreditation and curriculum alignment  
+<hr class="section-divider">
 
-## Bulk Supplies for High‑Volume Training
-SLP sources, verifies, and delivers bulk quantities of essential training materials, including:
-- Gloves, masks, and PPE  
-- Syringes and injection supplies  
-- Swabs, tubes, and specimen containers  
-- Simulation consumables  
+<h2>Why Standardized Kitting Matters</h2>
+<p>Healthcare training programs rely on consistent, high‑quality supplies to deliver hands‑on learning. Standardized kitting ensures:</p>
 
-## Scalable Fulfillment
-Whether you’re training 20 learners or 2,000, SLP manages:
-- Inventory forecasting  
-- Pick/pack/ship  
-- Multi‑site distribution  
-- Custom labeling and packaging  
+<ul>
+    <li>Every learner receives identical materials</li>
+    <li>Reduced prep time for instructors</li>
+    <li>Elimination of supply inconsistencies</li>
+    <li>Support for accreditation and curriculum alignment</li>
+</ul>
 
-## Built for Healthcare Educators
-Our kitting and supply workflows support:
-- CNA, MA, and phlebotomy programs  
-- Allied health and EMS training  
-- Simulation labs  
-- Workforce development initiatives  
+<hr class="section-divider">
 
-SLP ensures your program is always ready, always supplied, and always consistent.
+<h2>Bulk Supplies for High‑Volume Training</h2>
+<p>SLP sources, verifies, and delivers bulk quantities of essential training materials, including:</p>
 
+<ul>
+    <li>Gloves, masks, and PPE</li>
+    <li>Syringes and injection supplies</li>
+    <li>Swabs, tubes, and specimen containers</li>
+    <li>Simulation consumables</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2>Scalable Fulfillment</h2>
+<p>Whether you’re training 20 learners or 2,000, SLP manages:</p>
+
+<ul>
+    <li>Inventory forecasting</li>
+    <li>Pick/pack/ship</li>
+    <li>Multi‑site distribution</li>
+    <li>Custom labeling and packaging</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2>Built for Healthcare Educators</h2>
+<p>Our kitting and supply workflows support:</p>
+
+<ul>
+    <li>CNA, MA, and phlebotomy programs</li>
+    <li>Allied health and EMS training</li>
+    <li>Simulation labs</li>
+    <li>Workforce development initiatives</li>
+</ul>
+
+<p>SLP ensures your program is always ready, always supplied, and always consistent.</p>
