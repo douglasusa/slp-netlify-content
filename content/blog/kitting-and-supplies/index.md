@@ -64,3 +64,17 @@ slug: "kitting-and-supplies"
 </ul>
 
 <p>SLP ensures your program is always ready, always supplied, and always consistent.</p>
+
+<hr class="section-divider">
+
+<div class="mission-statement">
+    <h2>Our Mission</h2>
+    <p>
+        Strategic Lab Partners exists to empower healthcare educators, workforce programs, and training organizations with the tools, supplies, and operational clarity they need to deliver consistent, high‑quality learning experiences. We build systems that support readiness, reliability, and scalable growth.
+    </p>
+</div>
+
+<div class="copyright-block">
+    © 2026 Strategic Lab Partners — All Rights Reserved.<br>
+    Part of the SLP CONNECT™ Ecosystem.
+</div>
