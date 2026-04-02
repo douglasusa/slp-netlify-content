@@ -7,6 +7,7 @@
 
   <!-- SEO -->
   <meta name="description" content="Insights, updates, and strategic perspectives from Strategic Lab Partners." />
+  <link rel="canonical" href="https://slp-via-netlify-content.netlify.app/blog" />
 
   <!-- OpenGraph -->
   <meta property="og:title" content="SLP Blog" />
@@ -23,17 +24,59 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fafafa;
+      background: #ffffff;
+      color: #222;
     }
 
+    /* HEADER */
+    .slp-header {
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 20px 0;
+    }
+
+    .slp-header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .slp-header-left img {
+      height: 60px;
+    }
+
+    .slp-header-right {
+      text-align: right;
+    }
+
+    .slp-header-right img {
+      height: 50px;
+      display: block;
+      margin-left: auto;
+    }
+
+    .slp-tagline {
+      font-size: 0.9rem;
+      margin-top: 6px;
+      color: #444;
+      font-weight: 500;
+    }
+
+    /* BLOG CONTAINER */
     .blog-container {
-      max-width: 1100px;
-      margin: 60px auto;
+      max-width: 960px;
+      margin: 40px auto;
       padding: 0 20px;
     }
 
     h1 {
       margin-bottom: 10px;
+      font-size: 2rem;
+      font-weight: 700;
     }
 
     #searchBox {
@@ -97,6 +140,29 @@
       font-size: 1rem;
       cursor: pointer;
     }
+
+    /* FOOTER */
+    .slp-footer {
+      background: #f7f7f7;
+      padding: 40px 20px;
+      border-top: 1px solid #e5e5e5;
+      margin-top: 60px;
+    }
+
+    .slp-footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .slp-footer-copy {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
   </style>
 
   <!-- JSON-LD Structured Data -->
@@ -106,13 +172,35 @@
     "@type": "Blog",
     "name": "SLP Blog",
     "description": "Insights, updates, and strategic perspectives from Strategic Lab Partners.",
-    "url": "https://slp-via-netlify-content.netlify.app/blog"
+    "url": "https://slp-via-netlify-content.netlify.app/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Strategic Lab Partners",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://slp-via-netlify-content.netlify.app/assets/logos/slp-full-logo.png"
+      }
+    }
   }
   </script>
 </head>
 
 <body>
 
+  <!-- HEADER -->
+  <header class="slp-header">
+    <div class="slp-header-inner">
+      <div class="slp-header-left">
+        <img src="/assets/logos/slp-full-logo.png" alt="SLP Logo">
+      </div>
+      <div class="slp-header-right">
+        <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT Logo">
+        <div class="slp-tagline">BUILDING TRUST While Unlocking Discovery</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BLOG CONTENT -->
   <div class="blog-container">
     <h1>SLP Blog</h1>
     <p>Insights, updates, and strategic perspectives from Strategic Lab Partners.</p>
@@ -132,13 +220,24 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
+  <footer class="slp-footer">
+    <div class="slp-footer-inner">
+      <strong>MISSION | Strategic Lab Partners (SLP)</strong> transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized Management Platform, we integrate precision kit production, global logistics, and real-time digital visibility to ensure complete control from design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare supply chains with universal kitting, serialized tracking, and value-based logistics—strengthening quality, reducing variability, and accelerating scientific discovery.
+
+      <div class="slp-footer-copy">
+        © 2026 Strategic Lab Partners. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- BLOG ENGINE -->
   <script>
     let allPosts = [];
     let filteredPosts = [];
     let currentPage = 1;
     const postsPerPage = 6;
 
-    // Load posts.json (relative path = bulletproof)
     fetch('posts.json')
       .then(response => response.json())
       .then(posts => {
@@ -151,10 +250,7 @@
 
     function populateCategories(posts) {
       const categories = new Set();
-
-      posts.forEach(p => {
-        if (p.category) categories.add(p.category);
-      });
+      posts.forEach(p => { if (p.category) categories.add(p.category); });
 
       const filter = document.getElementById('categoryFilter');
       categories.forEach(cat => {
@@ -204,11 +300,7 @@
     }
 
     function filterByCategory(cat) {
-      if (!cat) {
-        filteredPosts = allPosts;
-      } else {
-        filteredPosts = allPosts.filter(p => p.category === cat);
-      }
+      filteredPosts = cat ? allPosts.filter(p => p.category === cat) : allPosts;
       currentPage = 1;
       renderPage();
     }
