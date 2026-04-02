@@ -12,4 +12,3 @@ This is your unified home for all Strategic Lab Partners content — articles, u
 Browse our most recent posts, or explore categories and tags to dive deeper into the topics that matter most.
 
 [View All Blog Posts](/blog/)
-
