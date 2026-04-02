@@ -1,17 +1,23 @@
 [
   {
+    "title": "Beyond the Kit",
     "slug": "beyond-the-kit",
-    "title": "Beyond the Kit: Experience and Value",
-    "excerpt": "How SLP transforms kitting, logistics, and procurement into measurable ROI.",
+    "excerpt": "How Strategic Lab Partners delivers precision, compliance, and speed through custom healthcare kitting.",
     "hero": "/blog/beyond-the-kit/hero.png",
-    "date": "2026-03-30",
-    "tags": ["logistics", "kitting", "3PL"]
+    "date": "2026-03-30"
   },
   {
     "title": "Kitting & Bulk Supplies for Healthcare Training",
     "slug": "kitting-and-supplies",
-    "excerpt": "How Strategic Lab Partners streamlines kitting and bulk supply workflows for healthcare training programs.",
+    "excerpt": "Why precision kitting and domestic supply chains are essential for healthcare training programs.",
     "hero": "/blog/kitting-and-supplies/hero.png",
+    "date": "2026-04-01"
+  },
+  {
+    "title": "Conquering the Evolution of Healthcare",
+    "slug": "conquering-the-evolution",
+    "excerpt": "How strategic partnerships in kitting, 3PL, and domestic supply chains deliver extraordinary ROI.",
+    "hero": "/blog/conquering-the-evolution/hero.png",
     "date": "2026-04-02"
   }
 ]
