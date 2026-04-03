@@ -5,3 +5,7 @@
 [build.environment]
   HUGO_VERSION = "0.123.0"
 
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
