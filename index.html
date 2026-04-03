@@ -1,111 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>SLP CONNECT™ Content Hub</title>
-  <meta name="description" content="The centralized, authoritative content hub for Strategic Lab Partners — aligned with the SLP CONNECT™ ecosystem.">
+    <meta charset="UTF-8">
+    <title>Strategic Lab Partners — Content Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 60px;
+            background: #ffffff;
+            color: #222;
+            line-height: 1.6;
+        }
 
-  <!-- FONT IMPORT (replace with your actual SLP font if different) -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
+        .header-block {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-  <!-- MAIN STYLESHEET -->
-  <link rel="stylesheet" href="/assets/css/style.css">
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
 
-  <style>
-    body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #222;
-    }
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background: #f5f7fa;
-    }
-    .hero img.hero-graphic {
-      max-width: 600px;
-      width: 100%;
-      border-radius: 8px;
-      margin-top: 30px;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .hub-links {
-      list-style: none;
-      padding: 0;
-      font-size: 1.1rem;
-    }
-    .hub-links li {
-      margin-bottom: 8px;
-    }
-    .hub-mission {
-      margin-top: 60px;
-      padding: 30px;
-      background: #eef1f5;
-      border-radius: 8px;
-      overflow: visible;
-      height: auto;
-      max-height: none;
-    }
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #777;
-      padding-bottom: 40px;
-    }
-  </style>
+        .logo-row img {
+            max-height: 90px;
+            width: auto;
+        }
+
+        .tagline {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            color: #005bbb;
+            margin-bottom: 14px;
+        }
+
+        .divider {
+            width: 120px;
+            height: 3px;
+            background-color: #005bbb;
+            margin: 0 auto 30px auto;
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 30px 0 10px 0;
+        }
+
+        .hero img {
+            max-width: 520px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .links {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 10px 20px;
+            padding: 12px 22px;
+            background: #005bbb;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 18px;
+        }
+
+        .links a:hover {
+            background: #004999;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px;
+            background: #f5f5f5;
+            border-top: 1px solid #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+
+        footer p {
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto 10px auto;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <img src="/assets/images/slp-full-logo.png" alt="Strategic Lab Partners" style="max-width:260px; margin-bottom:20px;">
-    <h1 style="margin:0; font-size:2.4rem;">SLP CONNECT™ Content Hub</h1>
-    <p style="font-size:1.2rem; margin-top:10px; color:#555;">Clarity. Readiness. Acceleration.</p>
+<!-- PREMIUM HEADER BLOCK -->
+<div class="header-block">
 
-    <img src="/assets/images/hero.png" alt="SLP CONNECT Ecosystem Graphic" class="hero-graphic">
-  </section>
+    <!-- Side-by-side logos -->
+    <div class="logo-row">
+        <img 
+            src=".../../assets/logos/slp-full-logo.png" 
+            alt="Strategic Lab Partners">
 
-  <div class="container">
+        <img 
+            src=".../../assets/logos/slp-connect-logo.png" 
+            alt="SLP CONNECT">
+    </div>
 
-    <!-- INTRO -->
-    <section>
-      <p>
-        Welcome to the centralized content hub for Strategic Lab Partners.  
-        This environment houses authoritative resources, documentation, and insights that support the SLP CONNECT™ ecosystem — ensuring clarity, consistency, and operational alignment across every touchpoint.
-      </p>
-    </section>
+    <!-- Tagline -->
+    <div class="tagline" style="margin-top: 28px; margin-bottom: 22px;">
+        BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
+    </div>
 
-    <!-- NAVIGATION -->
-    <section style="margin-top:40px;">
-      <h2>Explore</h2>
-      <ul class="hub-links">
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/resources/">Resources</a></li>
-        <li><a href="/faqs/">FAQs</a></li>
-      </ul>
-    </section>
+    <!-- CONNECT-blue divider -->
+    <div class="divider" style="margin-top: 12px; margin-bottom: 40px;"></div>
 
-    <!-- MISSION STATEMENT -->
-    <section class="hub-mission">
-      <h2>Our Mission</h2>
-      <p>
-        Strategic Lab Partners exists to bring clarity, confidence, and operational excellence to every stage of the transaction lifecycle.  
-        Through the SLP CONNECT™ ecosystem, we unify data, documentation, and decision‑making to accelerate readiness, reduce risk, and empower organizations to achieve stronger outcomes with certainty and precision.
-      </p>
-    </section>
+</div>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2026 Strategic Lab Partners. All rights reserved.</p>
-    </footer>
+<!-- HERO IMAGE -->
+<div class="hero" style="text-align:center; margin: 40px 0 20px 0;">
+    <img 
+        src=".../../assets/images/slp-web-banner-2.png" 
+        alt="SLP CONNECT Ecosystem"
+        style="max-width: 520px; width: 100%; height: auto; border-radius: 8px;"
+    >
+</div>
 
-  </div>
+<!-- NAVIGATION BUTTONS -->
+<div class="links">
+    <a href="/resources/">Resources</a>
+    <a href="/faqs/">FAQs</a>
+    <a href="/case-studies/">Case Studies</a>
+   <a href="/blog/">Blog</a>
+
+</div>
+
+<!-- MISSION STATEMENT FOOTER -->
+<footer>
+    <p style="font-weight: bold; letter-spacing: 0.08em; font-size: 14px;">
+        MISSION | Strategic Lab Partners (SLP)
+    </p>
+
+    <p style="font-size: 16px; line-height: 1.6;">
+        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi‑Omics, 
+        and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one 
+        connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized 
+        Management Platform, we integrate precision kit production, global logistics, and real‑time 
+        digital visibility to ensure complete control from design to deployment. Our mission is to deliver 
+        reliable, scalable, and compliant operations that help research sponsors and CROs run complex 
+        studies with advanced‑manufacturing accuracy. We elevate healthcare supply chains with universal 
+        kitting, serialized tracking, and value‑based logistics—strengthening quality, reducing variability, 
+        and accelerating scientific discovery.
+    </p>
+
+    <p style="font-size: 14px; color: #666; margin-top: 20px;">
+        © Strategic Lab Partners — All Rights Reserved.  
+        <br>Part of the SLP CONNECT™ Ecosystem.
+    </p>
+</footer>
 
 </body>
 </html>
