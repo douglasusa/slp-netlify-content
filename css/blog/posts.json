@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Beyond the Kit",
+    "slug": "beyond-the-kit",
+    "excerpt": "How Strategic Lab Partners delivers precision, compliance, and speed through custom healthcare kitting.",
+    "hero": "/blog/beyond-the-kit/hero.png",
+    "category": "Kitting",
+    "date": "2026-03-30"
+  },
+  {
+    "title": "Kitting & Bulk Supplies for Healthcare Training",
+    "slug": "kitting-and-supplies",
+    "excerpt": "How Strategic Lab Partners supports healthcare training programs with precision kitting and bulk supply sourcing.",
+    "hero": "/blog/kitting-and-supplies/hero.png",
+    "category": "Healthcare Training",
+    "date": "2026-04-01"
+  },
+  {
+    "title": "Conquering the Evolution of Healthcare",
+    "slug": "conquering-the-evolution",
+    "excerpt": "How strategic partnerships in kitting, 3PL, and domestic supply chains deliver extraordinary ROI.",
+    "hero": "/blog/conquering-the-evolution/hero.png",
+    "category": "Healthcare Strategy",
+    "date": "2026-04-02"
+  }
+]

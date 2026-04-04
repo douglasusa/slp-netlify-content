@@ -1,0 +1,10 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "SLP CONNECT Content Hub"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+
