@@ -1,6 +1,9 @@
 [build]
   publish = "static"
   command = ""
+  base = "/"
 
-[build.environment]
-  HUGO_VERSION = ""
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
