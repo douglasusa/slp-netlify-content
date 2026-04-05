@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SLP Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px auto;
+            max-width: 900px;
+            line-height: 1.6;
+            color: #222;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 18px;
+            color: #555;
+            margin-top: 0;
+        }
+
+        .post-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .post-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .post-item a {
+            font-size: 24px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .post-item a:hover {
+            text-decoration: underline;
+        }
+
+        .excerpt {
+            font-size: 16px;
+            color: #444;
+            margin-top: 8px;
+        }
+
+        .category {
+            font-size: 14px;
+            color: #888;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>SLP Blog</h1>
+        <p class="subtitle">Insights, analysis, and operational intelligence from Strategic Lab Partners.</p>
+    </header>
+
+    <ul id="posts" class="post-list"></ul>
+
+    <script>
+        fetch('/blog/posts.json')
+            .then(response => response.json())
+            .then(posts => {
+                const list = document.getElementById('posts');
+
+                posts.forEach(post => {
+                    const li = document.createElement('li');
+                    li.className = 'post-item';
+
+                    li.innerHTML = `
+                        <a href="/blog/${post.slug}/">${post.title}</a>
+                        <div class="excerpt">${post.excerpt || ''}</div>
+                        <div class="category">${post.category || ''}</div>
+                    `;
+
+                    list.appendChild(li);
+                });
+            });
+    </script>
+</body>
+</html>
+
