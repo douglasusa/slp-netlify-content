@@ -1,100 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SLP Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>SLP Blog | Strategic Lab Partners®</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px auto;
-            max-width: 900px;
-            line-height: 1.6;
-            color: #222;
-        }
+  <!-- Canonical -->
+  <link rel="canonical" href="https://content.strategiclabpartners.com/blog/">
 
-        header {
-            margin-bottom: 40px;
-        }
+  <!-- Favicon -->
+  <link rel="icon" href="/static/favicon.ico">
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+  <!-- OpenGraph -->
+  <meta property="og:title" content="SLP Blog | Strategic Lab Partners®">
+  <meta property="og:description" content="Insights, analysis, and operational intelligence from Strategic Lab Partners.">
+  <meta property="og:url" content="https://content.strategiclabpartners.com/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://strategiclabpartners.com/wp-content/uploads/2023/10/slp-og-image.jpg">
 
-        p.subtitle {
-            font-size: 18px;
-            color: #555;
-            margin-top: 0;
-        }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SLP Blog | Strategic Lab Partners®">
+  <meta name="twitter:description" content="Insights, analysis, and operational intelligence from Strategic Lab Partners.">
+  <meta name="twitter:image" content="https://strategiclabpartners.com/wp-content/uploads/2023/10/slp-og-image.jpg">
 
-        .post-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 30px;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+    }
 
-        .post-item {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
+    /* HEADER */
+    .slp-header {
+      background: #0a1f44;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .post-item a {
-            font-size: 24px;
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: 600;
-        }
+    .slp-header img {
+      height: 42px;
+    }
 
-        .post-item a:hover {
-            text-decoration: underline;
-        }
+    .slp-nav a {
+      color: #ffffff;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
 
-        .excerpt {
-            font-size: 16px;
-            color: #444;
-            margin-top: 8px;
-        }
+    .slp-nav a:hover {
+      text-decoration: underline;
+    }
 
-        .category {
-            font-size: 14px;
-            color: #888;
-            margin-top: 4px;
-        }
-    </style>
+    /* MAIN CONTENT */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: #0a1f44;
+    }
+
+    p.subtitle {
+      font-size: 18px;
+      color: #444;
+      margin-top: 0;
+    }
+
+    .post-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+    }
+
+    .post-item {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .post-item a {
+      font-size: 26px;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .post-item a:hover {
+      text-decoration: underline;
+    }
+
+    .excerpt {
+      font-size: 16px;
+      color: #444;
+      margin-top: 8px;
+    }
+
+    .category {
+      font-size: 14px;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    /* FULL-WIDTH MISSION BLOCK */
+    .slp-mission {
+      background: #f5f8fc;
+      border-top: 4px solid #0a1f44;
+      padding: 50px 60px;
+      margin-top: 80px;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .slp-mission h2 {
+      margin-top: 0;
+      font-size: 32px;
+      color: #0a1f44;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 0;
+      padding: 30px 40px;
+      background: #0a1f44;
+      color: #ffffff;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <h1>SLP Blog</h1>
-        <p class="subtitle">Insights, analysis, and operational intelligence from Strategic Lab Partners.</p>
-    </header>
+
+  <!-- HEADER -->
+  <header class="slp-header">
+    <a href="https://strategiclabpartners.com">
+      <img src="/static/slp-logo.png" alt="Strategic Lab Partners Logo">
+    </a>
+
+    <nav class="slp-nav">
+      <a href="https://strategiclabpartners.com/solutions">Solutions</a>
+      <a href="https://strategiclabpartners.com/slp-connect">SLP CONNECT™</a>
+      <a href="https://strategiclabpartners.com/about">About</a>
+      <a href="https://strategiclabpartners.com/contact">Contact</a>
+      <a href="https://strategiclabpartners.com">Main Site</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <div class="container">
+    <h1>SLP Blog</h1>
+    <p class="subtitle">Insights, analysis, and operational intelligence from Strategic Lab Partners.</p>
 
     <ul id="posts" class="post-list"></ul>
+  </div>
 
-    <script>
-        fetch('/blog/posts.json')
-            .then(response => response.json())
-            .then(posts => {
-                const list = document.getElementById('posts');
+  <!-- FULL-WIDTH SLP MISSION BLOCK -->
+  <section class="slp-mission">
+    <h2>Our Mission</h2>
+    <p>
+      Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized Management Platform, we integrate precision kit production, global logistics, and real-time digital visibility to ensure complete control from design to deployment.
+    </p>
+    <p>
+      Our mission is to deliver reliable, scalable, and compliant operations that help research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare supply chains with universal kitting, serialized tracking, and value-based logistics—strengthening quality, reducing variability, and accelerating scientific discovery.
+    </p>
+  </section>
 
-                posts.forEach(post => {
-                    const li = document.createElement('li');
-                    li.className = 'post-item';
+  <!-- POSTS LOADER -->
+  <script>
+    fetch('/blog/posts.json')
+      .then(response => response.json())
+      .then(posts => {
+        const list = document.getElementById('posts');
+        posts.forEach(post => {
+          const li = document.createElement('li');
+          li.className = 'post-item';
+          li.innerHTML = `
+            <a href="/blog/${post.slug}/">${post.title}</a>
+            <div class="excerpt">${post.excerpt || ''}</div>
+            <div class="category">${post.category || ''}</div>
+          `;
+          list.appendChild(li);
+        });
+      });
+  </script>
 
-                    li.innerHTML = `
-                        <a href="/blog/${post.slug}/">${post.title}</a>
-                        <div class="excerpt">${post.excerpt || ''}</div>
-                        <div class="category">${post.category || ''}</div>
-                    `;
+  <!-- FOOTER -->
+  <footer>
+    © Strategic Lab Partners® — All Rights Reserved · 
+    <a href="https://strategiclabpartners.com">Return to Main Site</a>
+  </footer>
 
-                    list.appendChild(li);
-                });
-            });
-    </script>
 </body>
 </html>
-
