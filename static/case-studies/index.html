@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Strategic Lab Partners — Case Study Viewpoints</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://content.strategiclabpartners.com/case-studies">
 
   <style>
     :root {
@@ -16,6 +17,7 @@
       --slp-text: #1a2b3c;
       --slp-muted: #5a7185;
       --slp-white: #ffffff;
+      --max-width: 960px;
     }
 
     body {
@@ -27,21 +29,46 @@
       line-height: 1.7;
     }
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
+    /* TOP BRAND HEADER — CENTERED, SIDE-BY-SIDE LOGOS */
+    .slp-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 20px 20px;
     }
 
-    /* TOP BRAND HEADER (logos) */
-    .slp-header {
-      background:#ffffff;
-      border-bottom:1px solid #e0e0e0;
-      padding:20px 40px;
-    }
     .slp-header-inner {
-      max-width:960px;
-      margin:0 auto;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .slp-header-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .slp-header-logos img {
+      max-height: 48px;
+      height: auto;
+      width: auto;
+    }
+
+    .slp-header-tagline {
+      font-size: 14px;
+      font-weight: bold;
+      color: #0056b3;
+      letter-spacing: 0.02em;
+    }
+
+    .slp-header-tagline span:last-child {
+      color: #000000;
+      margin-left: 6px;
     }
 
     /* HUB HEADER (gradient) */
@@ -51,6 +78,7 @@
       padding: 52px 20px 44px;
       text-align: center;
     }
+
     header.hub-header .eyebrow {
       font-size: 0.72rem;
       letter-spacing: 0.2em;
@@ -59,13 +87,18 @@
       margin-bottom: 10px;
       font-weight: 600;
     }
+
     header.hub-header h1 {
       font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 10px;
     }
-    header.hub-header h1 span { color: var(--slp-teal); }
+
+    header.hub-header h1 span {
+      color: var(--slp-teal);
+    }
+
     header.hub-header p.sub {
       font-size: 0.95rem;
       color: rgba(255,255,255,0.75);
@@ -81,15 +114,16 @@
       font-size: 0.82rem;
       color: #6b4e00;
       border-radius: 4px;
-      max-width: 960px;
+      max-width: var(--max-width);
     }
 
+    /* UPDATED GRID — 320px MIN */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 24px;
       margin: 30px auto 60px;
-      max-width: 960px;
+      max-width: var(--max-width);
       padding: 0 20px;
       box-sizing: border-box;
     }
@@ -103,11 +137,13 @@
       display: flex;
       flex-direction: column;
     }
+
     .card-header {
       background: linear-gradient(90deg, var(--slp-navy) 0%, var(--slp-blue) 100%);
       padding: 20px 24px 16px;
       position: relative;
     }
+
     .card-header .tag {
       display: inline-block;
       background: var(--slp-teal);
@@ -120,6 +156,7 @@
       border-radius: 20px;
       margin-bottom: 8px;
     }
+
     .card-header h2 {
       color: var(--slp-white);
       font-size: 1.05rem;
@@ -127,6 +164,7 @@
       line-height: 1.35;
       margin: 0;
     }
+
     .card-header .case-id {
       position: absolute;
       top: 16px;
@@ -136,7 +174,11 @@
       letter-spacing: 0.1em;
     }
 
-    .card-body { padding: 22px 24px 20px; flex: 1; }
+    .card-body {
+      padding: 22px 24px 20px;
+      flex: 1;
+    }
+
     .section-label {
       font-size: 0.67rem;
       font-weight: 700;
@@ -146,6 +188,7 @@
       margin-bottom: 4px;
       margin-top: 14px;
     }
+
     .card-body p {
       font-size: 0.875rem;
       margin-bottom: 2px;
@@ -157,6 +200,7 @@
       gap: 8px;
       margin-top: 6px;
     }
+
     .outcome-chip {
       background: var(--slp-light);
       border: 1px solid var(--slp-border);
@@ -166,6 +210,7 @@
       color: var(--slp-navy);
       font-weight: 600;
     }
+
     .outcome-chip span {
       display: block;
       font-size: 0.67rem;
@@ -182,8 +227,12 @@
       font-size: 0.76rem;
       color: var(--slp-muted);
     }
-    .card-footer strong { color: var(--slp-blue); }
 
+    .card-footer strong {
+      color: var(--slp-blue);
+    }
+
+    /* CLEAN CSS FOOTER */
     footer {
       text-align: center;
       padding: 28px 20px;
@@ -191,35 +240,41 @@
       color: var(--slp-muted);
       border-top: 1px solid var(--slp-border);
       background: var(--slp-white);
-      max-width: 960px;
+      max-width: var(--max-width);
       margin: 0 auto;
       box-sizing: border-box;
     }
-    footer a { color: var(--slp-accent); text-decoration: none; }
+
+    footer .mission-title {
+      margin: 0 0 8px 0;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
+
+    footer .mission-text {
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    footer .copyright {
+      margin-top: 12px;
+    }
   </style>
 </head>
 
 <body>
 
-<!-- BRAND HEADER WITH LOGOS -->
+<!-- BRAND HEADER — CENTERED, SIDE-BY-SIDE LOGOS -->
 <div class="slp-header">
   <div class="slp-header-inner">
-    <table role="presentation" style="width:100%; border-collapse:collapse;">
-      <tr valign="middle">
-        <td style="width:33%; padding-right:10px;">
-          <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners"
-               style="max-width:100%; height:auto;">
-        </td>
-        <td style="width:67%; text-align:left; padding-left:10px;">
-          <div style="white-space:nowrap;">
-            <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT"
-                 style="max-height:48px; vertical-align:middle; margin-right:12px;">
-            <span style="font-size:14px; font-weight:bold; color:#0056b3;">BUILDING TRUST</span>
-            <span style="font-size:14px; font-weight:bold; color:#000000;">While Unlocking Discovery</span>
-          </div>
-        </td>
-      </tr>
-    </table>
+    <div class="slp-header-logos">
+      <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+      <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+    </div>
+    <div class="slp-header-tagline">
+      BUILDING TRUST <span>While Unlocking Discovery</span>
+    </div>
   </div>
 </div>
 
@@ -327,73 +382,6 @@ Precision Medicine, and 3PL Capabilities Across Key Sectors.</p>
         <div class="outcome-chip">Single Dashboard<span>Full Operational Control</span></div>
       </div>
     </div>
-    <div class="card-footer"><strong>SLP Capabilities:</strong> Institution-Branded Kitting · SLP CONNECT™ Dashboard · Exception Management · Automated Replenishment · Nationwide Last-Mile Delivery</div>
-  </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Institution-Branded Kitting · SLP CONNECT™ Dashboard · Exception Management · Automated Replenishment · Nationwide Last-Mile Delivery</Doug — you’ve got the green light.  
+You confirmed **Option A**, so I’ll overwrite the entire file with the fully modernized version. And since your active tab is your GitHub repo, you can paste this straight into:
 
-  <!-- CASE 5 -->
-  <div class="card">
-    <div class="card-header">
-      <span class="case-id">SLP-CS-005</span>
-      <div class="tag">Precision Medicine / Biomarker Research</div>
-      <h2>Biomarker Discovery Program Gains Statistical Confidence Through Logistics-Correlated Chain-of-Custody Data</h2>
-    </div>
-    <div class="card-body">
-      <div class="section-label">Situation</div>
-      <p>A precision medicine sponsor conducting lipidomic and glycemic biomarker discovery required precise timing windows between specimen collection and laboratory accessioning. Logistical variability — temperature deviations, undefined transit times, and unlabeled handling events — was introducing biological variance that threatened the statistical reliability of the study's mechanistic endpoints.</p>
-      <div class="section-label">SLP's Approach</div>
-      <p>SLP engineered an ambient-temperature nucleic-acid stabilization kitting system and activated SLP CONNECT™'s continuous temperature monitoring and timestamp logging for every shipment. Biological variance was correlatable to logistic data, enabling the research team to isolate and account for pre-analytical contributions to endpoint variability. Automated compliance audit logs were generated within SLP CONNECT™ for FDA and sponsor review.</p>
-      <div class="section-label">Outcome</div>
-      <div class="outcomes">
-        <div class="outcome-chip">Enhanced Confidence<span>Biomarker Statistical Models</span></div>
-        <div class="outcome-chip">Full Timestamp Logging<span>Every Handling Event</span></div>
-        <div class="outcome-chip">Temperature Deviations<span>Flagged in Real Time</span></div>
-        <div class="outcome-chip">Defensible Dataset<span>FDA &amp; Sponsor Audits</span></div>
-      </div>
-    </div>
-    <div class="card-footer"><strong>SLP Capabilities:</strong> Ambient RNA Stabilization Kitting · SLP CONNECT™ Cold-Chain Monitoring · Timestamp Integrity · Predictive Logistics Intelligence · GxP Compliance Logging</div>
-  </div>
-
-  <!-- CASE 6 -->
-  <div class="card">
-    <div class="card-header">
-      <span class="case-id">SLP-CS-006</span>
-      <div class="tag">Clinical Services / Southeastern Region</div>
-      <h2>Regional Clinical Services Provider Reduces Recurring Device Spend and Eliminates Premium-Brand Dependency</h2>
-    </div>
-    <div class="card-body">
-      <div class="section-label">Situation</div>
-      <p>A southeastern clinical services organization was over-reliant on a single premium-brand specimen collection device supplier, resulting in high recurring acquisition costs, frequent back-orders, and supply chain fragility. The organization lacked visibility into alternative sourcing options that could meet equivalent or superior FDA Class I & II quality standards at a lower cost basis.</p>
-      <div class="section-label">SLP's Approach</div>
-      <p>SLP conducted a supply chain analysis, demonstrating projected savings and quality equivalency before any agreement was executed. FDA Class I & II cost-efficient bulk alternative devices were identified and validated, with SLP providing a comparative ROI model showing that savings of as little as 8% on bulk orders equated to a full month's equivalent supply. Custom kitting was configured to client specifications, and SLP CONNECT™ provided ongoing order and inventory management.</p>
-      <div class="section-label">Outcome</div>
-      <div class="outcomes">
-        <div class="outcome-chip">8–20% Cost Reduction<span>Recurring Device Spend</span></div>
-        <div class="outcome-chip">Eliminated Back-Orders<span>Through Bulk Sourcing</span></div>
-        <div class="outcome-chip">Guaranteed Savings<span>Demonstrated Pre-Commitment</span></div>
-        <div class="outcome-chip">Outstanding Service<span>Client-Cited Testimonial</span></div>
-      </div>
-    </div>
-    <div class="card-footer"><strong>SLP Capabilities:</strong> Supply Chain Analysis · Bulk Device Sourcing · FDA Class I & II Equivalency · Custom Kitting Configuration · SLP CONNECT™ Order Management</div>
-  </div>
-
-</div>
-
-<footer>
-  <p style="margin:0 0 8px 0; font-weight:bold; letter-spacing:0.08em; font-size:12px;">
-    MISSION | Strategic Lab Partners (SLP)
-  </p>
-  <p style="margin:0; max-width:900px; margin-left:auto; margin-right:auto;">
-    Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics, and Precision
-    Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem.
-    Through SLP CONNECT™, our Premium Kitting Deployment and Centralized Management Platform, we integrate
-    precision kit production, global logistics, and real-time digital visibility to ensure complete control from
-    design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help
-    research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare
-    supply chains with universal kitting, serialized tracking, and value-based logistics—strengthening quality,
-    reducing variability, and accelerating scientific discovery.
-  </p>
-  <p style="margin-top:12px;">© 2026 Strategic Lab Partners. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
