@@ -1,175 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Studies – Strategic Lab Partners</title>
-  <link rel="canonical" href="https://content.strategiclabpartners.com/case-studies">
+  <meta charset="UTF-8" />
+  <title>Strategic Lab Partners — Case Study Viewpoints</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root {
-      --slp-blue: #003366;
-      --slp-light-blue: #4da3ff;
-      --slp-gray: #f5f5f5;
-      --slp-dark-gray: #333;
-      --max-width: 960px;
+      --slp-navy: #0d2240;
+      --slp-blue: #1a4b8c;
+      --slp-accent: #2e8bc0;
+      --slp-teal: #1ab3b3;
+      --slp-light: #f0f6fc;
+      --slp-border: #d0e4f5;
+      --slp-text: #1a2b3c;
+      --slp-muted: #5a7185;
+      --slp-white: #ffffff;
     }
 
     body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f7fb;
+      color: var(--slp-text);
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: var(--slp-dark-gray);
+      padding: 0;
+      line-height: 1.7;
     }
 
-    /* Header */
-    .slp-header {
-      background: linear-gradient(90deg, var(--slp-blue), var(--slp-light-blue));
-      padding: 24px 0;
-      color: white;
-    }
-
-    .slp-header-inner {
-      max-width: var(--max-width);
+    .container {
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
 
-    .slp-header-inner img {
-      height: 48px;
+    /* TOP BRAND HEADER (logos) */
+    .slp-header {
+      background:#ffffff;
+      border-bottom:1px solid #e0e0e0;
+      padding:20px 40px;
+    }
+    .slp-header-inner {
+      max-width:960px;
+      margin:0 auto;
     }
 
-    /* Page Title */
-    .page-title {
-      max-width: var(--max-width);
-      margin: 40px auto 20px;
-      padding: 0 20px;
+    /* HUB HEADER (gradient) */
+    header.hub-header {
+      background: linear-gradient(135deg, var(--slp-navy) 0%, var(--slp-blue) 60%, var(--slp-accent) 100%);
+      color: var(--slp-white);
+      padding: 52px 20px 44px;
+      text-align: center;
+    }
+    header.hub-header .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slp-teal);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    header.hub-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    header.hub-header h1 span { color: var(--slp-teal); }
+    header.hub-header p.sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .page-title h1 {
-      margin: 0;
-      font-size: 32px;
-      color: var(--slp-blue);
+    .disclaimer {
+      background: #fff8e1;
+      border-left: 4px solid #f5a623;
+      margin: 28px auto 8px;
+      padding: 12px 20px;
+      font-size: 0.82rem;
+      color: #6b4e00;
+      border-radius: 4px;
+      max-width: 960px;
     }
 
-    /* Grid */
     .grid {
-      max-width: var(--max-width);
-      margin: 0 auto 60px;
-      padding: 0 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
       gap: 24px;
+      margin: 30px auto 60px;
+      max-width: 960px;
+      padding: 0 20px;
+      box-sizing: border-box;
     }
 
     .card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      text-decoration: none;
-      color: inherit;
-      transition: box-shadow 0.2s ease;
+      background: var(--slp-white);
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(13,34,64,0.09);
+      border: 1px solid var(--slp-border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-header {
+      background: linear-gradient(90deg, var(--slp-navy) 0%, var(--slp-blue) 100%);
+      padding: 20px 24px 16px;
+      position: relative;
+    }
+    .card-header .tag {
+      display: inline-block;
+      background: var(--slp-teal);
+      color: #fff;
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .card-header h2 {
+      color: var(--slp-white);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin: 0;
+    }
+    .card-header .case-id {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
     }
 
-    .card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .card-body { padding: 22px 24px 20px; flex: 1; }
+    .section-label {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slp-accent);
+      margin-bottom: 4px;
+      margin-top: 14px;
+    }
+    .card-body p {
+      font-size: 0.875rem;
+      margin-bottom: 2px;
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: var(--slp-blue);
+    .outcomes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .outcome-chip {
+      background: var(--slp-light);
+      border: 1px solid var(--slp-border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.80rem;
+      color: var(--slp-navy);
+      font-weight: 600;
+    }
+    .outcome-chip span {
+      display: block;
+      font-size: 0.67rem;
+      font-weight: 400;
+      color: var(--slp-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
     }
 
-    /* Footer */
-    .slp-footer {
-      background: var(--slp-gray);
-      padding: 40px 20px;
-      margin-top: 60px;
+    .card-footer {
+      background: var(--slp-light);
+      border-top: 1px solid var(--slp-border);
+      padding: 10px 24px;
+      font-size: 0.76rem;
+      color: var(--slp-muted);
     }
+    .card-footer strong { color: var(--slp-blue); }
 
-    .slp-footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
+    footer {
       text-align: center;
+      padding: 28px 20px;
+      font-size: 0.78rem;
+      color: var(--slp-muted);
+      border-top: 1px solid var(--slp-border);
+      background: var(--slp-white);
+      max-width: 960px;
+      margin: 0 auto;
+      box-sizing: border-box;
     }
-
-    .slp-footer-inner p {
-      margin: 0 0 8px 0;
-      font-size: 14px;
-      color: var(--slp-dark-gray);
-    }
-
-    .mission {
-      font-weight: bold;
-      letter-spacing: 0.08em;
-      font-size: 12px;
-      margin-top: 16px;
-    }
+    footer a { color: var(--slp-accent); text-decoration: none; }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="slp-header">
-    <div class="slp-header-inner">
-      <img src="/assets/logos/slp-full-logo.png" alt="SLP Logo" loading="lazy">
-      <img src="/assets/logos/slp-connect.png" alt="SLP CONNECT" loading="lazy">
-    </div>
-  </header>
+<!-- BRAND HEADER WITH LOGOS -->
+<div class="slp-header">
+  <div class="slp-header-inner">
+    <table role="presentation" style="width:100%; border-collapse:collapse;">
+      <tr valign="middle">
+        <td style="width:33%; padding-right:10px;">
+          <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners"
+               style="max-width:100%; height:auto;">
+        </td>
+        <td style="width:67%; text-align:left; padding-left:10px;">
+          <div style="white-space:nowrap;">
+            <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT"
+                 style="max-height:48px; vertical-align:middle; margin-right:12px;">
+            <span style="font-size:14px; font-weight:bold; color:#0056b3;">BUILDING TRUST</span>
+            <span style="font-size:14px; font-weight:bold; color:#000000;">While Unlocking Discovery</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
 
-  <!-- PAGE TITLE -->
-  <div class="page-title">
-    <h1>Case Studies</h1>
+<!-- HUB HEADER -->
+<header class="hub-header">
+  <div class="eyebrow">Powered by SLP CONNECT™</div>
+  <h1>STRATEGIC LAB PARTNERS<br/><span>Deployed Applications</span></h1>
+  <p class="sub">Case Study Profiles Illustrating SLP's Integrated Kitting, Supply Chain,<br>
+Precision Medicine, and 3PL Capabilities Across Key Sectors.</p>
+</header>
+
+<div class="disclaimer">
+  <strong>NDA Notice:</strong> All client, supplier, government agency, and partner identities have been removed or anonymized in full compliance with Strategic Lab Partners' non-disclosure agreements. No proprietary protocols, pricing structures, or confidential data are disclosed herein.
+</div>
+
+<!-- CASE STUDY GRID -->
+<div class="grid">
+
+  <!-- CASE 1 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="case-id">SLP-CS-001</span>
+      <div class="tag">Government / Emergency Services</div>
+      <h2>Rapid Regional Distribution Hub Cuts Lead Times from Weeks to Days for a Nationwide Specimen Program</h2>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Situation</div>
+      <p>A large-scale national specimen collection initiative was experiencing critical supply chain delays sourcing FDA Class II collection and transport devices through legacy distribution channels. Inconsistent replenishment cycles were creating costly back-orders and threatening program continuity across dozens of collection sites.</p>
+      <div class="section-label">SLP's Approach</div>
+      <p>Strategic Lab Partners was engaged to serve as a regional distribution hub, leveraging its centrally located FDA-registered Tennessee fulfillment facility and established manufacturer relationships. SLP analyzed the program's consumption cadence, pre-positioned inventory, and activated SLP CONNECT™ for real-time stock visibility and automated replenishment alerts.</p>
+      <div class="section-label">Outcome</div>
+      <div class="outcomes">
+        <div class="outcome-chip">Weeks → Days<span>Lead Time Reduction</span></div>
+        <div class="outcome-chip">Zero Back-Orders<span>During Program Peak</span></div>
+        <div class="outcome-chip">Real-Time Visibility<span>via SLP CONNECT™</span></div>
+        <div class="outcome-chip">Up to 50% Avoidance<span>Back-Order Cost Exposure</span></div>
+      </div>
+    </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Regional 3PL Distribution · Bulk Inventory Management · SLP CONNECT™ Replenishment · FDA Class I & II Device Sourcing</div>
   </div>
 
-  <!-- GRID OF CASE STUDIES -->
-  <div class="grid">
-
-    <a class="card" href="/case-studies/precision-kitting/">
-      <h3>Precision Kitting for High‑Volume Clinical Trials</h3>
-      <p>How SLP reduced error rates and accelerated deployment timelines for a national research network.</p>
-    </a>
-
-    <a class="card" href="/case-studies/logistics-automation/">
-      <h3>Logistics Automation at Scale</h3>
-      <p>Transforming fulfillment workflows with automation and real‑time tracking.</p>
-    </a>
-
-    <a class="card" href="/case-studies/custom-manufacturing/">
-      <h3>Custom Manufacturing for Specialized Protocols</h3>
-      <p>Supporting complex study designs with flexible, compliant production.</p>
-    </a>
-
-    <a class="card" href="/case-studies/global-distribution/">
-      <h3>Global Distribution & Cold Chain</h3>
-      <p>Ensuring temperature‑controlled delivery across 14 countries.</p>
-    </a>
-
-    <a class="card" href="/case-studies/site-support/">
-      <h3>Site Support & Rapid Resupply</h3>
-      <p>How SLP kept 300+ sites stocked and compliant during peak enrollment.</p>
-    </a>
-
-    <a class="card" href="/case-studies/data-driven-ops/">
-      <h3>Data‑Driven Operations</h3>
-      <p>Using analytics to reduce waste, improve forecasting, and streamline study execution.</p>
-    </a>
-
+  <!-- CASE 2 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="case-id">SLP-CS-002</span>
+      <div class="tag">Genomics / Direct-to-Consumer Retail</div>
+      <h2>Serialized Kitting Infrastructure Scales a Publicly Traded DTC Genomics Program Without Compromising Sample Integrity</h2>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Situation</div>
+      <p>A publicly traded direct-to-consumer genomics retailer faced mounting pressure to scale its consumer saliva sampling program while maintaining uncompromised DNA/RNA integrity, chain-of-custody compliance, and regulatory defensibility. Existing logistics were fragmented, with no unified system governing kit serialization, participant metadata, or last-mile tracking.</p>
+      <div class="section-label">SLP's Approach</div>
+      <p>SLP engineered a fully serialized, private-labeled kitting solution using superior point-of-collection saliva devices capable of stabilizing microbial nucleic acids at ambient temperature. Every kit was assigned a unique ID within SLP CONNECT™, synchronizing barcode tracking with participant data and downstream LIMS integration. DIM Intelligence optimized package architecture, reducing per-unit freight costs across high-volume fulfillment runs.</p>
+      <div class="section-label">Outcome</div>
+      <div class="outcomes">
+        <div class="outcome-chip">100% Serialized<span>Per-Kit Attribution</span></div>
+        <div class="outcome-chip">Improved Return Rates<span>via Instructional Private Label</span></div>
+        <div class="outcome-chip">Reduced Freight Spend<span>DIM Intelligence Optimization</span></div>
+        <div class="outcome-chip">Audit-Ready<span>Chain-of-Custody Logs</span></div>
+      </div>
+    </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Private-Label Kitting · Saliva DNA/RNA Collection Devices · Serialization · SLP CONNECT™ · DIM Intelligence · LIMS Integration Support</div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="slp-footer">
-    <div class="slp-footer-inner">
-      <p>Strategic Lab Partners</p>
-      <p class="mission">ACCELERATING CLINICAL TRIALS THROUGH OPERATIONAL EXCELLENCE</p>
-      <p>© 2026 Strategic Lab Partners. All rights reserved.</p>
+  <!-- CASE 3 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="case-id">SLP-CS-003</span>
+      <div class="tag">Clinical Research / Multi-Omics</div>
+      <h2>Decentralized Clinical Trial Achieves Protocol Fidelity Across Multi-Site Multi-Omics Specimen Collection</h2>
     </div>
-  </footer>
+    <div class="card-body">
+      <div class="section-label">Situation</div>
+      <p>A CRO managing a multi-site decentralized clinical trial encountered significant pre-analytical variability across its genomics, proteomics, and metabolomics collection arms. Fragmented logistics — disparate couriers, inconsistent kit contents, manual tracking — were introducing data quality risk and jeopardizing regulatory submission readiness. Redraws and specimen attrition were compounding both cost and timeline overruns.</p>
+      <div class="section-label">SLP's Approach</div>
+      <p>SLP performed a full protocol-to-kit translation, converting arms, visit schedules, analyte requirements, and environmental constraints into a modular kitting architecture. Analyte-specific workflows were engineered for RNA-sensitive and cryogenic-compliant collection. SLP CONNECT™ was configured as the system of record, onboarding all sites, labs, and depot partners into a single governed environment with role-based access, automated replenishment, and real-time exception alerts.</p>
+      <div class="section-label">Outcome</div>
+      <div class="outcomes">
+        <div class="outcome-chip">65%+ Specimen Integrity<span>Maintained Across Arms</span></div>
+        <div class="outcome-chip">30–40% Faster<span>Specimen Turnaround</span></div>
+        <div class="outcome-chip">Reduced Redraws<span>&amp; Specimen Loss</span></div>
+        <div class="outcome-chip">GxP / HIPAA / IATA<span>Audit Readiness Achieved</span></div>
+      </div>
+    </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Protocol-to-Kit Engineering · Multi-Omics Kitting · SLP CONNECT™ Multi-Site Onboarding · Cold-Chain Logistics · Compliance Documentation</div>
+  </div>
+
+  <!-- CASE 4 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="case-id">SLP-CS-004</span>
+      <div class="tag">Healthcare Institution / Women's Health</div>
+      <h2>Integrated Pre-Analytical Infrastructure Eliminates Specimen Loss and Reduces OR Scheduling Disruptions</h2>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Situation</div>
+      <p>A regional healthcare institution operating a women's health and diagnostics program was experiencing recurring specimen loss, kit stockouts, and OR scheduling disruptions traced directly to pre-analytical infrastructure gaps. Inconsistent kit contents, unreliable courier performance, and zero real-time visibility were creating downstream diagnostic delays and patient care risks.</p>
+      <div class="section-label">SLP's Approach</div>
+      <p>SLP designed a standardized, institution-branded kitting solution aligned to the program's specimen types and collection protocols. The SLP CONNECT™ dashboard was deployed to give clinical coordinators real-time visibility into pending orders, in-transit shipments, active SKUs, and low-stock alerts — replacing manual reconciliation with governed operational intelligence. Courier performance was monitored through the Shipments Module with exception tracking enabling rapid intervention.</p>
+      <div class="section-label">Outcome</div>
+      <div class="outcomes">
+        <div class="outcome-chip">Eliminated Stockouts<span>During Active Program</span></div>
+        <div class="outcome-chip">Zero Specimen Loss<span>Attributed to Logistics</span></div>
+        <div class="outcome-chip">Increased Efficiency<span>OR &amp; Clinic Scheduling</span></div>
+        <div class="outcome-chip">Single Dashboard<span>Full Operational Control</span></div>
+      </div>
+    </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Institution-Branded Kitting · SLP CONNECT™ Dashboard · Exception Management · Automated Replenishment · Nationwide Last-Mile Delivery</div>
+  </div>
+
+  <!-- CASE 5 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="case-id">SLP-CS-005</span>
+      <div class="tag">Precision Medicine / Biomarker Research</div>
+      <h2>Biomarker Discovery Program Gains Statistical Confidence Through Logistics-Correlated Chain-of-Custody Data</h2>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Situation</div>
+      <p>A precision medicine sponsor conducting lipidomic and glycemic biomarker discovery required precise timing windows between specimen collection and laboratory accessioning. Logistical variability — temperature deviations, undefined transit times, and unlabeled handling events — was introducing biological variance that threatened the statistical reliability of the study's mechanistic endpoints.</p>
+      <div class="section-label">SLP's Approach</div>
+      <p>SLP engineered an ambient-temperature nucleic-acid stabilization kitting system and activated SLP CONNECT™'s continuous temperature monitoring and timestamp logging for every shipment. Biological variance was correlatable to logistic data, enabling the research team to isolate and account for pre-analytical contributions to endpoint variability. Automated compliance audit logs were generated within SLP CONNECT™ for FDA and sponsor review.</p>
+      <div class="section-label">Outcome</div>
+      <div class="outcomes">
+        <div class="outcome-chip">Enhanced Confidence<span>Biomarker Statistical Models</span></div>
+        <div class="outcome-chip">Full Timestamp Logging<span>Every Handling Event</span></div>
+        <div class="outcome-chip">Temperature Deviations<span>Flagged in Real Time</span></div>
+        <div class="outcome-chip">Defensible Dataset<span>FDA &amp; Sponsor Audits</span></div>
+      </div>
+    </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Ambient RNA Stabilization Kitting · SLP CONNECT™ Cold-Chain Monitoring · Timestamp Integrity · Predictive Logistics Intelligence · GxP Compliance Logging</div>
+  </div>
+
+  <!-- CASE 6 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="case-id">SLP-CS-006</span>
+      <div class="tag">Clinical Services / Southeastern Region</div>
+      <h2>Regional Clinical Services Provider Reduces Recurring Device Spend and Eliminates Premium-Brand Dependency</h2>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Situation</div>
+      <p>A southeastern clinical services organization was over-reliant on a single premium-brand specimen collection device supplier, resulting in high recurring acquisition costs, frequent back-orders, and supply chain fragility. The organization lacked visibility into alternative sourcing options that could meet equivalent or superior FDA Class I & II quality standards at a lower cost basis.</p>
+      <div class="section-label">SLP's Approach</div>
+      <p>SLP conducted a supply chain analysis, demonstrating projected savings and quality equivalency before any agreement was executed. FDA Class I & II cost-efficient bulk alternative devices were identified and validated, with SLP providing a comparative ROI model showing that savings of as little as 8% on bulk orders equated to a full month's equivalent supply. Custom kitting was configured to client specifications, and SLP CONNECT™ provided ongoing order and inventory management.</p>
+      <div class="section-label">Outcome</div>
+      <div class="outcomes">
+        <div class="outcome-chip">8–20% Cost Reduction<span>Recurring Device Spend</span></div>
+        <div class="outcome-chip">Eliminated Back-Orders<span>Through Bulk Sourcing</span></div>
+        <div class="outcome-chip">Guaranteed Savings<span>Demonstrated Pre-Commitment</span></div>
+        <div class="outcome-chip">Outstanding Service<span>Client-Cited Testimonial</span></div>
+      </div>
+    </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Supply Chain Analysis · Bulk Device Sourcing · FDA Class I & II Equivalency · Custom Kitting Configuration · SLP CONNECT™ Order Management</div>
+  </div>
+
+</div>
+
+<footer>
+  <p style="margin:0 0 8px 0; font-weight:bold; letter-spacing:0.08em; font-size:12px;">
+    MISSION | Strategic Lab Partners (SLP)
+  </p>
+  <p style="margin:0; max-width:900px; margin-left:auto; margin-right:auto;">
+    Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics, and Precision
+    Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem.
+    Through SLP CONNECT™, our Premium Kitting Deployment and Centralized Management Platform, we integrate
+    precision kit production, global logistics, and real-time digital visibility to ensure complete control from
+    design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help
+    research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare
+    supply chains with universal kitting, serialized tracking, and value-based logistics—strengthening quality,
+    reducing variability, and accelerating scientific discovery.
+  </p>
+  <p style="margin-top:12px;">© 2026 Strategic Lab Partners. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
