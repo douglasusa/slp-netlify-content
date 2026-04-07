@@ -29,7 +29,7 @@
       line-height: 1.7;
     }
 
-    /* TOP BRAND HEADER — CENTERED, SIDE-BY-SIDE LOGOS */
+    /* HEADER — LOGO LEFT, CONNECT + TAGLINE RIGHT */
     .slp-header {
       background: #ffffff;
       border-bottom: 1px solid #e0e0e0;
@@ -40,38 +40,40 @@
       max-width: var(--max-width);
       margin: 0 auto;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      gap: 10px;
+      justify-content: space-between;
     }
 
-    .slp-header-logos {
+    .slp-header-left img {
+      max-height: 48px;
+      margin-left: 24px;
+    }
+
+    .slp-header-right {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 16px;
+      gap: 12px;
+      margin-right: 24px;
     }
 
-    .slp-header-logos img {
+    .connect-logo {
       max-height: 48px;
-      height: auto;
-      width: auto;
     }
 
-    .slp-header-tagline {
+    .tagline {
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
       font-size: 14px;
       font-weight: bold;
-      color: #0056b3;
-      letter-spacing: 0.02em;
+      /* Option B: prefer one line, but allow wrap on very small screens */
+      white-space: normal;
     }
 
-    .slp-header-tagline span:last-child {
-      color: #000000;
-      margin-left: 6px;
-    }
+    .tagline .trust { color: #0056b3; }
+    .tagline .discovery { color: #000000; }
 
-    /* HUB HEADER (gradient) */
+    /* HUB HEADER */
     header.hub-header {
       background: linear-gradient(135deg, var(--slp-navy) 0%, var(--slp-blue) 60%, var(--slp-accent) 100%);
       color: var(--slp-white);
@@ -117,7 +119,7 @@
       max-width: var(--max-width);
     }
 
-    /* UPDATED GRID — 320px MIN */
+    /* GRID — UPDATED TO 320px */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -232,7 +234,7 @@
       color: var(--slp-blue);
     }
 
-    /* CLEAN CSS FOOTER */
+    /* FOOTER — CLEAN CSS */
     footer {
       text-align: center;
       padding: 28px 20px;
@@ -265,16 +267,22 @@
 
 <body>
 
-<!-- BRAND HEADER — CENTERED, SIDE-BY-SIDE LOGOS -->
+<!-- HEADER -->
 <div class="slp-header">
   <div class="slp-header-inner">
-    <div class="slp-header-logos">
+
+    <div class="slp-header-left">
       <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
-      <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
     </div>
-    <div class="slp-header-tagline">
-      BUILDING TRUST <span>While Unlocking Discovery</span>
+
+    <div class="slp-header-right">
+      <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT" class="connect-logo">
+      <div class="tagline">
+        <span class="trust">BUILDING TRUST</span>
+        <span class="discovery">While Unlocking Discovery</span>
+      </div>
     </div>
+
   </div>
 </div>
 
@@ -382,6 +390,72 @@ Precision Medicine, and 3PL Capabilities Across Key Sectors.</p>
         <div class="outcome-chip">Single Dashboard<span>Full Operational Control</span></div>
       </div>
     </div>
-    <div class="card-footer"><strong>SLP Capabilities:</strong> Institution-Branded Kitting · SLP CONNECT™ Dashboard · Exception Management · Automated Replenishment · Nationwide Last-Mile Delivery</Doug — you’ve got the green light.  
-You confirmed **Option A**, so I’ll overwrite the entire file with the fully modernized version. And since your active tab is your GitHub repo, you can paste this straight into:
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Institution-Branded Kitting · SLP CONNECT™ Dashboard · Exception Management · Automated Replenishment · Nationwide Last-Mile Delivery</div>
+  </div>
 
+  <!-- CASE 5 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="case-id">SLP-CS-005</span>
+      <div class="tag">Precision Medicine / Biomarker Research</div>
+      <h2>Biomarker Discovery Program Gains Statistical Confidence Through Logistics-Correlated Chain-of-Custody Data</h2>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Situation</div>
+      <p>A precision medicine sponsor conducting lipidomic and glycemic biomarker discovery required precise timing windows between specimen collection and laboratory accessioning. Logistical variability — temperature deviations, undefined transit times, and unlabeled handling events — was introducing biological variance that threatened the statistical reliability of the study's mechanistic endpoints.</p>
+      <div class="section-label">SLP's Approach</div>
+      <p>SLP engineered an ambient-temperature nucleic-acid stabilization kitting system and activated SLP CONNECT™'s continuous temperature monitoring and timestamp logging for every shipment. Biological variance was correlatable to logistic data, enabling the research team to isolate and account for pre-analytical contributions to endpoint variability. Automated compliance audit logs were generated within SLP CONNECT™ for FDA and sponsor review.</p>
+      <div class="section-label">Outcome</div>
+      <div class="outcomes">
+        <div class="outcome-chip">Enhanced Confidence<span>Biomarker Statistical Models</span></div>
+        <div class="outcome-chip">Full Timestamp Logging<span>Every Handling Event</span></div>
+        <div class="outcome-chip">Temperature Deviations<span>Flagged in Real Time</span></div>
+        <div class="outcome-chip">Defensible Dataset<span>FDA &amp; Sponsor Audits</span></div>
+      </div>
+    </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Ambient RNA Stabilization Kitting · SLP CONNECT™ Cold-Chain Monitoring · Timestamp Integrity · Predictive Logistics Intelligence · GxP Compliance Logging</div>
+  </div>
+
+  <!-- CASE 6 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="case-id">SLP-CS-006</span>
+      <div class="tag">Clinical Services / Southeastern Region</div>
+      <h2>Regional Clinical Services Provider Reduces Recurring Device Spend and Eliminates Premium-Brand Dependency</h2>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Situation</div>
+      <p>A southeastern clinical services organization was over-reliant on a single premium-brand specimen collection device supplier, resulting in high recurring acquisition costs, frequent back-orders, and supply chain fragility. The organization lacked visibility into alternative sourcing options that could meet equivalent or superior FDA Class I & II quality standards at a lower cost basis.</p>
+      <div class="section-label">SLP's Approach</div>
+      <p>SLP conducted a supply chain analysis, demonstrating projected savings and quality equivalency before any agreement was executed. FDA Class I & II cost-efficient bulk alternative devices were identified and validated, with SLP providing a comparative ROI model showing that savings of as little as 8% on bulk orders equated to a full month's equivalent supply. Custom kitting was configured to client specifications, and SLP CONNECT™ provided ongoing order and inventory management.</p>
+      <div class="section-label">Outcome</div>
+      <div class="outcomes">
+        <div class="outcome-chip">8–20% Cost Reduction<span>Recurring Device Spend</span></div>
+        <div class="outcome-chip">Eliminated Back-Orders<span>Through Bulk Sourcing</span></div>
+        <div class="outcome-chip">Guaranteed Savings<span>Demonstrated Pre-Commitment</span></div>
+        <div class="outcome-chip">Outstanding Service<span>Client-Cited Testimonial</span></div>
+      </div>
+    </div>
+    <div class="card-footer"><strong>SLP Capabilities:</strong> Supply Chain Analysis · Bulk Device Sourcing · FDA Class I & II Equivalency · Custom Kitting Configuration · SLP CONNECT™ Order Management</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="mission-title">MISSION | Strategic Lab Partners (SLP)</p>
+  <p class="mission-text">
+    Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics, and Precision
+    Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem.
+    Through SLP CONNECT™, our Premium Kitting Deployment and Centralized Management Platform, we integrate
+    precision kit production, global logistics, and real-time digital visibility to ensure complete control from
+    design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help
+    research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare
+    supply chains with universal kitting, serialized tracking, and value-based logistics—strengthening quality,
+    reducing variability, and accelerating scientific discovery.
+  </p>
+  <p class="copyright">© 2026 Strategic Lab Partners. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
