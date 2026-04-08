@@ -1,6 +1,0 @@
-[build]
-  publish = "static"
-  command = ""
-
-[build.environment]
-  HUGO_VERSION = ""
