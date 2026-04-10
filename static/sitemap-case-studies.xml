@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <sitemap>
-    <loc>https://content.strategiclabpartners.com/sitemap-faqs.xml</loc>
-  </sitemap>
+  <url>
+    <loc>https://content.strategiclabpartners.com/case-studies/</loc>
+  </url>
 
-  <sitemap>
-    <loc>https://content.strategiclabpartners.com/sitemap-blog.xml</loc>
-  </sitemap>
+  <!-- GitHub Action will insert all case study URLs here -->
 
-  <sitemap>
-    <loc>https://content.strategiclabpartners.com/sitemap-case-studies.xml</loc>
-  </sitemap>
-
-  <sitemap>
-    <loc>https://content.strategiclabpartners.com/sitemap-resources.xml</loc>
-  </sitemap>
-
-</sitemapindex>
-
+</urlset>
