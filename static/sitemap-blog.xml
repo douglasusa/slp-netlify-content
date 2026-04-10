@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://content.strategiclabpartners.com/blog/</loc>
-  </url>
-
-  <!-- GitHub Action will insert all blog URLs here -->
-
+  <url><loc>https://content.strategiclabpartners.com/blog/</loc></url>
+  <url><loc>https://content.strategiclabpartners.com/blog/</loc></url>
+  <url><loc>https://content.strategiclabpartners.com/blog/beyond-the-kit/</loc></url>
+  <url><loc>https://content.strategiclabpartners.com/blog/conquering-the-evolution/</loc></url>
 </urlset>
