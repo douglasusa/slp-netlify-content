@@ -1,0 +1,46 @@
+name: Inject GA4 Tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  inject-ga4:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Inject GA4 tag into HTML files
+        run: |
+          GA4_SNIPPET='<!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag("js", new Date());
+            gtag("config", "G-1K7MJPR4PP");
+          </script>'
+
+          for file in $(find static -name "*.html"); do
+            if ! grep -q "G-1K7MJPR4PP" "$file"; then
+              echo "Injecting GA4 into $file"
+              sed -i "0,/<head>/s//<head>\n$GA4_SNIPPET\n/" "$file"
+            else
+              echo "GA4 already present in $file"
+            fi
+          done
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Automated GA4 injection"
+            git push
+          fi
