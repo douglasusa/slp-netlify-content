@@ -4,7 +4,6 @@
       if ! grep -q "G-1K7MJPR4PP" "$file"; then
         echo "Injecting GA4 into $file"
 
-        # Insert GA4 snippet right after <head>
         sed -i '/<head>/a \
 <!-- Google tag (gtag.js) -->\
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>\
