@@ -4,12 +4,6 @@
       if ! grep -q "G-1K7MJPR4PP" "$file"; then
         echo "Injecting GA4 into $file"
 
-        - name: Inject GA4 tag into HTML files
-  run: |
-    for file in $(find static -name "*.html"); do
-      if ! grep -q "G-1K7MJPR4PP" "$file"; then
-        echo "Injecting GA4 into $file"
-
         sed -i '/<head>/a \
 <!-- Google tag (gtag.js) -->\
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>\
@@ -19,12 +13,6 @@
   gtag("js", new Date());\
   gtag("config", "G-1K7MJPR4PP");\
 </script>' "$file"
-
-      else
-        echo "GA4 already present in $file"
-      fi
-    done
-
 
       else
         echo "GA4 already present in $file"
