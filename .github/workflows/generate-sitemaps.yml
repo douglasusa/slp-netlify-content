@@ -57,10 +57,17 @@ jobs:
           # Sitemap Index
           echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-index.xml
           echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-index.xml
+
           for file in static/sitemap-*.xml; do
-            base=$(basename $file)
+            # Skip the index file to avoid circular reference
+            if [[ "$file" == "static/sitemap-index.xml" ]]; then
+              continue
+            fi
+
+            base=$(basename "$file")
             echo "  <sitemap><loc>https://content.strategiclabpartners.com/$base</loc></sitemap>" >> static/sitemap-index.xml
           done
+
           echo '</sitemapindex>' >> static/sitemap-index.xml
 
       - name: Commit changes
