@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-            - name: Inject GA4 tag into HTML files
+      - name: Inject GA4 tag into HTML files
         run: |
           GA4_SNIPPET='<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>
