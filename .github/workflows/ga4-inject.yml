@@ -20,5 +20,3 @@ EOF
         echo "GA4 already present in $file"
       fi
     done
-
-
