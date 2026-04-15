@@ -1,20 +1,24 @@
 - name: Inject GA4 tag into HTML files
   run: |
+    GA4_SNIPPET=$(cat << 'EOF'
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-1K7MJPR4PP");
+</script>
+EOF
+)
+
     for file in $(find static -name "*.html"); do
       if ! grep -q "G-1K7MJPR4PP" "$file"; then
         echo "Injecting GA4 into $file"
-
-        sed -i '/<head>/a \
-<!-- Google tag (gtag.js) -->\
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>\
-<script>\
-  window.dataLayer = window.dataLayer || [];\
-  function gtag(){dataLayer.push(arguments);}\
-  gtag("js", new Date());\
-  gtag("config", "G-1K7MJPR4PP");\
-</script>' "$file"
-
+        sed -i "/<head>/a $GA4_SNIPPET" "$file"
       else
         echo "GA4 already present in $file"
       fi
     done
+
+
