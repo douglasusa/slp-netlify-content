@@ -1,0 +1,33 @@
+name: Inject GA4 Tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  inject:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Load GA4 snippet
+        id: ga4
+        run: |
+          SNIPPET=$(cat .github/ga4-snippet.html)
+          echo "snippet<<EOF" >> $GITHUB_OUTPUT
+          echo "$SNIPPET" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Inject GA4 into HTML files
+        run: |
+          for file in $(find static -name "*.html"); do
+            if ! grep -q "G-1K7MJPR4PP" "$file"; then
+              echo "Injecting GA4 into $file"
+              sed -i "0,/<head>/s//<head>\n${{ steps.ga4.outputs.snippet }}/" "$file"
+            else
+              echo "GA4 already present in $file"
+            fi
+          done
