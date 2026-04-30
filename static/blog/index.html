@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -13,31 +11,109 @@
 
   <meta charset="UTF-8">
   <title>SLP Blog | Strategic Lab Partners®</title>
-  ...
-
-  
-  <meta charset="UTF-8">
-  <title>SLP Blog | Strategic Lab Partners®</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://content.strategiclabpartners.com/blog/">
 
-  <!-- Favicon -->
   <link rel="icon" href="/static/favicon.ico">
 
-  <!-- OpenGraph -->
   <meta property="og:title" content="SLP Blog | Strategic Lab Partners®">
   <meta property="og:description" content="Insights, analysis, and operational intelligence from Strategic Lab Partners.">
   <meta property="og:url" content="https://content.strategiclabpartners.com/blog/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://strategiclabpartners.com/wp-content/uploads/2023/10/slp-og-image.jpg">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SLP Blog | Strategic Lab Partners®">
   <meta name="twitter:description" content="Insights, analysis, and operational intelligence from Strategic Lab Partners.">
   <meta name="twitter:image" content="https://strategiclabpartners.com/wp-content/uploads/2023/10/slp-og-image.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://content.strategiclabpartners.com/#organization",
+        "name": "Strategic Lab Partners",
+        "alternateName": "SLP",
+        "url": "https://content.strategiclabpartners.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://content.strategiclabpartners.com/assets/logos/slp-white-full-logo.png",
+          "caption": "Strategic Lab Partners Logo"
+        },
+        "description": "Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem.",
+        "brand": {
+          "@type": "Brand",
+          "name": "SLP CONNECT™"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/strategic-lab-partners",
+          "https://strategiclabpartners.com"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://content.strategiclabpartners.com/#website",
+        "url": "https://content.strategiclabpartners.com/",
+        "name": "Strategic Lab Partners Content Hub",
+        "publisher": {
+          "@id": "https://content.strategiclabpartners.com/#organization"
+        }
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://content.strategiclabpartners.com/blog/#blog",
+        "url": "https://content.strategiclabpartners.com/blog/",
+        "name": "SLP Blog | Strategic Lab Partners®",
+        "description": "Insights, analysis, and operational intelligence from Strategic Lab Partners covering genomics, multi-omics, and precision medicine logistics.",
+        "publisher": {
+          "@id": "https://content.strategiclabpartners.com/#organization"
+        },
+        "isPartOf": {
+          "@id": "https://content.strategiclabpartners.com/#website"
+        },
+        "about": [
+          {
+            "@type": "Thing",
+            "name": "Healthcare Supply Chains"
+          },
+          {
+            "@type": "Thing",
+            "name": "Precision Medicine"
+          },
+          {
+            "@type": "Thing",
+            "name": "Universal Kitting"
+          },
+          {
+            "@type": "Thing",
+            "name": "Logistics and Fulfillment"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://content.strategiclabpartners.com/blog/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://content.strategiclabpartners.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://content.strategiclabpartners.com/blog/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <style>
     body {
@@ -166,7 +242,6 @@
 
 <body>
 
-  <!-- HEADER -->
   <header class="slp-header">
     <a href="https://strategiclabpartners.com">
       <img src="/assets/logos/slp-white-full-logo.png" alt="Strategic Lab Partners Logo">
@@ -181,7 +256,6 @@
     </nav>
   </header>
 
-  <!-- MAIN -->
   <div class="container">
     <h1>SLP Blog</h1>
     <p class="subtitle">Insights, analysis, and operational intelligence from Strategic Lab Partners.</p>
@@ -189,7 +263,6 @@
     <ul id="posts" class="post-list"></ul>
   </div>
 
-  <!-- FULL-WIDTH SLP MISSION BLOCK -->
   <section class="slp-mission">
     <h2>Our Mission</h2>
     <p>
@@ -200,7 +273,6 @@
     </p>
   </section>
 
-  <!-- POSTS LOADER -->
   <script>
     fetch('/blog/posts.json')
       .then(response => response.json())
@@ -219,7 +291,6 @@
       });
   </script>
 
-  <!-- FOOTER -->
   <footer>
     © Strategic Lab Partners® — All Rights Reserved · 
     <a href="https://strategiclabpartners.com">Return to Main Site</a>
