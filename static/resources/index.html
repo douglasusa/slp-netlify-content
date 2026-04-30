@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K7MJPR4PP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -13,14 +12,121 @@
   <meta charset="UTF-8">
   <title>Resources | Strategic Lab Partners</title>
 
-  <!-- Correct CSS paths -->
   <link rel="stylesheet" href="/resources/css/main.css">
   <link rel="stylesheet" href="/resources/css/resources.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://content.strategiclabpartners.com/#organization",
+        "name": "Strategic Lab Partners",
+        "alternateName": "SLP",
+        "url": "https://content.strategiclabpartners.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://content.strategiclabpartners.com/assets/logos/slp-white-full-logo.png",
+          "caption": "Strategic Lab Partners Logo"
+        },
+        "description": "Strategic Lab Partners (SLP) provides digital-physical infrastructure for healthcare kitting, logistics, and supply chain management through the SLP CONNECT™ platform.",
+        "brand": {
+          "@type": "Brand",
+          "name": "SLP CONNECT™"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://content.strategiclabpartners.com/#website",
+        "url": "https://content.strategiclabpartners.com/",
+        "name": "Strategic Lab Partners Content Hub",
+        "publisher": {
+          "@id": "https://content.strategiclabpartners.com/#organization"
+        }
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://content.strategiclabpartners.com/resources/#webpage",
+        "url": "https://content.strategiclabpartners.com/resources/",
+        "name": "SLP CONNECT™ Resources Hub | Strategic Lab Partners",
+        "description": "Explore Strategic Lab Partners’ complete library of resources, including technical briefs, FAQs, case studies, and public documentation regarding kitting operations and the CONNECT™ platform.",
+        "isPartOf": {
+          "@id": "https://content.strategiclabpartners.com/#website"
+        },
+        "about": [
+          {
+            "@type": "Thing",
+            "name": "Healthcare Kitting and Fulfillment"
+          },
+          {
+            "@type": "Thing",
+            "name": "Clinical and Scientific Logistics"
+          },
+          {
+            "@type": "Thing",
+            "name": "SLP CONNECT™"
+          }
+        ],
+        "publisher": {
+          "@id": "https://content.strategiclabpartners.com/#organization"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "Featured Resources and Insights",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://content.strategiclabpartners.com/resources/dim-intelligence-brief/",
+              "name": "DIM Intelligence Brief"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "url": "https://strategiclabpartners.com/slp-connect/",
+              "name": "SLP CONNECT™ Infrastructure"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "url": "https://strategiclabpartners.com/3pl-management",
+              "name": "Healthcare Kitting and Fulfillment Services"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "url": "https://content.strategiclabpartners.com/case-studies/",
+              "name": "SLP Case Studies"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://content.strategiclabpartners.com/resources/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://content.strategiclabpartners.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Resources",
+            "item": "https://content.strategiclabpartners.com/resources/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
   <div class="container header-container">
 
@@ -40,10 +146,6 @@
 </header>
 
 
-<!-- ========================= -->
-<!--     RESOURCES HUB        -->
-<!-- ========================= -->
-
 <main class="container resource-section">
 
   <h1>SLP CONNECT™ Resources Hub</h1>
@@ -54,7 +156,6 @@
   </p>
 
 
-  <!-- FEATURED RESOURCES -->
   <h2>Featured Resources</h2>
   <div class="resource-grid">
 
@@ -85,7 +186,6 @@
   </div>
 
 
-  <!-- BLOG & CASE STUDIES -->
   <h2>Insights and Case Studies</h2>
   <div class="resource-grid">
 
@@ -110,7 +210,6 @@
   </div>
 
 
-  <!-- FAQ LIBRARY -->
   <h2>Full FAQ Library</h2>
   <p class="intro">Explore SLP’s complete FAQ library.</p>
 
@@ -148,7 +247,6 @@
   </div>
 
 
-  <!-- CONTACT -->
   <h2>Contact</h2>
   <p>For technical questions or documentation requests:</p>
   <a href="https://strategiclabpartners.com/contact-slp/" class="btn">Contact SLP</a>
@@ -156,7 +254,6 @@
 </main>
 
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <p>© 2026 Strategic Lab Partners — All Rights Reserved.</p>
