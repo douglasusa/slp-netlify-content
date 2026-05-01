@@ -1,1 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLP CONNECT™ Ecosystem | Strategic Lab Partners</title>
+    <meta name="description" content="Strategic Lab Partners delivers operational intelligence and clinical-grade logistics to Healthcare, High-Tech, and Premium Retail. We unify precision, speed, and integrity.">
+    
+    <!-- SCHEMA.ORG JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://strategiclabpartners.com/#organization",
+          "name": "Strategic Lab Partners",
+          "url": "https://strategiclabpartners.com",
+          "description": "Transforms high-stakes infrastructures across Healthcare, Tech, and Retail by unifying data precision, logistical speed, and asset integrity in one connected ecosystem.",
+          "slogan": "Building Trust While Unlocking Discovery",
+          "sameAs": [
+            "https://content.strategiclabpartners.com"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://content.strategiclabpartners.com/slp-connect-infrastructure/#webpage",
+          "url": "https://content.strategiclabpartners.com/slp-connect-infrastructure",
+          "name": "Unifying Precision & Speed Across Industries | SLP CONNECT™",
+          "description": "An interactive guide to the SLP CONNECT™ Ecosystem. Discover how we deliver a serialized chain-of-custody authority for Genomics, Clinical Trials, IoT Tech, and Premium Retail.",
+          "publisher": { "@id": "https://strategiclabpartners.com/#organization" },
+          "inLanguage": "en-US"
+        }
+      ]
+    }
+    </script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .nav-link.active {
+            border-bottom-width: 3px;
+            border-color: #0d9488;
+            color: #0f766e;
+        }
+        .industry-btn.active {
+            background-color: #f0fdfa;
+            border-left: 4px solid #0d9488;
+            color: #0f766e;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .connect-tab.active {
+            background-color: #0f766e;
+            color: #ffffff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .connect-tab:not(.active) {
+            background-color: #f8fafc;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+        }
+        .category-header {
+            background: linear-gradient(90deg, #f1f5f9 0%, #ffffff 100%);
+            border-left: 3px solid #94a3b8;
+        }
+        html { scroll-behavior: smooth; }
+        body { background-color: #fafafa; }
+    </style>
+</head>
+<body class="text-slate-800 font-sans antialiased">
+
+    <!-- Chosen Palette: Healthcare Teal (#0f766e) & Executive Slate (#0f172a) on clean white/gray backgrounds for a clinical, precise, and authoritative feel. -->
+    <!-- Application Structure Plan: 
+         1. Hero: Establishes the core premise—taking clinical-grade precision and expanding its application.
+         2. The SLP CONNECT™ Ecosystem: Explains the physical/digital duality. Messaging modified to apply to both DNA kits and High-Tech hardware.
+         3. Cross-Industry Explorer: Grouped into "Healthcare & Life Sciences" and "Commercial & Tech Deployments". Allows users to click and see how high-reliability principles map to their specific pain points.
+         4. Radar Chart: Visualizes "Operational Intelligence" mapped to 5 universal vectors: Precision, Chain of Custody, Audit Readiness, Speed, and Asset Integrity.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-3xl mr-3 text-teal-700">&#x2694;</span>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-xl tracking-tight text-slate-900 leading-none">Strategic Lab Partners</span>
+                        <span class="text-xs font-semibold text-teal-600 tracking-widest uppercase mt-1">SLP Connect™ Ecosystem</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-2 lg:space-x-6 items-center">
+                    <a href="#ecosystem" class="nav-link text-slate-500 hover:text-teal-700 px-3 py-2 text-sm font-bold transition-colors">The Ecosystem</a>
+                    <a href="#transformation" class="nav-link text-slate-500 hover:text-teal-700 px-3 py-2 text-sm font-bold transition-colors">Industry Solutions</a>
+                    <a href="https://strategiclabpartners.com" target="_blank" class="text-slate-600 font-bold hover:text-teal-800 px-4 py-2 text-sm transition-colors rounded-lg hover:bg-slate-100">Main Site</a>
+                    <a href="https://content.strategiclabpartners.com" target="_blank" class="bg-teal-700 text-white font-bold hover:bg-teal-800 px-5 py-2.5 text-sm rounded-lg transition-colors shadow-md">Content Hub</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="text-center pt-8 pb-12">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 text-teal-800 font-bold text-xs tracking-widest mb-8 uppercase border border-teal-200 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                Clinical-Grade Logistics For Every Sector
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-8 leading-tight max-w-5xl mx-auto tracking-tight">
+                Unifying Precision & Logistical Speed in <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-sky-600">One Connected Ecosystem.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+                We engineered our infrastructure to meet the uncompromising demands of Genomics and Precision Medicine. Today, SLP delivers that same <strong>zero-failure operational intelligence</strong> to secure an unbreakable chain of custody for High-Value Tech, Premium Retail, and complex Corporate deployments.
+            </p>
+        </section>
+
+        <!-- SLP CONNECT ECOSYSTEM SECTION -->
+        <section id="ecosystem" class="scroll-mt-24">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-200 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-teal-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 pointer-events-none"></div>
+                
+                <div class="text-center mb-12 relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">The Digital Backbone of Decentralized Operations</h2>
+                    <p class="text-slate-500 max-w-3xl mx-auto text-lg">
+                        <strong>SLP CONNECT™</strong> is far more than a tracking portal. It is a unified command center that synchronizes physical assembly, inventory lot logic, and remote logistics into one closed‑loop system—whether shipping fragile multi-omics data or high-value IoT hardware.
+                    </p>
+                </div>
+
+                <!-- Interactive Tabs -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10 relative z-10">
+                    <button class="connect-tab active px-8 py-5 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3 w-full sm:w-auto" data-tab="kitting">
+                        <span class="text-2xl">&#x2699;</span> Precision Assembly & Kitting
+                    </button>
+                    <button class="connect-tab px-8 py-5 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3 w-full sm:w-auto" data-tab="management">
+                        <span class="text-2xl">&#x1F5A5;</span> Centralized Operational Intelligence
+                    </button>
+                </div>
+
+                <!-- Tab Content Container -->
+                <div id="connect-content" class="bg-slate-50 border border-slate-100 rounded-2xl p-8 md:p-10 min-h-[320px] relative z-10 shadow-inner">
+                    <!-- Content injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- INDUSTRY TRANSFORMATION EXPLORER -->
+        <section id="transformation" class="scroll-mt-24">
+            <div class="mb-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Bulletproofing Your Supply Chain</h2>
+                <p class="text-slate-600 max-w-3xl text-lg">
+                    Decentralized workflows introduce complexity that generic 3PLs ignore. Select an industry to see how SLP applies the rigor of a High-Reliability Organization (HRO) to preserve the integrity of your specific operations.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Navigation Column -->
+                <div class="lg:w-1/3 flex flex-col gap-2">
+                    
+                    <div class="category-header px-4 py-2 mt-2 mb-2 rounded-r-md text-xs font-extrabold text-slate-500 uppercase tracking-widest">
+                        Healthcare & Life Sciences
+                    </div>
+                    <button class="industry-btn active text-left px-5 py-3 rounded-xl border border-slate-200 bg-white transition-all group" data-target="omics">
+                        <div class="font-bold text-md text-slate-800 group-[.active]:text-teal-800">Genomics & Precision Medicine</div>
+                        <div class="text-xs text-slate-500 mt-1">Protecting fragile biomarker data.</div>
+                    </button>
+                    <button class="industry-btn text-left px-5 py-3 rounded-xl border border-slate-200 bg-white transition-all group" data-target="cro">
+                        <div class="font-bold text-md text-slate-800 group-[.active]:text-teal-800">Clinical Trials (CROs & DCTs)</div>
+                        <div class="text-xs text-slate-500 mt-1">Audit-ready protocol enforcement.</div>
+                    </button>
+                    <button class="industry-btn text-left px-5 py-3 rounded-xl border border-slate-200 bg-white transition-all group" data-target="dtc">
+                        <div class="font-bold text-md text-slate-800 group-[.active]:text-teal-800">DTC Wellness & Diagnostics</div>
+                        <div class="text-xs text-slate-500 mt-1">Reducing user-error and false returns.</div>
+                    </button>
+
+                    <div class="category-header px-4 py-2 mt-6 mb-2 rounded-r-md text-xs font-extrabold text-slate-500 uppercase tracking-widest">
+                        Commercial & Tech Deployments
+                    </div>
+                    <button class="industry-btn text-left px-5 py-3 rounded-xl border border-slate-200 bg-white transition-all group" data-target="iot">
+                        <div class="font-bold text-md text-slate-800 group-[.active]:text-teal-800">High-Value Tech & IoT</div>
+                        <div class="text-xs text-slate-500 mt-1">Serialized tracking and secure reverse logistics.</div>
+                    </button>
+                    <button class="industry-btn text-left px-5 py-3 rounded-xl border border-slate-200 bg-white transition-all group" data-target="cpg">
+                        <div class="font-bold text-md text-slate-800 group-[.active]:text-teal-800">Premium CPG & Retail</div>
+                        <div class="text-xs text-slate-500 mt-1">Mass scale with flawless unboxing experiences.</div>
+                    </button>
+                    <button class="industry-btn text-left px-5 py-3 rounded-xl border border-slate-200 bg-white transition-all group" data-target="edtech">
+                        <div class="font-bold text-md text-slate-800 group-[.active]:text-teal-800">Corporate & EdTech</div>
+                        <div class="text-xs text-slate-500 mt-1">Synchronized remote material deployment.</div>
+                    </button>
+
+                </div>
+
+                <!-- Content Column -->
+                <div class="lg:w-2/3 bg-white rounded-2xl shadow-lg border border-slate-200 p-8 flex flex-col">
+                    <div id="audience-content" class="flex-grow">
+                        <!-- Dynamic Content Injected Here -->
+                    </div>
+                    
+                    <div class="mt-10 border-t border-slate-100 pt-8">
+                        <h4 class="font-bold text-center text-slate-400 mb-6 text-xs uppercase tracking-widest">Operational Intelligence Profile</h4>
+                        <div class="chart-container">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section id="capture" class="pb-12">
+            <div class="bg-slate-900 rounded-3xl p-10 md:p-16 shadow-2xl text-center relative overflow-hidden">
+                <!-- Background visual -->
+                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#0d9488 1px, transparent 1px); background-size: 20px 20px;"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Scale With Confidence & Control</h2>
+                    <p class="text-slate-300 text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
+                        In today's decentralized environment, generic fulfillment introduces unacceptable risk. Partner with an organization that acts as your <strong>secure external operations department</strong>, building trust into every transaction.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://strategiclabpartners.com/contact" target="_blank" class="px-8 py-4 bg-teal-600 text-white font-bold rounded-xl shadow-lg hover:bg-teal-500 hover:-translate-y-1 transition-all text-lg flex items-center justify-center gap-2">
+                            <span>&#x1F4DE;</span> Request a Logistics Assessment
+                        </a>
+                        <a href="https://content.strategiclabpartners.com" target="_blank" class="px-8 py-4 bg-transparent border-2 border-slate-600 text-white font-bold rounded-xl hover:bg-slate-800 hover:border-slate-500 transition-colors text-lg flex items-center justify-center gap-2">
+                            <span>&#x1F4D6;</span> Read the Case Studies
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h2 class="text-xl font-extrabold text-slate-900 mb-1">Strategic Lab Partners</h2>
+                <p class="text-teal-700 font-bold text-sm">Building Trust While Unlocking Discovery.</p>
+            </div>
+            <div class="text-slate-500 text-sm text-center md:text-right font-medium">
+                <p>&copy; 2026 Strategic Lab Partners. All rights reserved.</p>
+                <p class="mt-1">SLP CONNECT™ Universal Capabilities Analysis</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // SLP CONNECT Tab Logic - Bridging Healthcare and Commercial
+        const slpConnectData = {
+            kitting: {
+                title: "Clinical-Grade Precision for Every Industry",
+                desc: "Kit design and assembly is the first step in risk mitigation. SLP treats every potential failure mode as a design target. Our clinical-grade rigor ensures zero-defect assembly for both strict medical protocols and luxury consumer unboxing experiences.",
+                bullets: [
+                    "<strong>Serialized Production:</strong> Every kit or hardware bundle is fully serialized, attributed, and tracked across its lifecycle.",
+                    "<strong>Purpose-Built Engineering:</strong> Made-to-order packaging engineered to protect fragile DNA targets or sensitive electronics.",
+                    "<strong>End-User Experience:</strong> Private-labeled, intuitive kitting designed to eliminate user error, ensuring high return and success rates."
+                ]
+            },
+            management: {
+                title: "A Single Source of Operational Intelligence",
+                desc: "SLP CONNECT™ replaces siloed spreadsheets and manual fulfillment with a unified, governed system of record. It delivers true operational intelligence and audit-ready transparency across your entire global network.",
+                bullets: [
+                    "<strong>Serialized Chain-of-Custody:</strong> Absolute authority, capturing every handling event from our secure warehouse to the end-user and back.",
+                    "<strong>Audit-Ready Intelligence:</strong> Flexible filters for real-time reporting on inventory, lot expirations, returns, and delivery exceptions.",
+                    "<strong>Eco-Conscious Precision:</strong> Advanced Volumetric (DIM) intelligence optimizes packaging and accelerates network velocity for rapid 3PL."
+                ]
+            }
+        };
+
+        function renderSlpConnect(tabId) {
+            const data = slpConnectData[tabId];
+            const contentDiv = document.getElementById('connect-content');
+            
+            let html = `
+                <div class="animate-fade-in">
+                    <h3 class="text-2xl font-extrabold mb-4 text-slate-900">${data.title}</h3>
+                    <p class="text-slate-600 mb-8 text-lg leading-relaxed">${data.desc}</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+            `;
+            
+            data.bullets.forEach(bullet => {
+                html += `
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-teal-600 text-xl mb-3">&#x2714;</div>
+                        <p class="text-sm text-slate-700 leading-relaxed">${bullet}</p>
+                    </div>
+                `;
+            });
+            
+            html += `</div></div>`;
+            contentDiv.innerHTML = html;
+        }
+
+        // Industry Audience Logic
+        const appData = {
+            omics: {
+                title: "Genomics, Multi-Omics & Precision Medicine",
+                icon: "&#x1F9EC;",
+                desc: "The future of clinical research depends on data precision and uncompromised sample integrity. SLP synchronizes kit metadata, participant identifiers, and specimen barcodes, enabling researchers to maintain unquestionable sample provenance.",
+                bulletsTitle: "High-Reliability Upgrades:",
+                benefits: [
+                    "<strong>Statistical Confidence:</strong> Correlate biological variance with logistics data (timestamp logging).",
+                    "<strong>Target Preservation:</strong> Time- and temperature-controlled logistics for fragile biological targets.",
+                    "<strong>Bioinformatics Sync:</strong> Barcode tracking that syncs directly with LIMS pipelines."
+                ],
+                chartData: [100, 95, 100, 75, 100] // [Data Precision, Chain of Custody, Audit Readiness, Speed to Scale, Asset Integrity]
+            },
+            cro: {
+                title: "Clinical Trials (DCTs & CROs)",
+                icon: "&#x1F52C;",
+                desc: "Decentralized trials introduce vast complexity. SLP provides a single compliant infrastructure from protocol design through final dataset, engineering control around tight visit windows and multi-site coordination.",
+                bulletsTitle: "Compliance & Control:",
+                benefits: [
+                    "<strong>Exception Alerting:</strong> Real-time tracking so CROs see operational truth as it unfolds.",
+                    "<strong>Protocol Enforcement:</strong> Kits and workflows governed by unified digital logic to eliminate ambiguity.",
+                    "<strong>Audit-Ready Transparency:</strong> Reduced compliance risk (FDA, ISO) via a single system of record."
+                ],
+                chartData: [90, 100, 100, 80, 95] 
+            },
+            dtc: {
+                title: "DTC Wellness & Diagnostics",
+                icon: "&#x1F3E0;",
+                desc: "The journey of a single sample determines commercial success. By focusing on user experience and intuitive design, SLP kitting directly addresses and reduces the massive false-positive rate seen in typical DTC test returns.",
+                bulletsTitle: "Brand & Operational Protection:",
+                benefits: [
+                    "<strong>Pre-Analytical Design:</strong> Patient-friendly kits that prevent redraws and device misuse.",
+                    "<strong>Real-Time Visibility:</strong> Monitor participation, return rates, and logistical bottlenecks via SLP CONNECT.",
+                    "<strong>Turnkey Fulfillment:</strong> API integrations combined with compliant, reliable direct-to-patient shipping."
+                ],
+                chartData: [85, 80, 75, 100, 90]
+            },
+            iot: {
+                title: "High-Value Tech & IoT",
+                icon: "&#x1F4BB;",
+                desc: "If we can securely track a single vial of DNA across the globe, we can flawlessly manage your high-end electronics. SLP applies medical-grade security and serialized tracking to the fulfillment and reverse logistics of sensitive hardware.",
+                bulletsTitle: "Asset Security & Tracking:",
+                benefits: [
+                    "<strong>Serialized Visibility:</strong> Track individual hardware units to definitively manage warranties and security protocols.",
+                    "<strong>Secure Warehousing:</strong> High-security environment mitigating shrink for high-value inventory.",
+                    "<strong>RMA Reverse Logistics:</strong> Documented chain of custody for returns to prevent fraud and enable safe refurbishment."
+                ],
+                chartData: [95, 100, 90, 85, 95] 
+            },
+            cpg: {
+                title: "Premium CPG & Subscription Retail",
+                icon: "&#x1F381;",
+                desc: "Protecting luxury brand integrity requires zero-defect deployment at massive scale. SLP takes control of complex operations, ensuring every consumer receives an exact, flawless, and premium unboxing experience.",
+                bulletsTitle: "Scale & Presentation:",
+                benefits: [
+                    "<strong>Deployment Reliability:</strong> Zero-defect assembly guarantees brand standards are met every single time.",
+                    "<strong>Component Visibility:</strong> Track exact inventory down to specific marketing inserts per demographic.",
+                    "<strong>Decentralized Reach:</strong> Reliably pushing physical experiences to thousands of unique addresses simultaneously."
+                ],
+                chartData: [80, 60, 70, 100, 90]
+            },
+            edtech: {
+                title: "Corporate Deployments & EdTech",
+                icon: "&#x1F4DA;",
+                desc: "When remote learning or corporate compliance depends on physical materials (hardware, testing documents, training kits), SLP provides the reliable control needed to verify every participant received the necessary tools.",
+                bulletsTitle: "Synchronized Deployment:",
+                benefits: [
+                    "<strong>Verified Distribution:</strong> Confirming secure delivery of proprietary training materials or devices.",
+                    "<strong>Cohort Reliability:</strong> Coordinating massive, simultaneous deployments for semester or onboarding start dates.",
+                    "<strong>Centralized Oversight:</strong> A single dashboard to monitor compliance and material receipt across a scattered remote workforce."
+                ],
+                chartData: [85, 80, 90, 95, 80]
+            }
+        };
+
+        let radarChartInstance = null;
+
+        function initRadarChart() {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            Chart.defaults.font.family = "'Inter', 'Segoe UI', sans-serif";
+            Chart.defaults.color = '#94a3b8';
+
+            radarChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Data/System Precision', 'Chain of Custody Control', 'Audit/Compliance Readiness', 'Speed to Mass Scale', 'Asset & Item Integrity'],
+                    datasets: [{
+                        label: 'Operational Value',
+                        data: appData.omics.chartData,
+                        backgroundColor: 'rgba(13, 148, 136, 0.15)', // Teal
+                        borderColor: 'rgba(13, 148, 136, 1)',
+                        pointBackgroundColor: 'rgba(13, 148, 136, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(13, 148, 136, 1)',
+                        borderWidth: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.05)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                            pointLabels: {
+                                font: { size: 12, weight: '700' },
+                                color: '#475569'
+                            },
+                            ticks: { display: false, min: 0, max: 100 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 118, 110, 0.95)',
+                            titleFont: { size: 13 },
+                            bodyFont: { size: 13, weight: 'bold' },
+                            padding: 12,
+                            cornerRadius: 8,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) { return 'Priority Requirement: ' + context.raw + '/100'; }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateAudienceView(targetId) {
+            const data = appData[targetId];
+            
+            document.querySelectorAll('.industry-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.dataset.target === targetId) {
+                    btn.classList.add('active');
+                }
+            });
+
+            const contentDiv = document.getElementById('audience-content');
+            let benefitsHtml = '';
+            data.benefits.forEach(ben => {
+                benefitsHtml += `<li class="flex items-start"><span class="text-teal-600 mr-3 mt-1">&#x2714;</span> <span class="text-slate-700 text-lg leading-snug">${ben}</span></li>`;
+            });
+
+            contentDiv.innerHTML = `
+                <div class="animate-fade-in">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="text-5xl text-teal-700">${data.icon}</span>
+                        <h3 class="text-3xl font-extrabold text-slate-900">${data.title}</h3>
+                    </div>
+                    <p class="text-slate-600 mb-8 text-lg leading-relaxed">${data.desc}</p>
+                    
+                    <div class="bg-teal-50/50 p-6 rounded-2xl border border-teal-100 mb-6">
+                        <h4 class="font-extrabold text-teal-900 mb-4 text-lg">
+                            ${data.bulletsTitle}
+                        </h4>
+                        <ul class="space-y-4">
+                            ${benefitsHtml}
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            if (radarChartInstance) {
+                radarChartInstance.data.datasets[0].data = data.chartData;
+                radarChartInstance.update();
+            }
+        }
+
+        function setupNavigation() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Init SLP Connect Tabs
+            renderSlpConnect('kitting');
+            document.querySelectorAll('.connect-tab').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.connect-tab').forEach(b => b.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+                    renderSlpConnect(e.currentTarget.dataset.tab);
+                });
+            });
+
+            // Init Radar & Industry Tabs
+            initRadarChart();
+            setupNavigation();
+            updateAudienceView('omics'); // Initialize first view
+
+            document.querySelectorAll('.industry-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    updateAudienceView(e.currentTarget.dataset.target);
+                });
+            });
+        });
+    </script>
+    <style>
+        .animate-fade-in { animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</body>
+</html>
