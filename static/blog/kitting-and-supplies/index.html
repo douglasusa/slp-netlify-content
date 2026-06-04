@@ -34,8 +34,14 @@
   .content { max-width: 800px; margin: 30px auto; padding: 0 20px; line-height: 1.6; }
   h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
   
-  /* HERO & CONTENT IMAGES (Perfectly centered inside the 800px container) */
-  .content img { display: block; max-width: 100%; height: auto; margin: 25px auto; border-radius: 8px; }
+  /* HERO & CONTENT IMAGES (Forces the image to center, bypassing inline HTML settings) */
+  .content img { 
+      display: block !important; 
+      max-width: 100% !important; 
+      height: auto !important; 
+      margin: 25px auto !important; 
+      border-radius: 8px; 
+  }
 
   /* FOOTER (Kept wide at 960px to match the header structure) */
   .slp-footer { background: #f7f7f7; padding: 40px 20px; border-top: 1px solid #e5e5e5; margin-top: 60px; }
@@ -46,7 +52,6 @@
 
 <body>
 
-<!-- HEADER -->
 <header class="slp-header">
   <div class="slp-header-inner">
     <div class="slp-header-left">
@@ -59,17 +64,15 @@
   </div>
 </header>
 
-<!-- BREADCRUMBS -->
 <div class="breadcrumbs">
   <a href="https://strategiclabpartners.com">Home</a> <span>›</span>
   <a href="/blog">Blog</a> <span>›</span>
   Kitting & Bulk Supplies for Healthcare Training
 </div>
 
-<!-- CONTENT -->
 <div class="content">
   <p>&nbsp;<strong>SLP Overview — </strong>Kitting &amp; Bulk Supplies&nbsp;</p>
-  <p>Strategeic  Lab Partners (SLP) supports healthcare training programs, nursing schools, hospitals, and universities with FDA‑aligned specimen collection kits and U.S.-made bulk medical supplies that mirror real‑world clinical workflows. Through the SLP CONNECT™ ecosystem, institutions gain reliable access to standardized tools, curriculum‑ready materials, and operational clarity that strengthen hands‑on training and improve educational outcomes.</p>
+  <p>Strategeic Lab Partners (SLP) supports healthcare training programs, nursing schools, hospitals, and universities with FDA‑aligned specimen collection kits and U.S.-made bulk medical supplies that mirror real‑world clinical workflows. Through the SLP CONNECT™ ecosystem, institutions gain reliable access to standardized tools, curriculum‑ready materials, and operational clarity that strengthen hands‑on training and improve educational outcomes.</p>
 
   <h1>Kitting &amp; Bulk Supplies for Healthcare Training</h1>
 <img src="/blog/kitting-and-supplies/hero.png" alt="Kitting and bulk specimen collection and transport supplies" style="max-width:100%; height:auto; margin:20px 0;">
@@ -105,7 +108,6 @@
   <p>Strategic Lab Partners – Nashville is more than a specimen collection and transport kitting designer, assembler, and bulk supplier; it is a partner dedicated to enhancing educational and operational outcomes in nursing schools, clinical laboratory trials, and hospital and university healthcare training programs. By leveraging deep experience across clinical, laboratory, medical, longevity, and wellness sectors, SLP ensures that the healthcare professionals of tomorrow are well-prepared for the challenges and opportunities ahead.</p>
 </div>
 
-<!-- FOOTER -->
 <footer class="slp-footer">
   <div class="slp-footer-inner">
     <strong>MISSION | Strategic Lab Partners (SLP)</strong> transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized Management Platform, we integrate precision kit production, global logistics, and real-time digital visibility to ensure complete control from design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare supply chains with universal kitting, serialized tracking, and value-based logistics—strengthening quality, reducing variability, and accelerating scientific discovery.
