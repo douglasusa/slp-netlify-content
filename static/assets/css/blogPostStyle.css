@@ -288,7 +288,7 @@ footer {
 }
 /* Global Blog Content Controls */
 .content { 
-    max-width: 600px !important; /* Forces the 600px max width */
+    max-width: 800px !important; /* Forces the 600px max width */
     margin: 30px auto; 
     padding: 0 20px; 
 }
