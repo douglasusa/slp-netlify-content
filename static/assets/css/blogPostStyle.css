@@ -286,3 +286,17 @@ footer {
 	width: 96%;
 }
 }
+/* Global Blog Content Controls */
+.content { 
+    max-width: 600px !important; /* Forces the 600px max width */
+    margin: 30px auto; 
+    padding: 0 20px; 
+}
+
+/* Centers and confines the hero image */
+.content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto !important; /* Centers the image */
+}
