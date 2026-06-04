@@ -1,0 +1,14 @@
+{
+  "name": "slp-netlify-content",
+  "version": "1.0.0",
+  "description": "SLP CONNECT™ Content Hub with 11ty static site generation",
+  "scripts": {
+    "build": "eleventy",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
