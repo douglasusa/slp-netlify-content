@@ -1,27 +1,19 @@
-name: Fix Footers on All FAQ Pages
+name: Fix Internal Links and Rename Unicode File
 
 on:
   workflow_dispatch:
 
 jobs:
-  fix-footers:
+  fix-links-and-rename:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fix footers on all FAQ HTML files
+      - name: Fix /faqs/index.html links and rename Unicode filename
         run: |
-          python3 << 'EOF'
+          python3 << 'PYEOF'
           import os, re
-
-          FOOTER_HTML = '''<footer style="background:#ffffff;color:#000000;padding:40px 20px;border-top:1px solid #e0e0e0;">
-            <div style="max-width:900px;margin:0 auto;text-align:center;">
-              <h3 style="color:#000000;font-size:1.1rem;font-weight:700;letter-spacing:0.05em;margin-bottom:16px;">MISSION | Strategic Lab Partners (SLP)</h3>
-              <p style="color:#000000;font-size:0.95rem;line-height:1.7;margin-bottom:24px;">Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem. Through SLP CONNECT&#8482;, our Premium Kitting Deployment and Centralized Management Platform, we integrate precision kit production, global logistics, and real-time digital visibility to ensure complete control from design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare supply chains with universal kitting, serialized tracking, and value-based logistics&#8212;strengthening quality, reducing variability, and accelerating scientific discovery.</p>
-              <p style="color:#000000;font-size:0.85rem;">&#169; 2026 Strategic Lab Partners. All rights reserved.</p>
-            </div>
-          </footer>'''
 
           faq_dirs = [
             'static/faqs',
@@ -30,8 +22,7 @@ jobs:
           ]
 
           total = 0
-          replaced = 0
-          injected = 0
+          changed = 0
 
           for d in faq_dirs:
             if not os.path.isdir(d):
@@ -43,35 +34,43 @@ jobs:
               with open(fpath, 'r', encoding='utf-8') as f:
                 content = f.read()
               total += 1
-              if re.search(r'<footer', content, re.IGNORECASE):
-                new_content = re.sub(
-                  r'<footer[^>]*>.*?</footer>',
-                  FOOTER_HTML,
-                  content,
-                  flags=re.DOTALL | re.IGNORECASE
-                )
-                replaced += 1
-              elif '</body>' in content or '</body>' in content.lower():
-                new_content = re.sub(
-                  r'</body>',
-                  FOOTER_HTML + '\n</body>',
-                  content,
-                  flags=re.IGNORECASE
-                )
-                injected += 1
-              else:
-                new_content = content + '\n' + FOOTER_HTML
-                injected += 1
-              with open(fpath, 'w', encoding='utf-8') as f:
-                f.write(new_content)
+              # Fix all /faqs/index.html links -> /faqs/
+              new_content = content.replace('/faqs/index.html', '/faqs/')
+              if new_content != content:
+                with open(fpath, 'w', encoding='utf-8') as f:
+                  f.write(new_content)
+                changed += 1
+                print(f'Fixed links in: {fpath}')
 
-          print(f'Processed {total} files: {replaced} footers replaced, {injected} footers injected')
-          EOF
+          print(f'Scanned {total} files, fixed links in {changed} files')
+
+          # Rename the Unicode apostrophe filename to ASCII-safe version
+          old_name = 'static/faqs/what-is-slp\u2019s-approach-to-innovation.html'
+          new_name = 'static/faqs/what-is-slps-approach-to-innovation.html'
+          if os.path.exists(old_name):
+            os.rename(old_name, new_name)
+            print(f'Renamed: {old_name} -> {new_name}')
+
+            # Also fix the canonical tag inside the renamed file
+            with open(new_name, 'r', encoding='utf-8') as f:
+              content = f.read()
+            # Fix canonical URL (may contain encoded or raw apostrophe)
+            content = re.sub(
+              r'(href="https://content\.strategiclabpartners\.com/faqs/what-is-slp)[^"]*(-approach-to-innovation)(")',
+              r'\1s\2\3',
+              content
+            )
+            with open(new_name, 'w', encoding='utf-8') as f:
+              f.write(content)
+            print('Fixed canonical tag in renamed file')
+          else:
+            print('Unicode filename not found (may already be renamed)')
+          PYEOF
 
       - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add static/faqs/
-          git diff --cached --quiet || git commit -m "Fix footers: replace existing and inject missing footers on all FAQ pages"
+          git diff --cached --quiet || git commit -m "Fix indexability: replace /faqs/index.html links and rename Unicode apostrophe filename"
           git push
