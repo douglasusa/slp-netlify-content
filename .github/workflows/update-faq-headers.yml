@@ -7,39 +7,26 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Replace headers in all FAQ files
+      - name: Replace headers
         run: |
-          python3 - <<'EOF'
+          python3 << 'PYEOF'
           import os, re
-
-          OLD = re.compile(
-              r'<header class="site-header">\s*<div class="container">.*?</div>\s*</header>',
-              re.DOTALL
-          )
-
-          NEW = '''<header class="site-header">
-  <nav class="nav">
-    <a href="https://strategiclabpartners.com/slp-experience">About</a>
-    <a href="https://strategiclabpartners.com/3pl-management">Services</a>
-    <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>
-    <a href="https://strategiclabpartners.com/contact-slp">Contact</a>
-  </nav>
-</header>'''
-
+          OLD = re.compile(r'<header class="site-header">.*?</header>', re.DOTALL)
+          NEW = '<header class="site-header">\n  <nav class="nav">\n    <a href="https://strategiclabpartners.com/slp-experience">About</a>\n    <a href="https://strategiclabpartners.com/3pl-management">Services</a>\n    <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>\n    <a href="https://strategiclabpartners.com/contact-slp">Contact</a>\n  </nav>\n</header>'
           updated = []
           for root, dirs, files in os.walk('static/faqs'):
               for fname in files:
                   if fname.endswith('.html'):
                       path = os.path.join(root, fname)
-                      content = open(path).read()
-                      new_content, n = OLD.subn(NEW, content)
+                      text = open(path).read()
+                      new_text, n = OLD.subn(NEW, text)
                       if n:
-                          open(path, 'w').write(new_content)
+                          open(path, 'w').write(new_text)
                           updated.append(path)
                           print(f'Updated: {path}')
-          print(f'\nTotal updated: {len(updated)}')
-          EOF
-      - name: Commit changes
+          print(f'Total updated: {len(updated)}')
+          PYEOF
+      - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
