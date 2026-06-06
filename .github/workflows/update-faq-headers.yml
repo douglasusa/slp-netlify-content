@@ -1,34 +1,73 @@
-name: Fix FAQ Headers
-
+name: Add Logo and Full Footer to FAQ Pages
 on:
   workflow_dispatch:
-
 jobs:
-  fix-headers:
+  update-faq-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Replace headers in all FAQ HTML files
+      - name: Update FAQ pages with logo and full footer
         run: |
           python3 << 'PYEOF'
           import os, re
-
           NEW_HEADER = '''<header class="site-header">
-              <div class="container">
-                <a href="https://strategiclabpartners.com" class="logo">Strategic Lab Partners</a>
-                <nav class="main-nav">
-                  <a href="https://strategiclabpartners.com/slp-experience">About</a>
-                  <a href="https://strategiclabpartners.com/3pl-management">Services</a>
-                  <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>
-                  <a href="https://strategiclabpartners.com/contact-slp">Contact</a>
-                </nav>
-              </div>
-            </header>'''
-
-          pattern = re.compile(r'<header class="site-header">.*?</header>', re.DOTALL)
-
+          <div class="container">
+          <a href="https://strategiclabpartners.com" class="logo"><img src="https://content.strategiclabpartners.com/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners" width="180"></a>
+          <nav class="main-nav">
+          <a href="https://strategiclabpartners.com/slp-experience">About</a>
+          <a href="https://strategiclabpartners.com/3pl-management">Services</a>
+          <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>
+          <a href="https://strategiclabpartners.com/contact-slp">Contact</a>
+          </nav>
+          </div>
+          </header>'''
+          NEW_FOOTER = '''<footer class="site-footer">
+          <div class="container">
+          <div class="footer-grid">
+          <div class="footer-col footer-brand">
+          <a href="https://strategiclabpartners.com"><img src="https://content.strategiclabpartners.com/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners" width="160"></a>
+          <p>Strategic Lab Partners provides integrated healthcare and research kitting, FDA-registered fulfillment, temperature-controlled 3PL logistics, and real-time SLP CONNECT&#8482; oversight.</p>
+          <p>Phone: <a href="tel:8009853422">(800) 985-3422</a><br>Email: <a href="mailto:orders@strategiclabpartners.com">orders@strategiclabpartners.com</a><br>Hours: Mon &ndash; Fri | 8:00 am &ndash; 5:00 pm CST</p>
+          </div>
+          <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+          <li><a href="https://strategiclabpartners.com/universal-kitting">Universal Kitting</a></li>
+          <li><a href="https://strategiclabpartners.com/3pl-management">3PL Management</a></li>
+          <li><a href="https://strategiclabpartners.com/bulk-supplies">Bulk Supplies</a></li>
+          <li><a href="https://strategiclabpartners.com/slp-experience">SLP Experience</a></li>
+          <li><a href="https://strategiclabpartners.com/contact-slp">Contact SLP</a></li>
+          </ul>
+          </div>
+          <div class="footer-col">
+          <h4>Industries</h4>
+          <ul>
+          <li>Clinical Trials</li>
+          <li>Precision Medicine</li>
+          <li>DTC Genomics</li>
+          <li>Diagnostics &amp; Lab Services</li>
+          <li>BioBanking</li>
+          <li>Life Sciences Logistics</li>
+          </ul>
+          </div>
+          <div class="footer-col">
+          <h4>Content Hub</h4>
+          <ul>
+          <li><a href="https://content.strategiclabpartners.com/resources/">Resources</a></li>
+          <li><a href="https://content.strategiclabpartners.com/blog/">Blogs</a></li>
+          <li><a href="https://content.strategiclabpartners.com/faqs/">FAQs</a></li>
+          <li><a href="https://content.strategiclabpartners.com/case-studies/">Case Studies</a></li>
+          </ul>
+          </div>
+          </div>
+          <div class="footer-bottom">
+          <p>Copyright 2026 Strategic Lab Partners LLC | All Rights Reserved | <a href="https://strategiclabpartners.com/privacy">Privacy</a> | <a href="https://strategiclabpartners.com/terms">Terms</a> | <a href="https://strategiclabpartners.com/tc-of-sale">T&amp;C of Sale</a> | <a href="https://strategiclabpartners.com/dmca">DMCA Policy</a></p>
+          </div>
+          </div>
+          </footer>'''
+          header_pat = re.compile(r'<header class="site-header">.*?</header>', re.DOTALL)
+          footer_pat = re.compile(r'<footer class="site-footer">.*?</footer>', re.DOTALL)
           faq_dir = 'static/faqs'
           total = 0
           for root, dirs, files in os.walk(faq_dir):
@@ -37,19 +76,19 @@ jobs:
                 fpath = os.path.join(root, fname)
                 with open(fpath, 'r', encoding='utf-8') as f:
                   content = f.read()
-                new_content, count = pattern.subn(NEW_HEADER, content)
-                if count > 0:
+                new_content = header_pat.sub(NEW_HEADER, content)
+                new_content = footer_pat.sub(NEW_FOOTER, new_content)
+                if new_content != content:
                   with open(fpath, 'w', encoding='utf-8') as f:
                     f.write(new_content)
                   total += 1
                   print(f'Updated: {fpath}')
           print(f'Total updated: {total}')
           PYEOF
-
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add static/faqs/
-          git diff --cached --quiet || git commit -m "Fix FAQ headers: restore correct CSS classes with absolute URLs"
+          git diff --cached --quiet || git commit -m "Add logo image and full SLP footer to all FAQ pages"
           git push
