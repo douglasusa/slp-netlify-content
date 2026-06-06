@@ -1,0 +1,55 @@
+name: Fix FAQ Headers
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix-headers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Replace headers in all FAQ HTML files
+        run: |
+          python3 << 'PYEOF'
+          import os, re
+
+          NEW_HEADER = '''<header class="site-header">
+              <div class="container">
+                <a href="https://strategiclabpartners.com" class="logo">Strategic Lab Partners</a>
+                <nav class="main-nav">
+                  <a href="https://strategiclabpartners.com/slp-experience">About</a>
+                  <a href="https://strategiclabpartners.com/3pl-management">Services</a>
+                  <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>
+                  <a href="https://strategiclabpartners.com/contact-slp">Contact</a>
+                </nav>
+              </div>
+            </header>'''
+
+          pattern = re.compile(r'<header class="site-header">.*?</header>', re.DOTALL)
+
+          faq_dir = 'static/faqs'
+          total = 0
+          for root, dirs, files in os.walk(faq_dir):
+            for fname in files:
+              if fname.endswith('.html'):
+                fpath = os.path.join(root, fname)
+                with open(fpath, 'r', encoding='utf-8') as f:
+                  content = f.read()
+                new_content, count = pattern.subn(NEW_HEADER, content)
+                if count > 0:
+                  with open(fpath, 'w', encoding='utf-8') as f:
+                    f.write(new_content)
+                  total += 1
+                  print(f'Updated: {fpath}')
+          print(f'Total updated: {total}')
+          PYEOF
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/faqs/
+          git diff --cached --quiet || git commit -m "Fix FAQ headers: restore correct CSS classes with absolute URLs"
+          git push
