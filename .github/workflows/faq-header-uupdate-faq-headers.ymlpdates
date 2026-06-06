@@ -1,0 +1,48 @@
+name: Update FAQ Headers
+on: workflow_dispatch
+jobs:
+  update-headers:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace headers in all FAQ files
+        run: |
+          python3 - <<'EOF'
+          import os, re
+
+          OLD = re.compile(
+              r'<header class="site-header">\s*<div class="container">.*?</div>\s*</header>',
+              re.DOTALL
+          )
+
+          NEW = '''<header class="site-header">
+  <nav class="nav">
+    <a href="https://strategiclabpartners.com/slp-experience">About</a>
+    <a href="https://strategiclabpartners.com/3pl-management">Services</a>
+    <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>
+    <a href="https://strategiclabpartners.com/contact-slp">Contact</a>
+  </nav>
+</header>'''
+
+          updated = []
+          for root, dirs, files in os.walk('static/faqs'):
+              for fname in files:
+                  if fname.endswith('.html'):
+                      path = os.path.join(root, fname)
+                      content = open(path).read()
+                      new_content, n = OLD.subn(NEW, content)
+                      if n:
+                          open(path, 'w').write(new_content)
+                          updated.append(path)
+                          print(f'Updated: {path}')
+          print(f'\nTotal updated: {len(updated)}')
+          EOF
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/faqs/
+          git commit -m "Replace all FAQ headers with absolute-URL universal header" || echo "Nothing to commit"
+          git push
