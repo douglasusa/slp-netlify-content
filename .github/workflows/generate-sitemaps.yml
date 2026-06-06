@@ -8,7 +8,7 @@ on:
       - "static/resources/**"
       - "static/case-studies/**"
       - ".github/workflows/generate-sitemaps.yml"
-
+  workflow_dispatch:
 
 jobs:
   build:
@@ -33,9 +33,14 @@ jobs:
         run: |
           echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-faqs.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-faqs.xml
-          find static/faqs -name "index.html" | while read file; do
-            url="https://content.strategiclabpartners.com/${file#static/}"
-            url="${url%index.html}"
+          find static/faqs -name "*.html" | grep -v '/index.html$' | sort | while read file; do
+            slug=$(basename "$file" .html)
+            dir=$(dirname "${file#static/faqs/}")
+            if [ "$dir" = "." ]; then
+              url="https://content.strategiclabpartners.com/faqs/$slug"
+            else
+              url="https://content.strategiclabpartners.com/faqs/$dir/$slug"
+            fi
             echo "  <url><loc>$url</loc></url>" >> static/sitemap-faqs.xml
           done
           echo '</urlset>' >> static/sitemap-faqs.xml
@@ -77,5 +82,5 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add static/sitemap-*.xml
-          git diff --cached --quiet || git commit -m "Update sitemaps"
+          git diff --cached --quiet || git commit -m "Update sitemaps - include all FAQ slug pages"
           git push
