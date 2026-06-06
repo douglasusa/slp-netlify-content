@@ -1,38 +1,75 @@
-name: Fix FAQ Footers - White Background Black Text
+name: Add Canonical Tags to All FAQ Pages
+
 on:
   workflow_dispatch:
+
 jobs:
-  update-faq-pages:
+  add-canonical-tags:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-      - name: Fix footers in all FAQ HTML files
+
+      - name: Add canonical tags to all FAQ HTML files
         run: |
           python3 << 'PYEOF'
-          import os, re
-          NEW_FOOTER = """<footer style="background:#ffffff;color:#000000;padding:40px 20px;border-top:1px solid #e0e0e0;"><div style="max-width:900px;margin:0 auto;text-align:center;"><h3 style="color:#000000;font-size:1.1rem;font-weight:700;letter-spacing:0.05em;margin-bottom:16px;">MISSION | Strategic Lab Partners (SLP)</h3><p style="color:#000000;font-size:0.95rem;line-height:1.7;margin-bottom:24px;">Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem. Through SLP CONNECT&trade;, our Premium Kitting Deployment and Centralized Management Platform, we integrate precision kit production, global logistics, and real-time digital visibility to ensure complete control from design to deployment. Our mission is to deliver reliable, scalable, and compliant operations that help research sponsors and CROs run complex studies with advanced-manufacturing accuracy. We elevate healthcare supply chains with universal kitting, serialized tracking, and value-based logistics&mdash;strengthening quality, reducing variability, and accelerating scientific discovery.</p><p style="color:#000000;font-size:0.85rem;">&copy; 2026 Strategic Lab Partners. All rights reserved.</p></div></footer>"""
-          footer_pat = re.compile(r'<footer[^>]*>.*?</footer>', re.DOTALL)
-          faq_dir = 'static/faqs'
+          import os
+          import re
+
+          BASE_URL = "https://content.strategiclabpartners.com/faqs"
+          FAQ_DIR = "static/faqs"
+
+          canonical_pat = re.compile(r'<link[^>]+rel=["\']canonical["\'][^>]*>', re.IGNORECASE)
+          head_close_pat = re.compile(r'</head>', re.IGNORECASE)
+
           updated = 0
-          for root, dirs, files in os.walk(faq_dir):
-            for fname in files:
-              if fname.endswith('.html'):
-                fpath = os.path.join(root, fname)
-                with open(fpath, 'r', encoding='utf-8') as f:
-                  content = f.read()
-                if '<footer' in content:
-                  new_content = footer_pat.sub(NEW_FOOTER, content)
-                  if new_content != content:
-                    with open(fpath, 'w', encoding='utf-8') as f:
-                      f.write(new_content)
-                    updated += 1
-          print(f'Updated {updated} files')
+          skipped = 0
+
+          for root, dirs, files in os.walk(FAQ_DIR):
+              # Skip index.html files
+              for fname in sorted(files):
+                  if not fname.endswith('.html'):
+                      continue
+                  if fname == 'index.html':
+                      continue
+
+                  fpath = os.path.join(root, fname)
+                  slug = os.path.splitext(fname)[0]
+
+                  # Build clean canonical URL
+                  rel = os.path.relpath(root, FAQ_DIR)
+                  if rel == '.':
+                      canonical_url = f"{BASE_URL}/{slug}"
+                  else:
+                      canonical_url = f"{BASE_URL}/{rel}/{slug}"
+
+                  canonical_tag = f'<link rel="canonical" href="{canonical_url}">'
+
+                  with open(fpath, 'r', encoding='utf-8') as f:
+                      content = f.read()
+
+                  # Remove any existing canonical tag
+                  content = canonical_pat.sub('', content)
+
+                  # Insert canonical tag before </head>
+                  if head_close_pat.search(content):
+                      content = head_close_pat.sub(f'  {canonical_tag}\n</head>', content, count=1)
+                      with open(fpath, 'w', encoding='utf-8') as f:
+                          f.write(content)
+                      print(f"Updated: {fpath} -> {canonical_url}")
+                      updated += 1
+                  else:
+                      print(f"SKIPPED (no </head>): {fpath}")
+                      skipped += 1
+
+          print(f"\nDone: {updated} files updated, {skipped} skipped.")
           PYEOF
-      - name: Commit changes
+
+      - name: Commit and push
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add -A
-          git diff --staged --quiet || git commit -m "Fix FAQ footers: white background, black text, mission statement"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add static/faqs/
+          git diff --cached --quiet || git commit -m "Add canonical tags to all FAQ pages for sitemap eligibility"
           git push
