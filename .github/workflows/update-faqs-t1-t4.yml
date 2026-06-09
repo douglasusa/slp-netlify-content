@@ -1,0 +1,54 @@
+name: Update FAQ T1-T4 Content
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force re-process files already marked as updated'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+jobs:
+  update-faqs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install beautifulsoup4 lxml
+
+      - name: Run FAQ T1-T4 updater
+        run: |
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            python scripts/update_faqs.py --force
+          else
+            python scripts/update_faqs.py
+          fi
+
+      - name: Commit updated FAQ files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/faqs/*.html
+          if git diff --staged --quiet; then
+            echo "No FAQ files changed — all files already up to date."
+          else
+            git commit -m "chore: apply T1-T4 FAQ content updates [automated]"
+            git push
+            echo "FAQ files committed and pushed successfully."
+          fi
