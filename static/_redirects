@@ -1,6 +1,1 @@
-# Serve FAQ trailing-slash URLs without redirect (fixes indexing)
-/faqs/:slug/       /faqs/:slug    200
-
-# Serve blog and resources trailing-slash URLs
-/blog/:slug/       /blog/:slug    200
-/resources/:slug/  /resources/:slug    200
+# Reserved for future redirects
