@@ -1,86 +1,15 @@
-name: Generate Sitemaps
-
-on:
-  push:
-    paths:
-      - "static/blog/**"
-      - "static/faqs/**"
-      - "static/resources/**"
-      - "static/case-studies/**"
-      - ".github/workflows/generate-sitemaps.yml"
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Generate Blog Sitemap
-        run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-blog.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-blog.xml
-          find static/blog -name "index.html" | while read file; do
-            url="https://content.strategiclabpartners.com/${file#static/}"
-            url="${url%index.html}"
-            echo "  <url><loc>$url</loc></url>" >> static/sitemap-blog.xml
-          done
-          echo '</urlset>' >> static/sitemap-blog.xml
-
       - name: Generate FAQs Sitemap
         run: |
           echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-faqs.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-faqs.xml
-          find static/faqs -name "*.html" | grep -v '/index.html$' | sort | while read file; do
+          find static/faqs -maxdepth 1 -name "*.html" | grep -v '/index.html$' | sort | while read file; do
             slug=$(basename "$file" .html)
-            dir=$(dirname "${file#static/faqs/}")
-            if [ "$dir" = "." ]; then
-              url="https://content.strategiclabpartners.com/faqs/$slug"
-            else
-              url="https://content.strategiclabpartners.com/faqs/$dir/$slug"
-            fi
+            url="https://content.strategiclabpartners.com/faqs/$slug"
+            echo "  <url><loc>$url</loc></url>" >> static/sitemap-faqs.xml
+          done
+          find static/faqs -mindepth 2 -name "index.html" | sort | while read file; do
+            slug=$(basename "$(dirname "$file")")
+            url="https://content.strategiclabpartners.com/faqs/$slug/"
             echo "  <url><loc>$url</loc></url>" >> static/sitemap-faqs.xml
           done
           echo '</urlset>' >> static/sitemap-faqs.xml
-
-      - name: Generate Resources Sitemap
-        run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-resources.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-resources.xml
-          find static/resources -name "index.html" | while read file; do
-            url="https://content.strategiclabpartners.com/${file#static/}"
-            url="${url%index.html}"
-            echo "  <url><loc>$url</loc></url>" >> static/sitemap-resources.xml
-          done
-          echo '</urlset>' >> static/sitemap-resources.xml
-
-      - name: Generate Case Studies Sitemap
-        run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-case-studies.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-case-studies.xml
-          find static/case-studies -name "index.html" | while read file; do
-            url="https://content.strategiclabpartners.com/${file#static/}"
-            url="${url%index.html}"
-            echo "  <url><loc>$url</loc></url>" >> static/sitemap-case-studies.xml
-          done
-          echo '</urlset>' >> static/sitemap-case-studies.xml
-
-      - name: Generate Sitemap Index
-        run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-index.xml
-          echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-index.xml
-          for file in static/sitemap-*.xml; do
-            url="https://content.strategiclabpartners.com/${file#static/}"
-            echo "  <sitemap><loc>$url</loc></sitemap>" >> static/sitemap-index.xml
-          done
-          echo '</sitemapindex>' >> static/sitemap-index.xml
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add static/sitemap-*.xml
-          git diff --cached --quiet || git commit -m "Update sitemaps - include all FAQ slug pages"
-          git push
