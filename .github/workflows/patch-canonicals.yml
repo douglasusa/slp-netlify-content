@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Patch canonical tags and index links
+      - name: Patch links and canonicals
         run: |
           python3 - <<'EOF'
           import os
@@ -30,39 +30,33 @@ jobs:
           BASE = "static/faqs"
           BASE_URL = "https://content.strategiclabpartners.com"
 
+          # 1. Fix relative .html links in faqs/index.html → trailing-slash
+          index_path = os.path.join(BASE, "index.html")
+          with open(index_path, "r", encoding="utf-8") as f:
+              content = f.read()
           for slug in SLUGS:
-              path = os.path.join(BASE, slug, "index.html")
-              if not os.path.exists(path):
-                  print(f"NOT FOUND: {path}")
-                  continue
-              with open(path, "r", encoding="utf-8") as f:
-                  content = f.read()
-              old = f'href="{BASE_URL}/faqs/{slug}"'
-              new = f'href="{BASE_URL}/faqs/{slug}/"'
+              old = f'href="{slug}.html"'
+              new = f'href="{slug}/"'
               if old in content:
                   content = content.replace(old, new)
-                  with open(path, "w", encoding="utf-8") as f:
-                      f.write(content)
-                  print(f"FIXED canonical: {slug}/")
-              else:
-                  print(f"SKIP (not in expected format): {slug}")
+                  print(f"FIXED faqs/index.html: {slug}.html → {slug}/")
+          with open(index_path, "w", encoding="utf-8") as f:
+              f.write(content)
 
-          index_path = os.path.join(BASE, "index.html")
-          if os.path.exists(index_path):
-              with open(index_path, "r", encoding="utf-8") as f:
-                  content = f.read()
-              for slug in SLUGS:
-                  for old, new in [
-                      (f"/faqs/{slug}.html", f"/faqs/{slug}/"),
-                      (f'"/faqs/{slug}"', f'"/faqs/{slug}/"'),
-                      (f"'/faqs/{slug}'", f"'/faqs/{slug}/'"),
-                  ]:
-                      if old in content:
-                          content = content.replace(old, new)
-                          print(f"FIXED index link: {old}")
-              with open(index_path, "w", encoding="utf-8") as f:
-                  f.write(content)
-              print("UPDATED: faqs/index.html")
+          # 2. Fix /faqs/what-is-slp-connect (no slash) in static/index.html
+          home_path = "static/index.html"
+          with open(home_path, "r", encoding="utf-8") as f:
+              content = f.read()
+          for slug in SLUGS:
+              old = f'href="/faqs/{slug}"'
+              new = f'href="/faqs/{slug}/"'
+              if old in content:
+                  content = content.replace(old, new)
+                  print(f"FIXED static/index.html: /faqs/{slug} → /faqs/{slug}/")
+          with open(home_path, "w", encoding="utf-8") as f:
+              f.write(content)
+
+          print("Done.")
           EOF
 
       - name: Commit changes
@@ -70,5 +64,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "fix: patch canonical tags to trailing-slash on 9 folder FAQs [automated]"
+          git diff --staged --quiet || git commit -m "fix: update relative .html links to trailing-slash in faqs/index.html and homepage [automated]"
           git push
