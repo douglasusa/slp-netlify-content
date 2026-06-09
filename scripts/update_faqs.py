@@ -18,7 +18,7 @@ Usage:
 
 import sys, os, re
 from pathlib import Path
-from bs4 import BeautifulSoup, NavigableString
+from bs4 import BeautifulSoup, NavigableString, Tag
 
 FORCE   = "--force" in sys.argv
 FAQ_DIR = Path(__file__).resolve().parent.parent / "static" / "faqs"
