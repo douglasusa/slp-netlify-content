@@ -1,0 +1,72 @@
+name: Generate Dynamic Sitemaps
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  generate-sitemaps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Ensure static directory exists
+        run: mkdir -p static
+
+      - name: Generate Dynamic Section Sitemaps
+        run: |
+          BASE_URL="https://content.strategiclabpartners.com"
+
+          rm -f static/sitemap-*.xml
+
+          for section in $(find static -mindepth 1 -maxdepth 1 -type d | sed 's|static/||'); do
+            SITEMAP="static/sitemap-${section}.xml"
+
+            echo '<?xml version="1.0" encoding="UTF-8"?>' > $SITEMAP
+            echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $SITEMAP
+
+            find static/$section -maxdepth 1 -name "*.html" | grep -v '/index.html$' | sort | while read file; do
+              slug=$(basename "$file" .html)
+              url="$BASE_URL/$section/$slug"
+              echo "  <url><loc>$url</loc></url>" >> $SITEMAP
+            done
+
+            find static/$section -mindepth 2 -name "index.html" | sort | while read file; do
+              slug=$(basename "$(dirname "$file")")
+              url="$BASE_URL/$section/$slug"
+              echo "  <url><loc>$url</loc></url>" >> $SITEMAP
+            done
+
+            echo '</urlset>' >> $SITEMAP
+          done
+
+      - name: Generate Master Sitemap Index
+        run: |
+          BASE_URL="https://content.strategiclabpartners.com"
+
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap.xml
+          echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap.xml
+
+          for sm in static/sitemap-*.xml; do
+            fname=$(basename "$sm")
+            echo "  <sitemap><loc>$BASE_URL/$fname</loc></sitemap>" >> static/sitemap.xml
+          done
+
+          echo '</sitemapindex>' >> static/sitemap.xml
+
+      - name: Ping Google and Bing
+        run: |
+          curl -s "https://www.google.com/ping?sitemap=https://content.strategiclabpartners.com/sitemap.xml"
+          curl -s "https://www.bing.com/ping?sitemap=https://content.strategiclabpartners.com/sitemap.xml"
+
+      - name: Upload sitemap artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dynamic-sitemaps
+          path: static/sitemap*.xml
