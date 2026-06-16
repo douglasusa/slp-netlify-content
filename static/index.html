@@ -108,6 +108,101 @@
             max-width: 1100px;
             margin: 0 auto 10px auto;
         }
+
+        /* ══════════════════════════════════════════════════
+           NEUROSCIENCE TESTIMONIAL — HOME PAGE HERO BLOCK
+           Sits between the blue divider and the banner image
+           ══════════════════════════════════════════════════ */
+        .testimonial-home {
+            max-width: 820px;
+            margin: 0 auto 48px auto;
+            background: #f7faff;
+            border: 1px solid #d9e7f7;
+            border-left: 5px solid #005bbb;
+            border-radius: 8px;
+            padding: 38px 44px 32px 44px;
+            position: relative;
+        }
+
+        .testimonial-home .industry-badge {
+            display: inline-block;
+            background: #005bbb;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 3px 14px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-home .quote-bg {
+            position: absolute;
+            top: 22px;
+            right: 32px;
+            font-family: Georgia, serif;
+            font-size: 80px;
+            color: #005bbb;
+            opacity: 0.09;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .testimonial-home .lead-line {
+            font-size: 20px;
+            font-weight: 700;
+            color: #005bbb;
+            line-height: 1.5;
+            margin: 0 0 20px 0;
+            /* override global p centering */
+            text-align: left;
+            max-width: 100%;
+        }
+
+        .testimonial-home blockquote {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .testimonial-home blockquote p {
+            font-size: 16px;
+            color: #1a1a1a;
+            line-height: 1.82;
+            margin: 0 0 14px 0;
+            text-align: left;
+            max-width: 100%;
+        }
+
+        .testimonial-home blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .testimonial-home .attribution {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid #d9e7f7;
+        }
+
+        .testimonial-home .attr-line {
+            width: 28px;
+            height: 2px;
+            background: #005bbb;
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .testimonial-home .attr-text {
+            font-size: 11.5px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            color: #005bbb;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 
@@ -118,44 +213,82 @@
 
     <!-- Side-by-side logos -->
     <div class="logo-row">
-        <img 
-            src=".../../assets/logos/slp-full-logo.png" 
+        <img
+            src=".../../assets/logos/slp-full-logo.png"
             alt="Strategic Lab Partners">
 
-        <img 
-            src=".../../assets/logos/slp-connect-logo.png" 
+        <img
+            src=".../../assets/logos/slp-connect-logo.png"
             alt="SLP CONNECT">
     </div>
 
     <!-- Tagline -->
-   <div class="tagline" style="margin-top: 28px; margin-bottom: 22px; font-weight: normal;">
-    <p style="font-weight: 600; color:#005bbb; font-size: 22px; line-height: 1.3;">
-        BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
-    </p>
+    <div class="tagline" style="margin-top: 28px; margin-bottom: 22px; font-weight: normal;">
+        <p style="font-weight: 600; color:#005bbb; font-size: 22px; line-height: 1.3;">
+            BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
+        </p>
 
-    <p style="color:#000; margin-top: 12px; font-size: 16px; line-height: 1.55;">
-        For complex, decentralized, and regulated operations, SLP CONNECT™ provides operational 
-        command‑and‑control across kitting, fulfillment, and deployment—so delays, loss, and surprises 
-        are detected early and prevented before they impact patients, research timelines, or cost.
-    </p>
-</div>
-
-
+        <p style="color:#000; margin-top: 12px; font-size: 16px; line-height: 1.55;">
+            For complex, decentralized, and regulated operations, SLP CONNECT™ provides operational
+            command&#8209;and&#8209;control across kitting, fulfillment, and deployment—so delays, loss, and surprises
+            are detected early and prevented before they impact patients, research timelines, or cost.
+        </p>
+    </div>
 
     <!-- CONNECT-blue divider -->
     <div class="divider" style="margin-top: 12px; margin-bottom: 40px;"></div>
 
 </div>
 
+
+<!-- ══════════════════════════════════════════════════════════════
+     NEUROSCIENCE TESTIMONIAL — EMBEDDED HOME PAGE HERO
+     Placement: immediately after divider, before banner image.
+     Visible to every visitor the moment they land on the site.
+     ══════════════════════════════════════════════════════════════ -->
+<div class="testimonial-home">
+
+    <span class="quote-bg" aria-hidden="true">&#8220;</span>
+    <span class="industry-badge">&#9679;&nbsp; Neurologic Diagnostics — Featured Endorsement</span>
+
+    <p class="lead-line">
+        &#8220;You&#8217;re exactly what you said you would be to us&mdash;incredibly supportive,
+        extremely helpful.&#8221;
+    </p>
+
+    <blockquote>
+        <p>
+            In neurologic diagnostics, you learn quickly which systems you can trust.
+            SLP CONNECT has earned that trust. It runs clean, it runs consistently,
+            and it supports the level of analytical discipline our assays require.
+            It has made our workflows smoother, our data cleaner, and our reporting
+            more dependable.
+        </p>
+        <p>
+            We don&#8217;t give endorsements lightly in this industry, but this platform
+            has proven itself. It&#8217;s genuinely nice to have you in our court because
+            we are now growing and need you more than ever.
+        </p>
+    </blockquote>
+
+    <div class="attribution">
+        <div class="attr-line"></div>
+        <span class="attr-text">Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+    </div>
+
+</div>
+
+
 <!-- HERO IMAGE -->
 <div class="hero" style="text-align:center; margin: 40px 0 20px 0;">
-    <img 
-        src=".../../assets/images/slp-web-banner-2.png" 
+    <img
+        src=".../../assets/images/slp-web-banner-2.png"
         alt="SLP CONNECT Ecosystem"
         style="max-width: 520px; width: 100%; height: auto; border-radius: 8px;"
     >
 </div>
-	<!-- PRIMARY CTA BLOCK — Immediately Below Hero Banner -->
+
+<!-- PRIMARY CTA BLOCK — Immediately Below Hero Banner -->
 <div class="primary-cta-block" style="
     max-width: 720px;
     margin: 40px auto 10px auto;
@@ -172,21 +305,21 @@
 
     <ul style="list-style: none; padding-left: 0; margin: 0;">
         <li style="margin-bottom: 14px;">
-            <a href="/faqs/what-is-slp-connect" 
+            <a href="/faqs/what-is-slp-connect"
                style="color:#005bbb; font-size: 17px; text-decoration: none;">
                Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)
             </a>
         </li>
 
         <li style="margin-bottom: 14px;">
-            <a href="/faqs/how-does-slp-connect-integrate-with-kitting-and-3pl" 
+            <a href="/faqs/how-does-slp-connect-integrate-with-kitting-and-3pl"
                style="color:#005bbb; font-size: 17px; text-decoration: none;">
                Understand how oversight integrates with fulfillment
             </a>
         </li>
 
         <li>
-            <a href="/resources/scaling/" 
+            <a href="/resources/scaling/"
                style="color:#005bbb; font-size: 17px; text-decoration: none;">
                Explore how SLP scales decentralized programs
             </a>
@@ -200,8 +333,7 @@
     <a href="/resources/">Resources</a>
     <a href="/faqs/">FAQs</a>
     <a href="/case-studies/">Case Studies</a>
-   <a href="/blog/">Blog</a>
-
+    <a href="/blog/">Blog</a>
 </div>
 
 <!-- MISSION STATEMENT FOOTER -->
@@ -211,19 +343,19 @@
     </p>
 
     <p style="font-size: 16px; line-height: 1.6;">
-        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi‑Omics, 
-        and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one 
-        connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized 
-        Management Platform, we integrate precision kit production, global logistics, and real‑time 
-        digital visibility to ensure complete control from design to deployment. Our mission is to deliver 
-        reliable, scalable, and compliant operations that help research sponsors and CROs run complex 
-        studies with advanced‑manufacturing accuracy. We elevate healthcare supply chains with universal 
-        kitting, serialized tracking, and value‑based logistics—strengthening quality, reducing variability, 
+        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi&#8209;Omics,
+        and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one
+        connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized
+        Management Platform, we integrate precision kit production, global logistics, and real&#8209;time
+        digital visibility to ensure complete control from design to deployment. Our mission is to deliver
+        reliable, scalable, and compliant operations that help research sponsors and CROs run complex
+        studies with advanced&#8209;manufacturing accuracy. We elevate healthcare supply chains with universal
+        kitting, serialized tracking, and value&#8209;based logistics—strengthening quality, reducing variability,
         and accelerating scientific discovery.
     </p>
 
     <p style="font-size: 14px; color: #666; margin-top: 20px;">
-        © Strategic Lab Partners — All Rights Reserved.  
+        &copy; Strategic Lab Partners — All Rights Reserved.
         <br>Part of the SLP CONNECT™ Ecosystem.
     </p>
 </footer>
