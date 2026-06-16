@@ -1,14 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SLP CONNECT™ — Client Testimonials</title>
+    <title>Strategic Lab Partners — Content Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="What research leaders, CROs, and diagnostics innovators say about SLP CONNECT™ — the platform built for precision, consistency, and dependable operational support.">
-
     <style>
-        * { box-sizing: border-box; }
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -18,10 +15,9 @@
             line-height: 1.6;
         }
 
-        /* ── HEADER ── */
         .header-block {
             text-align: center;
-            margin-bottom: 44px;
+            margin-bottom: 50px;
         }
 
         .logo-row {
@@ -42,290 +38,51 @@
             width: 120px;
             height: 3px;
             background-color: #005bbb;
-            margin: 0 auto;
+            margin: 0 auto 30px auto;
             border-radius: 2px;
         }
 
-        .page-title {
-            font-size: 30px;
-            font-weight: 700;
-            color: #222;
-            margin: 28px 0 8px 0;
+        p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            text-align: center;
         }
 
-        .page-sub {
-            font-size: 17px;
-            color: #555;
-            max-width: 620px;
-            margin: 0 auto 28px auto;
+        .hero {
+            text-align: center;
+            margin: 30px 0 10px 0;
         }
 
-        /* ── LEAD TESTIMONIAL ── */
-        .lead-testimonial {
-            max-width: 820px;
-            margin: 52px auto 60px auto;
-            position: relative;
-        }
-
-        .lead-label {
-            display: inline-block;
-            background: #005bbb;
-            color: #fff;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 4px 16px;
-            border-radius: 10px;
-            margin-bottom: 26px;
-        }
-
-        .lead-badge {
-            display: inline-block;
-            background: #f7faff;
-            border: 1px solid #d9e7f7;
-            color: #005bbb;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
-            padding: 4px 14px;
-            border-radius: 10px;
-            margin: 0 0 26px 12px;
-        }
-
-        /* INLINE QUOTE MARKS */
-        .lead-quote-mark,
-        .lead-quote-mark-close {
-            display: inline;
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 42px;
-            line-height: 0;
-            color: #005bbb;
-            opacity: 0.8;
-            user-select: none;
-        }
-
-        .lead-quote-mark {
-            vertical-align: top;
-            margin-right: 6px;
-        }
-
-        .lead-quote-mark-close {
-            vertical-align: bottom;
-            margin-left: 6px;
-        }
-
-        .lead-line {
-            font-size: 26px;
-            font-weight: 700;
-            color: #005bbb;
-            line-height: 1.45;
-            letter-spacing: 0.01em;
-            margin: 0 0 28px 0;
-        }
-
-        .lead-body {
-            font-size: 17px;
-            color: #1a1a1a;
-            line-height: 1.85;
-            margin: 0 0 16px 0;
-        }
-
-        .lead-attr {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid #d9e7f7;
-        }
-
-        .lead-attr-line {
-            width: 36px;
-            height: 2px;
-            background: #005bbb;
-            border-radius: 1px;
-            flex-shrink: 0;
-        }
-
-        .lead-attr-text {
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 0.09em;
-            color: #005bbb;
-            text-transform: uppercase;
-        }
-
-        /* ── SECTION DIVIDER ── */
-        .section-divider {
+        .hero img {
+            max-width: 520px;
             width: 100%;
-            max-width: 820px;
-            height: 1px;
-            background: #e0e8f5;
-            margin: 0 auto 52px auto;
-        }
-
-        .section-label {
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            color: #005bbb;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 28px;
-        }
-
-        /* ── SUPPORTING TESTIMONIAL CARDS ── */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 24px;
-            max-width: 820px;
-            margin: 0 auto 60px auto;
-        }
-
-        .testimonial-card {
-            background: #f7faff;
-            border: 1px solid #d9e7f7;
-            border-left: 4px solid #005bbb;
+            height: auto;
             border-radius: 8px;
-            padding: 28px 28px 24px 28px;
-            position: relative;
         }
 
-        .card-badge {
-            display: inline-block;
-            background: #e8f0fb;
-            border: 1px solid #c5d8f5;
-            color: #005bbb;
-            font-size: 10px;
-            font-weight: bold;
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 8px;
-            margin-bottom: 14px;
-        }
-
-        .card-quote-bg {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            font-family: Georgia, serif;
-            font-size: 60px;
-            color: #005bbb;
-            opacity: 0.07;
-            line-height: 1;
-            user-select: none;
-        }
-
-        .card-lead {
-            font-size: 16px;
-            font-weight: 700;
-            color: #005bbb;
-            line-height: 1.5;
-            margin: 0 0 14px 0;
-        }
-
-        .card-body {
-            font-size: 14.5px;
-            color: #333;
-            line-height: 1.78;
-            margin: 0 0 18px 0;
-        }
-
-        .card-attr {
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.08em;
-            color: #005bbb;
-            text-transform: uppercase;
-            padding-top: 14px;
-            border-top: 1px solid #d9e7f7;
-        }
-
-        /* ── CLOSING CTA ── */
-        .closing-strip {
-            max-width: 820px;
-            margin: 0 auto 60px auto;
-            background: #005bbb;
-            border-radius: 8px;
-            padding: 32px 40px;
+        .links {
+            margin-top: 40px;
             text-align: center;
-            color: #fff;
         }
 
-        .closing-strip h2 {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-        }
-
-        .closing-strip p {
-            font-size: 15px;
-            opacity: 0.9;
-            margin: 0 0 22px 0;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        .closing-strip a {
+        .links a {
             display: inline-block;
-            background: #fff;
-            color: #005bbb;
-            font-size: 15px;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 10px 24px;
-            border-radius: 6px;
-        }
-
-        .closing-strip a:hover {
-            background: #e8f0fb;
-        }
-
-        /* ── NAV BUTTONS ── */
-        .nav-buttons {
-            text-align: center;
-            margin-bottom: 52px;
-        }
-
-        .nav-buttons a {
-            display: inline-block;
-            margin: 10px 16px;
+            margin: 10px 20px;
             padding: 12px 22px;
             background: #005bbb;
             color: #fff;
             text-decoration: none;
             border-radius: 6px;
-            font-size: 17px;
+            font-size: 18px;
         }
 
-        .nav-buttons a:hover {
+        .links a:hover {
             background: #004999;
         }
 
-        .back-link {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .back-link a {
-            color: #005bbb;
-            font-size: 15px;
-            text-decoration: none;
-        }
-
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-
-        /* ── FOOTER ── */
         footer {
-            margin-top: 60px;
+            margin-top: 80px;
             padding: 40px;
             background: #f5f5f5;
             border-top: 1px solid #e0e0e0;
@@ -336,164 +93,289 @@
             max-width: 1100px;
             margin: 0 auto 10px auto;
         }
-        /* FIX: Normalize lead-line quote marks */
-.lead-line {
-    font-size: 26px;
-    font-weight: 700;
-    color: #005bbb;
-    line-height: 1.45;
-    letter-spacing: 0.01em;
-}
 
-.lead-line::first-letter {
-    margin-left: 0; /* prevents spacing glitch */
-}
+        /* ═══════════════════════════════════════════════════════
+           TESTIMONIAL RIBBON
+           Sits between the blue divider and the banner image.
+           Thin, full-width strip — one bold sentence, always visible.
+           ═══════════════════════════════════════════════════════ */
+        .testimonial-ribbon {
+            border-top: 1px solid #d9e7f7;
+            border-bottom: 1px solid #d9e7f7;
+            background: #f7faff;
+            padding: 14px 40px;
+            text-align: center;
+            margin: 0 -60px 36px -60px; /* bleed to body edges */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
 
-/* Ensure curly quotes render at text size, not oversized */
-.lead-line {
-    quotes: "“" "”";
-}
+        .ribbon-quote {
+            font-size: 15px;
+            font-weight: 700;
+            color: #005bbb;
+            line-height: 1.5;
+        }
 
-.lead-line {
-    font-variant-ligatures: none;
-}
+        .ribbon-attr {
+            font-size: 13px;
+            color: #888;
+            white-space: nowrap;
+        }
 
+        .ribbon-divider {
+            width: 1px;
+            height: 18px;
+            background: #d9e7f7;
+            flex-shrink: 0;
+        }
+
+        .ribbon-modal-btn {
+            background: none;
+            border: 1.5px solid #005bbb;
+            border-radius: 20px;
+            color: #005bbb;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            padding: 5px 16px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .ribbon-modal-btn:hover {
+            background: #005bbb;
+            color: #fff;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           MODAL OVERLAY
+           Full testimonial displayed on demand — zero page cost.
+           ═══════════════════════════════════════════════════════ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-card {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 680px;
+            width: 100%;
+            padding: 44px 48px 40px 48px;
+            position: relative;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22);
+            animation: modalIn 0.25s ease;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #888;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px 8px;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-close:hover {
+            color: #222;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: #005bbb;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 10px;
+            margin-bottom: 22px;
+        }
+
+        .modal-quote-bg {
+            position: absolute;
+            top: 24px;
+            right: 36px;
+            font-family: Georgia, serif;
+            font-size: 80px;
+            color: #005bbb;
+            opacity: 0.07;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .modal-lead {
+            font-size: 20px;
+            font-weight: 700;
+            color: #005bbb;
+            line-height: 1.5;
+            margin: 0 0 20px 0;
+            /* override global p */
+            text-align: left;
+            max-width: 100%;
+        }
+
+        .modal-body {
+            font-size: 16px;
+            color: #1a1a1a;
+            line-height: 1.82;
+            margin: 0 0 14px 0;
+            text-align: left;
+            max-width: 100%;
+        }
+
+        .modal-attr {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid #d9e7f7;
+        }
+
+        .modal-attr-line {
+            width: 28px;
+            height: 2px;
+            background: #005bbb;
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .modal-attr-text {
+            font-size: 11.5px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            color: #005bbb;
+            text-transform: uppercase;
+        }
+
+        .modal-full-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #005bbb;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .modal-full-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
-
 <body>
 
-<!-- ══ HEADER ══ -->
+<!-- ══ HEADER / LOGO BLOCK ══ -->
 <div class="header-block">
     <div class="logo-row">
-        <img src="./../../assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
-        <img src="./../../assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+        <img src=".../../assets/logos/slp-full-logo.png"    alt="Strategic Lab Partners">
+        <img src=".../../assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
     </div>
 
-    <h1 class="page-title">Client Testimonials</h1>
-    <p class="page-sub">
-        What research leaders, CROs, and diagnostics innovators say about
-        SLP CONNECT™ — earned through precision, consistency, and dependable
-        support at every stage.
-    </p>
-    <div class="divider"></div>
+    <div style="margin-top: 28px; margin-bottom: 22px;">
+        <p style="font-weight: 600; color:#005bbb; font-size: 22px; line-height: 1.3; margin-bottom: 12px;">
+            BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
+        </p>
+        <p style="color:#000; font-size: 16px; line-height: 1.55;">
+            For complex, decentralized, and regulated operations, SLP CONNECT™ provides operational
+            command&#8209;and&#8209;control across kitting, fulfillment, and deployment—so delays, loss, and surprises
+            are detected early and prevented before they impact patients, research timelines, or cost.
+        </p>
+    </div>
+
+    <div class="divider" style="margin-top: 12px; margin-bottom: 0;"></div>
 </div>
 
-<!-- ══ LEAD TESTIMONIAL ══ -->
-<div class="lead-testimonial">
 
-    <div>
-        <span class="lead-label">&#9733;&nbsp; Featured Endorsement</span>
-        <span class="lead-badge">&#9679;&nbsp; Neurologic Diagnostics</span>
-    </div>
-
-    <p class="lead-line">
-        &#8220;You’re exactly what you said you would be to us — incredibly supportive, extremely helpful.&#8221;
-    </p>
-
-    <p class="lead-body">
-        In neurologic diagnostics, you learn quickly which systems you can trust.
-        SLP CONNECT has earned that trust. It runs clean, it runs consistently,
-        and it supports the level of analytical discipline our assays require.
-        It has made our workflows smoother, our data cleaner, and our reporting
-        more dependable.
-    </p>
-
-    <p class="lead-body">
-        We don’t give endorsements lightly in this industry, but this platform
-        has proven itself. I appreciate that, honestly, respectfully so — thank you
-        for continuing to work with us. It’s genuinely nice to have you in our
-        court because we are now growing and need you more than ever.
-    </p>
-
-    <div class="lead-attr">
-        <div class="lead-attr-line"></div>
-        <span class="lead-attr-text">Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
-    </div>
-
+<!-- ══════════════════════════════════════════════════════════════
+     TESTIMONIAL RIBBON — always visible, one bold sentence
+     + "Read full endorsement" modal trigger button
+     ══════════════════════════════════════════════════════════════ -->
+<div class="testimonial-ribbon">
+    <span style="font-size:17px; color:#005bbb; opacity:0.6; font-family:Georgia,serif; line-height:1; flex-shrink:0;">&nbsp;</span>
+    <span class="ribbon-quote">
+    "You’re exactly what you said you would be to us —
+     incredibly supportive, extremely helpful." </span>
+    <span class="ribbon-attr">&#8212; Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+  <div class="ribbon-divider"></div>
+    <button class="ribbon-modal-btn" id="openModal">Read Full Endorsement</button>
 </div>
 
+
+<!-- ══ HERO IMAGE ══ -->
+<div class="hero">
+    <img src=".../../assets/images/slp-web-banner-2.png" alt="SLP CONNECT Ecosystem">
 </div>
 
-<div class="section-divider"></div>
 
-<!-- ══ SUPPORTING TESTIMONIALS ══ -->
-<p class="section-label">More From Research &amp; Diagnostics Leaders</p>
-
-<div class="testimonial-grid">
-
-    <div class="testimonial-card">
-        <span class="card-quote-bg">&#8220;</span>
-        <span class="card-badge">&#9679;&nbsp; Genomics / CRO Operations</span>
-        <p class="card-lead">
-            “SLP CONNECT™ gave us visibility we didn’t know was missing.
-            Exception management is now proactive, not reactive.”
-        </p>
-        <p class="card-body">
-            Before SLP CONNECT™, inventory gaps at decentralized sites were identified after the
-            fact — costing us sample integrity and timelines. Now our operations team has real-time
-            command across every kit, every location. The serialized tracking alone transformed how
-            we run multi-site genomics programs.
-        </p>
-        <div class="card-attr">—&nbsp; Operations Lead, Genomics CRO / Multi-Site Program</div>
-    </div>
-
-    <div class="testimonial-card">
-        <span class="card-quote-bg">&#8220;</span>
-        <span class="card-badge">&#9679;&nbsp; Precision Medicine</span>
-        <p class="card-lead">
-            “The level of precision SLP CONNECT™ delivers is exactly what
-            compliance-driven programs require. It’s not just a platform —
-            it’s a system of record.”
-        </p>
-        <p class="card-body">
-            Running precision medicine programs means zero tolerance for supply chain ambiguity.
-            SLP CONNECT™ closes the loop between design, kitting, fulfillment, and patient delivery.
-            Every step is documented, traceable, and auditable. Our regulatory submissions are
-            stronger and our timelines are tighter.
-        </p>
-        <div class="card-attr">—&nbsp; Program Director, Precision Medicine / Research Sponsor</div>
-    </div>
-
-    <div class="testimonial-card">
-        <span class="card-quote-bg">&#8220;</span>
-        <span class="card-badge">&#9679;&nbsp; Multi-Omics / Fulfillment</span>
-        <p class="card-lead">
-            “Three times the program volume. Zero increase in fulfillment error rate.
-            That’s what scaling with SLP CONNECT™ looks like.”
-        </p>
-        <p class="card-body">
-            As our multi-omics program expanded globally, our kitting operation faced volume
-            pressure that legacy workflows could not absorb. SLP CONNECT™ scaled alongside us —
-            maintaining precision at every stage, at every site. Our partners have noticed
-            the difference too.
-        </p>
-        <div class="card-attr">—&nbsp; VP Operations, Multi-Omics Research Program</div>
-    </div>
-
-</div>
-
-<!-- ══ CLOSING CTA ══ -->
-<div class="closing-strip">
-    <h2>See the outcomes behind the endorsements.</h2>
-    <p>
-        Our case studies detail the operational results behind every testimonial —
-        from exception rate reductions to full regulatory traceability.
+<!-- ══ PRIMARY CTA BLOCK ══ -->
+<div style="
+    max-width: 720px;
+    margin: 40px auto 10px auto;
+    padding: 28px 32px;
+    background: #f7faff;
+    border: 1px solid #d9e7f7;
+    border-radius: 10px;
+    text-align: left;
+">
+    <p style="font-size: 20px; font-weight: 600; color:#005bbb; margin: 0 0 18px 0; text-align: left; max-width: 100%;">
+        Start here:
     </p>
-    <a href="/case-studies/">Explore Case Studies →</a>
+    <ul style="list-style: none; padding-left: 0; margin: 0;">
+        <li style="margin-bottom: 14px;">
+            <a href="/faqs/what-is-slp-connect" style="color:#005bbb; font-size:17px; text-decoration:none;">
+                Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)
+            </a>
+        </li>
+        <li style="margin-bottom: 14px;">
+            <a href="/faqs/how-does-slp-connect-integrate-with-kitting-and-3pl" style="color:#005bbb; font-size:17px; text-decoration:none;">
+                Understand how oversight integrates with fulfillment
+            </a>
+        </li>
+        <li>
+            <a href="/resources/scaling/" style="color:#005bbb; font-size:17px; text-decoration:none;">
+                Explore how SLP scales decentralized programs
+            </a>
+        </li>
+    </ul>
 </div>
 
-<!-- ══ NAV BUTTONS ══ -->
-<div class="nav-buttons">
+
+<!-- ══ NAV BUTTONS — includes ★ Testimonials link ══ -->
+<div class="links">
     <a href="/resources/">Resources</a>
     <a href="/faqs/">FAQs</a>
     <a href="/case-studies/">Case Studies</a>
     <a href="/blog/">Blog</a>
+    <a href="/testimonials/" style="background:#1a6fcf;">&#9733;&nbsp;Testimonials</a>
 </div>
 
-<div class="back-link">
-    <a href="/">&larr; Back to SLP CONNECT™ Home</a>
-</div>
 
 <!-- ══ FOOTER ══ -->
 <footer>
@@ -501,21 +383,100 @@
         MISSION | Strategic Lab Partners (SLP)
     </p>
     <p style="font-size: 16px; line-height: 1.6;">
-        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi‑Omics,
+        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi&#8209;Omics,
         and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one
         connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized
-        Management Platform, we integrate precision kit production, global logistics, and real‑time
+        Management Platform, we integrate precision kit production, global logistics, and real&#8209;time
         digital visibility to ensure complete control from design to deployment. Our mission is to deliver
         reliable, scalable, and compliant operations that help research sponsors and CROs run complex
-        studies with advanced‑manufacturing accuracy. We elevate healthcare supply chains with universal
-        kitting, serialized tracking, and value‑based logistics—strengthening quality, reducing variability,
+        studies with advanced&#8209;manufacturing accuracy. We elevate healthcare supply chains with universal
+        kitting, serialized tracking, and value&#8209;based logistics—strengthening quality, reducing variability,
         and accelerating scientific discovery.
     </p>
     <p style="font-size: 14px; color: #666; margin-top: 20px;">
-        © Strategic Lab Partners — All Rights Reserved.
+        &copy; Strategic Lab Partners &mdash; All Rights Reserved.
         <br>Part of the SLP CONNECT™ Ecosystem.
     </p>
 </footer>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     MODAL OVERLAY — full testimonial on demand
+     ══════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="testimonialModal" role="dialog" aria-modal="true" aria-labelledby="modalLead">
+
+    <div class="modal-card">
+        <span class="modal-quote-bg" aria-hidden="true">&#8220;</span>
+        <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+
+        <span class="modal-badge">&#9679;&nbsp; Neurologic Diagnostics &mdash; Featured Endorsement</span>
+
+        <p class="modal-lead" id="modalLead">
+            &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
+            incredibly supportive, extremely helpful.&#8221;
+        </p>
+
+        <p class="modal-body">
+            In neurologic diagnostics, you learn quickly which systems you can trust.
+            SLP CONNECT has earned that trust. It runs clean, it runs consistently,
+            and it supports the level of analytical discipline our assays require.
+            It has made our workflows smoother, our data cleaner, and our reporting
+            more dependable.
+        </p>
+
+        <p class="modal-body">
+            We don&rsquo;t give endorsements lightly in this industry, but this platform
+            has proven itself. I appreciate that, honestly, respectfully so &mdash; thank you
+            for continuing to work with us. It&rsquo;s genuinely nice to have you in our
+            court because we are now growing and need you more than ever.
+        </p>
+
+        <div class="modal-attr">
+            <div class="modal-attr-line"></div>
+            <span class="modal-attr-text">Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+        </div>
+
+        <a href="/testimonials/" class="modal-full-link">
+            View all testimonials &rarr;
+        </a>
+    </div>
+
+</div>
+
+
+<!-- ══ MODAL SCRIPT ══ -->
+<script>
+(function () {
+    var modal    = document.getElementById('testimonialModal');
+    var openBtn  = document.getElementById('openModal');
+    var closeBtn = document.getElementById('closeModal');
+
+    function openModal() {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    /* Close on overlay click */
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+    });
+
+    /* Close on Escape key */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+})();
+</script>
 
 </body>
 </html>
