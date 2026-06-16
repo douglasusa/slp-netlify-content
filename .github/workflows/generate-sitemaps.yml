@@ -1,15 +1,70 @@
-      - name: Generate FAQs Sitemap
+name: Generate Dynamic Sitemaps
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-sitemaps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Ensure static directory exists
+        run: mkdir -p static
+
+      - name: Generate Dynamic Section Sitemaps
         run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-faqs.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-faqs.xml
-          find static/faqs -maxdepth 1 -name "*.html" | grep -v '/index.html$' | sort | while read file; do
-            slug=$(basename "$file" .html)
-            url="https://content.strategiclabpartners.com/faqs/$slug"
-            echo "  <url><loc>$url</loc></url>" >> static/sitemap-faqs.xml
+          BASE_URL="https://content.strategiclabpartners.com"
+
+          # Clean old sitemaps
+          rm -f static/sitemap-*.xml
+
+          # Discover all top-level sections inside /static/
+          for section in $(find static -mindepth 1 -maxdepth 1 -type d | sed 's|static/||'); do
+            SITEMAP="static/sitemap-${section}.xml"
+
+            echo "Generating sitemap for section: $section"
+            echo '<?xml version="1.0" encoding="UTF-8"?>' > $SITEMAP
+            echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $SITEMAP
+
+            # 1. Top-level HTML files (excluding index.html)
+            find static/$section -maxdepth 1 -name "*.html" | grep -v '/index.html$' | sort | while read file; do
+              slug=$(basename "$file" .html)
+              url="$BASE_URL/$section/$slug"
+              echo "  <url><loc>$url</loc></url>" >> $SITEMAP
+            done
+
+            # 2. Nested folders containing index.html
+            find static/$section -mindepth 2 -name "index.html" | sort | while read file; do
+              slug=$(basename "$(dirname "$file")")
+              url="$BASE_URL/$section/$slug"
+              echo "  <url><loc>$url</loc></url>" >> $SITEMAP
+            done
+
+            echo '</urlset>' >> $SITEMAP
           done
-          find static/faqs -mindepth 2 -name "index.html" | sort | while read file; do
-            slug=$(basename "$(dirname "$file")")
-            url="https://content.strategiclabpartners.com/faqs/$slug/"
-            echo "  <url><loc>$url</loc></url>" >> static/sitemap-faqs.xml
+
+      - name: Generate Master Sitemap Index
+        run: |
+          BASE_URL="https://content.strategiclabpartners.com"
+
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap.xml
+          echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap.xml
+
+          # Add all generated sitemaps dynamically
+          for sm in static/sitemap-*.xml; do
+            fname=$(basename "$sm")
+            echo "  <sitemap><loc>$BASE_URL/$fname</loc></sitemap>" >> static/sitemap.xml
           done
-          echo '</urlset>' >> static/sitemap-faqs.xml
+
+          echo '</sitemapindex>' >> static/sitemap.xml
+
+      - name: Upload sitemap artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dynamic-sitemaps
+          path: static/sitemap*.xml
