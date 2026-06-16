@@ -14,7 +14,6 @@
             line-height: 1.6;
         }
 
-        /* ── HEADER ── */
         .header-block {
             text-align: center;
             margin-bottom: 50px;
@@ -40,13 +39,6 @@
             background-color: #005bbb;
             margin: 0 auto 30px auto;
             border-radius: 2px;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-align: center;
         }
 
         p {
@@ -93,7 +85,6 @@
             padding: 40px;
             background: #f5f5f5;
             border-top: 1px solid #e0e0e0;
-            font-family: Arial, sans-serif;
         }
 
         footer p {
@@ -102,139 +93,205 @@
             margin: 0 auto 10px auto;
         }
 
-        /* ══════════════════════════════════════════════════════
-           OPTION 3 — CENTERED PULL QUOTE
-           White background, no card border. Large decorative
-           quote mark, lead line only displayed at full size,
-           thin rule, attribution, expand toggle for full body.
+        /* ═══════════════════════════════════════════════════════
+           TESTIMONIAL RIBBON
            Sits between the blue divider and the banner image.
-           ══════════════════════════════════════════════════════ */
-        .pull-quote {
-            max-width: 720px;
-            margin: 0 auto 52px auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .pull-quote .open-quote {
-            display: block;
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 100px;
-            line-height: 0.7;
-            color: #005bbb;
-            margin-bottom: 18px;
-            user-select: none;
-        }
-
-        .pull-quote .industry-badge {
-            display: inline-block;
+           Thin, full-width strip — one bold sentence, always visible.
+           ═══════════════════════════════════════════════════════ */
+        .testimonial-ribbon {
+            border-top: 1px solid #d9e7f7;
+            border-bottom: 1px solid #d9e7f7;
             background: #f7faff;
-            border: 1px solid #d9e7f7;
+            padding: 14px 40px;
+            text-align: center;
+            margin: 0 -60px 36px -60px; /* bleed to body edges */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .ribbon-quote {
+            font-size: 15px;
+            font-weight: 700;
             color: #005bbb;
+            line-height: 1.5;
+        }
+
+        .ribbon-attr {
+            font-size: 13px;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .ribbon-divider {
+            width: 1px;
+            height: 18px;
+            background: #d9e7f7;
+            flex-shrink: 0;
+        }
+
+        .ribbon-modal-btn {
+            background: none;
+            border: 1.5px solid #005bbb;
+            border-radius: 20px;
+            color: #005bbb;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            padding: 5px 16px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .ribbon-modal-btn:hover {
+            background: #005bbb;
+            color: #fff;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           MODAL OVERLAY
+           Full testimonial displayed on demand — zero page cost.
+           ═══════════════════════════════════════════════════════ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-card {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 680px;
+            width: 100%;
+            padding: 44px 48px 40px 48px;
+            position: relative;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22);
+            animation: modalIn 0.25s ease;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #888;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px 8px;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-close:hover {
+            color: #222;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: #005bbb;
+            color: #fff;
             font-size: 11px;
             font-weight: bold;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             padding: 4px 14px;
-            border-radius: 12px;
-            margin-bottom: 26px;
+            border-radius: 10px;
+            margin-bottom: 22px;
         }
 
-        .pull-quote .lead-line {
-            font-size: 26px;
+        .modal-quote-bg {
+            position: absolute;
+            top: 24px;
+            right: 36px;
+            font-family: Georgia, serif;
+            font-size: 80px;
+            color: #005bbb;
+            opacity: 0.07;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .modal-lead {
+            font-size: 20px;
             font-weight: 700;
             color: #005bbb;
-            line-height: 1.45;
-            letter-spacing: 0.01em;
-            margin: 0 auto 28px auto;
-            max-width: 640px;
-            /* override global p */
-            text-align: center;
-        }
-
-        .pull-quote .pull-rule {
-            width: 60px;
-            height: 2px;
-            background: #005bbb;
-            margin: 0 auto 22px auto;
-            border-radius: 1px;
-            border: none;
-        }
-
-        .pull-quote .attribution {
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 0.09em;
-            color: #005bbb;
-            text-transform: uppercase;
+            line-height: 1.5;
             margin: 0 0 20px 0;
             /* override global p */
-            text-align: center;
+            text-align: left;
             max-width: 100%;
         }
 
-        /* Expand toggle link */
-        .pull-quote .expand-toggle {
-            display: inline-block;
-            font-size: 14px;
-            color: #005bbb;
-            text-decoration: none;
-            cursor: pointer;
-            letter-spacing: 0.02em;
-            border: none;
-            background: none;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            margin-bottom: 0;
-        }
-
-        .pull-quote .expand-toggle:hover {
-            text-decoration: underline;
-        }
-
-        /* Expandable full body */
-        .pull-quote .full-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.45s ease, opacity 0.45s ease, margin-top 0.35s ease;
-            opacity: 0;
-            margin-top: 0;
-        }
-
-        .pull-quote .full-body.open {
-            max-height: 400px;
-            opacity: 1;
-            margin-top: 26px;
-        }
-
-        .pull-quote .full-body p {
+        .modal-body {
             font-size: 16px;
             color: #1a1a1a;
-            line-height: 1.85;
+            line-height: 1.82;
+            margin: 0 0 14px 0;
             text-align: left;
             max-width: 100%;
-            margin: 0 0 16px 0;
         }
 
-        .pull-quote .full-body p:last-child {
-            margin-bottom: 0;
+        .modal-attr {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid #d9e7f7;
         }
 
-        .pull-quote .full-body-inner {
-            background: #f7faff;
-            border: 1px solid #d9e7f7;
-            border-radius: 8px;
-            padding: 28px 32px;
-            text-align: left;
+        .modal-attr-line {
+            width: 28px;
+            height: 2px;
+            background: #005bbb;
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .modal-attr-text {
+            font-size: 11.5px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            color: #005bbb;
+            text-transform: uppercase;
+        }
+
+        .modal-full-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #005bbb;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .modal-full-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
 
 <!-- ══ HEADER / LOGO BLOCK ══ -->
 <div class="header-block">
-
     <div class="logo-row">
         <img src=".../../assets/logos/slp-full-logo.png"    alt="Strategic Lab Partners">
         <img src=".../../assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
@@ -251,62 +308,29 @@
         </p>
     </div>
 
-    <div class="divider" style="margin-top: 12px; margin-bottom: 48px;"></div>
-
+    <div class="divider" style="margin-top: 12px; margin-bottom: 0;"></div>
 </div>
 
 
 <!-- ══════════════════════════════════════════════════════════════
-     OPTION 3 — CENTERED PULL QUOTE TESTIMONIAL
-     Placement: after blue divider, before banner image.
-     Lead line visible above fold. Full text expandable on click.
+     TESTIMONIAL RIBBON — always visible, one bold sentence
+     + "Read full endorsement" modal trigger button
      ══════════════════════════════════════════════════════════════ -->
-<div class="pull-quote">
-
-    <span class="open-quote" aria-hidden="true">&#8220;</span>
-
-    <span class="industry-badge">&#9679;&nbsp; Neurologic Diagnostics &#8212; Featured Endorsement</span>
-
-    <p class="lead-line">
+<div class="testimonial-ribbon">
+    <span style="font-size:17px; color:#005bbb; opacity:0.6; font-family:Georgia,serif; line-height:1; flex-shrink:0;">&#8220;</span>
+    <span class="ribbon-quote">
         You&rsquo;re exactly what you said you would be to us &mdash;
         incredibly supportive, extremely helpful.
-    </p>
-
-    <hr class="pull-rule">
-
-    <p class="attribution">&#8212;&nbsp; Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</p>
-
-    <button class="expand-toggle" id="expandToggle" aria-expanded="false" aria-controls="fullBody">
-        Read the full endorsement&nbsp;&#9660;
-    </button>
-
-    <div class="full-body" id="fullBody" role="region" aria-label="Full testimonial">
-        <div class="full-body-inner">
-            <p>
-                In neurologic diagnostics, you learn quickly which systems you can trust.
-                SLP CONNECT has earned that trust. It runs clean, it runs consistently,
-                and it supports the level of analytical discipline our assays require.
-                It has made our workflows smoother, our data cleaner, and our reporting
-                more dependable.
-            </p>
-            <p>
-                We don&rsquo;t give endorsements lightly in this industry, but this platform
-                has proven itself. I appreciate that, honestly, respectfully so &mdash; thank you
-                for continuing to work with us. It&rsquo;s genuinely nice to have you in our
-                court because we are now growing and need you more than ever.
-            </p>
-        </div>
-    </div>
-
+    </span>
+    <span class="ribbon-attr">&#8212; Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+    <div class="ribbon-divider"></div>
+    <button class="ribbon-modal-btn" id="openModal">Read Full Endorsement</button>
 </div>
 
 
 <!-- ══ HERO IMAGE ══ -->
 <div class="hero">
-    <img
-        src=".../../assets/images/slp-web-banner-2.png"
-        alt="SLP CONNECT Ecosystem"
-    >
+    <img src=".../../assets/images/slp-web-banner-2.png" alt="SLP CONNECT Ecosystem">
 </div>
 
 
@@ -325,33 +349,31 @@
     </p>
     <ul style="list-style: none; padding-left: 0; margin: 0;">
         <li style="margin-bottom: 14px;">
-            <a href="/faqs/what-is-slp-connect"
-               style="color:#005bbb; font-size: 17px; text-decoration: none;">
-               Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)
+            <a href="/faqs/what-is-slp-connect" style="color:#005bbb; font-size:17px; text-decoration:none;">
+                Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)
             </a>
         </li>
         <li style="margin-bottom: 14px;">
-            <a href="/faqs/how-does-slp-connect-integrate-with-kitting-and-3pl"
-               style="color:#005bbb; font-size: 17px; text-decoration: none;">
-               Understand how oversight integrates with fulfillment
+            <a href="/faqs/how-does-slp-connect-integrate-with-kitting-and-3pl" style="color:#005bbb; font-size:17px; text-decoration:none;">
+                Understand how oversight integrates with fulfillment
             </a>
         </li>
         <li>
-            <a href="/resources/scaling/"
-               style="color:#005bbb; font-size: 17px; text-decoration: none;">
-               Explore how SLP scales decentralized programs
+            <a href="/resources/scaling/" style="color:#005bbb; font-size:17px; text-decoration:none;">
+                Explore how SLP scales decentralized programs
             </a>
         </li>
     </ul>
 </div>
 
 
-<!-- ══ NAV BUTTONS ══ -->
+<!-- ══ NAV BUTTONS — includes ★ Testimonials link ══ -->
 <div class="links">
     <a href="/resources/">Resources</a>
     <a href="/faqs/">FAQs</a>
     <a href="/case-studies/">Case Studies</a>
     <a href="/blog/">Blog</a>
+    <a href="/testimonials/" style="background:#1a6fcf;">&#9733;&nbsp;Testimonials</a>
 </div>
 
 
@@ -378,18 +400,80 @@
 </footer>
 
 
-<!-- ══ EXPAND TOGGLE SCRIPT ══ -->
+<!-- ══════════════════════════════════════════════════════════════
+     MODAL OVERLAY — full testimonial on demand
+     ══════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="testimonialModal" role="dialog" aria-modal="true" aria-labelledby="modalLead">
+
+    <div class="modal-card">
+        <span class="modal-quote-bg" aria-hidden="true">&#8220;</span>
+        <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+
+        <span class="modal-badge">&#9679;&nbsp; Neurologic Diagnostics &mdash; Featured Endorsement</span>
+
+        <p class="modal-lead" id="modalLead">
+            &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
+            incredibly supportive, extremely helpful.&#8221;
+        </p>
+
+        <p class="modal-body">
+            In neurologic diagnostics, you learn quickly which systems you can trust.
+            SLP CONNECT has earned that trust. It runs clean, it runs consistently,
+            and it supports the level of analytical discipline our assays require.
+            It has made our workflows smoother, our data cleaner, and our reporting
+            more dependable.
+        </p>
+
+        <p class="modal-body">
+            We don&rsquo;t give endorsements lightly in this industry, but this platform
+            has proven itself. I appreciate that, honestly, respectfully so &mdash; thank you
+            for continuing to work with us. It&rsquo;s genuinely nice to have you in our
+            court because we are now growing and need you more than ever.
+        </p>
+
+        <div class="modal-attr">
+            <div class="modal-attr-line"></div>
+            <span class="modal-attr-text">Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+        </div>
+
+        <a href="/testimonials/" class="modal-full-link">
+            View all testimonials &rarr;
+        </a>
+    </div>
+
+</div>
+
+
+<!-- ══ MODAL SCRIPT ══ -->
 <script>
 (function () {
-    var btn  = document.getElementById('expandToggle');
-    var body = document.getElementById('fullBody');
+    var modal    = document.getElementById('testimonialModal');
+    var openBtn  = document.getElementById('openModal');
+    var closeBtn = document.getElementById('closeModal');
 
-    btn.addEventListener('click', function () {
-        var isOpen = body.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen);
-        btn.textContent = isOpen
-            ? 'Close \u25B2'
-            : 'Read the full endorsement \u25BC';
+    function openModal() {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    /* Close on overlay click */
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+    });
+
+    /* Close on Escape key */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
 })();
 </script>
