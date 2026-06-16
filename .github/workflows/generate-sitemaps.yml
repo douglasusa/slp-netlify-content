@@ -70,3 +70,5 @@ jobs:
         with:
           name: dynamic-sitemaps
           path: static/sitemap*.xml
+
+✕Merlin
