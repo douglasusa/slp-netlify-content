@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SLP CONNECT™ — Case Studies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real-world SLP CONNECT™ case studies demonstrating precision, workflow reliability, and operational outcomes across regulated research programs.">
+    <!--
+    ╔══════════════════════════════════════════════════════════════════╗
+    ║  SLP CONNECT™ — CASE STUDIES                                    ║
+    ║  Placement: /static/case-studies/index.html                     ║
+    ║  Feature: Rotating Featured Testimonial block (JS carousel)     ║
+    ║  Lead testimonial: Prestigious Neuroscience Founder / CMO       ║
+    ╚══════════════════════════════════════════════════════════════════╝
+    -->
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 60px;
+            background: #ffffff;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* ── HEADER ── */
+        .header-block {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .logo-row img {
+            max-height: 90px;
+            width: auto;
+        }
+
+        .tagline {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            color: #005bbb;
+            margin-bottom: 14px;
+        }
+
+        .divider {
+            width: 120px;
+            height: 3px;
+            background-color: #005bbb;
+            margin: 0 auto 30px auto;
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .page-sub {
+            font-size: 17px;
+            max-width: 680px;
+            margin: 0 auto 32px auto;
+            text-align: center;
+            color: #444;
+        }
+
+        /* ══════════════════════════════════════════════════
+           ROTATING FEATURED TESTIMONIAL BLOCK
+           JavaScript-powered carousel with 3 testimonials.
+           The neuroscience testimonial is always slide 0
+           (the lead-off / default visible card).
+           ══════════════════════════════════════════════════ */
+        .testimonial-carousel-wrapper {
+            max-width: 860px;
+            margin: 0 auto 56px auto;
+        }
+
+        .carousel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .carousel-label {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            color: #005bbb;
+            text-transform: uppercase;
+        }
+
+        .carousel-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .carousel-btn {
+            background: none;
+            border: 1.5px solid #005bbb;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            color: #005bbb;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .carousel-btn:hover {
+            background: #005bbb;
+            color: #fff;
+        }
+
+        .carousel-counter {
+            font-size: 12px;
+            color: #888;
+            min-width: 36px;
+            text-align: center;
+        }
+
+        /* Slide container */
+        .carousel-track {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: none;
+            background: #f7faff;
+            border: 1px solid #d9e7f7;
+            border-left: 5px solid #005bbb;
+            border-radius: 8px;
+            padding: 36px 42px 30px 42px;
+            position: relative;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-badge {
+            display: inline-block;
+            background: #005bbb;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .slide-lead {
+            font-size: 18px;
+            font-weight: 700;
+            color: #005bbb;
+            line-height: 1.55;
+            margin-bottom: 18px;
+        }
+
+        .slide-body {
+            font-size: 15.5px;
+            color: #1a1a1a;
+            line-height: 1.82;
+            margin-bottom: 14px;
+        }
+
+        .slide-body:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .slide-attribution {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid #d9e7f7;
+        }
+
+        .slide-attr-line {
+            width: 28px;
+            height: 2px;
+            background: #005bbb;
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .slide-attr-text {
+            font-size: 11.5px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            color: #005bbb;
+            text-transform: uppercase;
+        }
+
+        .slide-quote-bg {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: Georgia, serif;
+            font-size: 80px;
+            color: #005bbb;
+            opacity: 0.08;
+            line-height: 1;
+            user-select: none;
+        }
+
+        /* Dots */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d9e7f7;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s;
+        }
+
+        .dot.active {
+            background: #005bbb;
+        }
+
+        /* ── CASE STUDY CARDS ── */
+        .case-studies-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cs-section-label {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            color: #005bbb;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            margin-bottom: 52px;
+        }
+
+        .cs-card {
+            background: #f7faff;
+            border: 1px solid #d9e7f7;
+            border-radius: 8px;
+            padding: 26px 24px;
+        }
+
+        .cs-card-tag {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.07em;
+            color: #005bbb;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .cs-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+
+        .cs-card p {
+            font-size: 14px;
+            color: #555;
+            margin: 0 0 16px 0;
+            line-height: 1.6;
+        }
+
+        .cs-card-link {
+            font-size: 13px;
+            font-weight: bold;
+            color: #005bbb;
+            text-decoration: none;
+        }
+
+        .cs-card-link:hover {
+            text-decoration: underline;
+        }
+
+        .cs-card-outcome {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            background: #ffffff;
+            border: 1px solid #d9e7f7;
+            border-radius: 5px;
+            padding: 10px 12px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        .cs-card-outcome span.icon {
+            color: #005bbb;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ── INLINE MINI-TESTIMONIAL (mid-page) ── */
+        .inline-mini-testimonial {
+            max-width: 760px;
+            margin: 8px auto 52px auto;
+            background: #005bbb;
+            color: #fff;
+            border-radius: 8px;
+            padding: 30px 36px;
+            text-align: center;
+        }
+
+        .inline-mini-testimonial p.mini-lead {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.55;
+            margin: 0 0 14px 0;
+        }
+
+        .inline-mini-testimonial p.mini-attr {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin: 0;
+        }
+
+        /* ── NAV BUTTONS ── */
+        .nav-buttons {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .nav-buttons a {
+            display: inline-block;
+            margin: 10px 16px;
+            padding: 12px 22px;
+            background: #005bbb;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .nav-buttons a:hover {
+            background: #004999;
+        }
+
+        /* ── BACK LINK ── */
+        .back-link {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .back-link a {
+            color: #005bbb;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 60px;
+            padding: 40px;
+            background: #f5f5f5;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer p {
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header-block">
+    <div class="logo-row">
+        <img src=".../../assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+        <img src=".../../assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+    </div>
+
+    <p class="tagline">SLP CONNECT™ — Case Studies</p>
+    <div class="divider"></div>
+
+    <h1>Proven in the Field</h1>
+    <p class="page-sub">
+        Real-world outcomes from research sponsors, CROs, and diagnostics leaders who depend on
+        SLP CONNECT™ for precision operations, clean data, and dependable program delivery.
+    </p>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     ROTATING FEATURED TESTIMONIAL BLOCK
+     Slide 0 = Neuroscience Founder/CMO (lead-off, always first)
+     Slide 1 = Genomics CRO Operations Lead (supporting)
+     Slide 2 = Precision Medicine Program Director (supporting)
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="testimonial-carousel-wrapper">
+
+    <div class="carousel-header">
+        <span class="carousel-label">&#9733;&nbsp; Featured Testimonials</span>
+        <div class="carousel-controls">
+            <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">&#8592;</button>
+            <span class="carousel-counter" id="carouselCounter">1 / 3</span>
+            <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">&#8594;</button>
+        </div>
+    </div>
+
+    <div class="carousel-track" id="carouselTrack">
+
+        <!-- ── SLIDE 0: Neuroscience Founder / CMO (LEAD-OFF) ── -->
+        <div class="carousel-slide active" data-index="0">
+            <span class="slide-quote-bg" aria-hidden="true">&#8220;</span>
+            <span class="slide-badge">&#9679;&nbsp; Neurologic Diagnostics</span>
+
+            <p class="slide-lead">
+                &#8220;You&#8217;re exactly what you said you would be&mdash;incredibly supportive,
+                extremely helpful. In neurologic diagnostics, you learn quickly which systems you can trust.
+                SLP CONNECT has earned that trust.&#8221;
+            </p>
+
+            <p class="slide-body">
+                It runs clean, it runs consistently, and it supports the level of analytical discipline
+                our assays require. It has made our workflows smoother, our data cleaner, and our
+                reporting more dependable.
+            </p>
+
+            <p class="slide-body">
+                We don&#8217;t give endorsements lightly in this industry, but this platform has
+                proven itself. It&#8217;s genuinely nice to have you in our court because we are
+                now growing and need you more than ever.
+            </p>
+
+            <div class="slide-attribution">
+                <div class="slide-attr-line"></div>
+                <span class="slide-attr-text">Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+            </div>
+        </div>
+
+        <!-- ── SLIDE 1: Genomics CRO Operations Lead ── -->
+        <div class="carousel-slide" data-index="1">
+            <span class="slide-quote-bg" aria-hidden="true">&#8220;</span>
+            <span class="slide-badge">&#9679;&nbsp; Genomics / CRO Operations</span>
+
+            <p class="slide-lead">
+                &#8220;SLP CONNECT™ gave us visibility we didn&#8217;t know was missing.
+                Exception management is now proactive, not reactive.&#8221;
+            </p>
+
+            <p class="slide-body">
+                Before SLP CONNECT™, inventory gaps at decentralized sites were identified after the fact —
+                costing us sample integrity and timelines. Now our operations team has real-time
+                command across every kit, every location. The serialized tracking alone has transformed
+                how we run multi-site genomics programs.
+            </p>
+
+            <p class="slide-body">
+                Our CRO partners have noticed the difference too. Reporting is cleaner, discrepancies
+                surface earlier, and we spend less time in remediation. It&#8217;s the operational
+                upgrade our team needed.
+            </p>
+
+            <div class="slide-attribution">
+                <div class="slide-attr-line"></div>
+                <span class="slide-attr-text">Operations Lead, Genomics CRO&nbsp;/&nbsp;Multi-Site Program</span>
+            </div>
+        </div>
+
+        <!-- ── SLIDE 2: Precision Medicine Program Director ── -->
+        <div class="carousel-slide" data-index="2">
+            <span class="slide-quote-bg" aria-hidden="true">&#8220;</span>
+            <span class="slide-badge">&#9679;&nbsp; Precision Medicine</span>
+
+            <p class="slide-lead">
+                &#8220;The level of precision SLP CONNECT™ delivers is exactly what
+                compliance-driven programs require. It&#8217;s not just a platform — it&#8217;s a system of record.&#8221;
+            </p>
+
+            <p class="slide-body">
+                Running precision medicine programs means zero tolerance for supply chain ambiguity.
+                SLP CONNECT™ closes the loop between design, kitting, fulfillment, and patient delivery.
+                Every step is documented, traceable, and auditable.
+            </p>
+
+            <p class="slide-body">
+                Our regulatory submissions are stronger, our timelines are tighter, and our teams
+                are no longer chasing confirmations. SLP has become a foundational part of how we run
+                complex, regulated studies at scale.
+            </p>
+
+            <div class="slide-attribution">
+                <div class="slide-attr-line"></div>
+                <span class="slide-attr-text">Program Director, Precision Medicine&nbsp;/&nbsp;Research Sponsor</span>
+            </div>
+        </div>
+
+    </div><!-- /.carousel-track -->
+
+    <!-- Dot indicators -->
+    <div class="carousel-dots" id="carouselDots">
+        <button class="dot active" data-dot="0" aria-label="Testimonial 1"></button>
+        <button class="dot" data-dot="1" aria-label="Testimonial 2"></button>
+        <button class="dot" data-dot="2" aria-label="Testimonial 3"></button>
+    </div>
+
+</div><!-- /.testimonial-carousel-wrapper -->
+
+
+<!-- ══ CASE STUDY CARDS ══ -->
+<div class="case-studies-section">
+
+    <p class="cs-section-label">Featured Case Studies</p>
+
+    <div class="cs-grid">
+
+        <!-- Card 1 -->
+        <div class="cs-card">
+            <span class="cs-card-tag">&#128300; Neurologic Diagnostics</span>
+            <h3>Assay-Grade Workflow Reliability at Scale</h3>
+            <div class="cs-card-outcome">
+                <span class="icon">&#10003;</span>
+                Workflows smoother, data cleaner, reporting more dependable — across all assay types.
+            </div>
+            <p>
+                A prestigious neuroscience organization required a platform that matched the analytical
+                discipline of its diagnostic assays. SLP CONNECT™ delivered consistency, clean data flow,
+                and auditable reporting from sample receipt to result.
+            </p>
+            <a href="/case-studies/neurologic-diagnostics-workflow/" class="cs-card-link">Read Full Case Study &rarr;</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cs-card">
+            <span class="cs-card-tag">&#128202; Decentralized Genomics</span>
+            <h3>Eliminating Inventory Gaps Across 40+ Sites</h3>
+            <div class="cs-card-outcome">
+                <span class="icon">&#10003;</span>
+                Exception rate reduced by 74% in first 90 days of deployment.
+            </div>
+            <p>
+                A multi-site genomics CRO struggled with reactive inventory management and costly
+                discrepancies. SLP CONNECT™ introduced serialized kit tracking and real-time exception
+                alerts that transformed operations from reactive to predictive.
+            </p>
+            <a href="/case-studies/genomics-decentralized-inventory/" class="cs-card-link">Read Full Case Study &rarr;</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cs-card">
+            <span class="cs-card-tag">&#128200; Precision Medicine</span>
+            <h3>Audit-Ready Operations for Regulatory Submissions</h3>
+            <div class="cs-card-outcome">
+                <span class="icon">&#10003;</span>
+                Full chain-of-custody documentation for 100% of kits across three regulatory jurisdictions.
+            </div>
+            <p>
+                A precision medicine research sponsor needed end-to-end traceability to support
+                regulatory submissions. SLP CONNECT™ served as the operational system of record —
+                closing the loop from kit design through patient delivery.
+            </p>
+            <a href="/case-studies/precision-medicine-regulatory/" class="cs-card-link">Read Full Case Study &rarr;</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="cs-card">
+            <span class="cs-card-tag">&#9881; Multi-Omics / Fulfillment</span>
+            <h3>Scaling Kitting Operations Without Losing Control</h3>
+            <div class="cs-card-outcome">
+                <span class="icon">&#10003;</span>
+                3x program volume increase with zero increase in fulfillment error rate.
+            </div>
+            <p>
+                As a multi-omics program expanded globally, their kitting operation faced volume pressure
+                that legacy workflows could not absorb. SLP CONNECT™ scaled alongside the program —
+                maintaining precision at every stage, at every site.
+            </p>
+            <a href="/case-studies/multi-omics-scaling/" class="cs-card-link">Read Full Case Study &rarr;</a>
+        </div>
+
+    </div><!-- /.cs-grid -->
+
+</div><!-- /.case-studies-section -->
+
+
+<!-- ══ INLINE MINI-TESTIMONIAL (mid-page reinforcement) ── -->
+<div class="inline-mini-testimonial">
+    <p class="mini-lead">
+        &#8220;We don&#8217;t give endorsements lightly in this industry,<br>
+        but this platform has proven itself.&#8221;
+    </p>
+    <p class="mini-attr">&#8212;&nbsp; Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</p>
+</div>
+
+
+<!-- ══ NAV BUTTONS ══ -->
+<div class="nav-buttons">
+    <a href="/resources/">Resources</a>
+    <a href="/faqs/">FAQs</a>
+    <a href="/blog/">Blog</a>
+</div>
+
+<!-- ── BACK LINK ── -->
+<div class="back-link">
+    <a href="/">&larr; Back to SLP CONNECT™ Home</a>
+</div>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <p style="font-weight: bold; letter-spacing: 0.08em; font-size: 14px;">
+        MISSION | Strategic Lab Partners (SLP)
+    </p>
+    <p style="font-size: 16px; line-height: 1.6;">
+        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi&#8209;Omics,
+        and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one
+        connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized
+        Management Platform, we integrate precision kit production, global logistics, and real&#8209;time
+        digital visibility to ensure complete control from design to deployment. Our mission is to deliver
+        reliable, scalable, and compliant operations that help research sponsors and CROs run complex
+        studies with advanced&#8209;manufacturing accuracy.
+    </p>
+    <p style="font-size: 14px; color: #666; margin-top: 20px;">
+        &copy; Strategic Lab Partners — All Rights Reserved.
+        <br>Part of the SLP CONNECT™ Ecosystem.
+    </p>
+</footer>
+
+
+<!-- ══ CAROUSEL SCRIPT ══ -->
+<script>
+(function () {
+    var slides = document.querySelectorAll('.carousel-slide');
+    var dots   = document.querySelectorAll('.dot');
+    var counter = document.getElementById('carouselCounter');
+    var current = 0;
+    var total   = slides.length;
+
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (index + total) % total;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        counter.textContent = (current + 1) + ' / ' + total;
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', function () {
+        goTo(current - 1);
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', function () {
+        goTo(current + 1);
+    });
+
+    dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+            goTo(parseInt(dot.getAttribute('data-dot'), 10));
+        });
+    });
+
+    /* Auto-rotate every 7 seconds — pauses on hover */
+    var autoTimer = setInterval(function () { goTo(current + 1); }, 7000);
+
+    var wrapper = document.querySelector('.testimonial-carousel-wrapper');
+    wrapper.addEventListener('mouseenter', function () { clearInterval(autoTimer); });
+    wrapper.addEventListener('mouseleave', function () {
+        autoTimer = setInterval(function () { goTo(current + 1); }, 7000);
+    });
+})();
+</script>
+
+</body>
+</html>
