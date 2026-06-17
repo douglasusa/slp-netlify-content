@@ -25,7 +25,8 @@ jobs:
 
           rm -f static/sitemap-*.xml
 
-          for section in $(find static -mindepth 1 -maxdepth 1 -type d | sed 's|static/||'); do
+          # Exclude assets/ from sitemap generation
+          for section in $(find static -mindepth 1 -maxdepth 1 -type d | sed 's|static/||' | grep -v '^assets$'); do
             SITEMAP="static/sitemap-${section}.xml"
 
             echo '<?xml version="1.0" encoding="UTF-8"?>' > $SITEMAP
@@ -63,4 +64,10 @@ jobs:
       - name: Ping Google and Bing
         run: |
           curl -s "https://www.google.com/ping?sitemap=https://content.strategiclabpartners.com/sitemap-index.xml"
-          curl
+          curl -s "https://www.bing.com/ping?sitemap=https://content.strategiclabpartners.com/sitemap-index.xml"
+
+      - name: Upload sitemap artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dynamic-sitemaps
+          path: static/sitemap*.xml
