@@ -11,46 +11,49 @@
             --slp-blue-dark: #004999;
             --slp-gray-light: #f5f5f5;
             --slp-gray-border: #e0e0e0;
-            --slp-text: #222;
+            --slp-text: #222222;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background: #f3f4f6;
+            background: #ffffff;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: var(--slp-text);
         }
 
         .page-wrapper {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 40px 32px 60px;
-            border-radius: 14px;
-            box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px 56px;
         }
 
         /* HEADER */
+
         .header-block {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .logo-row {
             display: flex;
             justify-content: center;
-            gap: 28px;
-            margin-bottom: 20px;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 18px;
         }
 
         .logo-row img {
-            height: 52px;
+            height: 48px;
         }
 
         .page-title {
-            font-size: 32px;
-            margin: 0 0 10px;
+            font-size: 30px;
+            margin: 0 0 8px;
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
@@ -58,133 +61,145 @@
         .page-sub {
             max-width: 760px;
             margin: 0 auto;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
-            color: #444;
+            color: #444444;
         }
 
         .divider {
-            width: 90px;
-            height: 3px;
+            width: 80px;
+            height: 2px;
             background: var(--slp-blue);
-            margin: 20px auto 0;
+            margin: 18px auto 0;
         }
 
         /* LEAD TESTIMONIAL */
+
         .lead-testimonial {
-            background: #fafafa;
+            margin: 32px 0 24px;
+            padding: 24px 24px 26px;
+            border-radius: 10px;
             border: 1px solid var(--slp-gray-border);
-            border-radius: 12px;
-            padding: 32px 28px;
-            margin: 40px auto;
+            background: #fafafa;
             text-align: center;
-            max-width: 800px;
         }
 
         .lead-meta {
             display: flex;
             justify-content: center;
-            gap: 14px;
-            margin-bottom: 16px;
+            gap: 12px;
+            margin-bottom: 14px;
             flex-wrap: wrap;
         }
 
         .lead-label {
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 600;
             color: var(--slp-blue);
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .lead-badge {
-            font-size: 14px;
-            color: #666;
+            font-size: 13px;
+            color: #555555;
         }
 
         .lead-line {
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.7;
             max-width: 720px;
-            margin: 0 auto 20px;
+            margin: 0 auto 14px;
+            color: #222222;
         }
 
         .lead-attribution {
-            font-size: 15px;
-            color: #555;
-            margin-bottom: 20px;
+            font-size: 14px;
+            color: #555555;
+            margin: 0 0 10px;
+        }
+
+        .ecosystem-logo {
+            margin-top: 8px;
         }
 
         .ecosystem-logo img {
-            height: 44px;
+            height: 40px;
         }
 
         /* SHORT RIBBON */
+
         .testimonial-ribbon {
-            background: #fff;
+            margin: 16px 0 32px;
+            padding: 16px 20px;
+            border-radius: 8px;
             border: 1px dashed var(--slp-gray-border);
-            border-radius: 10px;
-            padding: 20px 24px;
+            background: #ffffff;
             max-width: 720px;
-            margin: 20px auto 40px;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
         }
 
         .ribbon-quote {
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 17px;
+            font-size: 15px;
             line-height: 1.6;
-            color: #333;
+            color: #333333;
         }
 
         .ribbon-attr {
-            margin-top: 8px;
-            font-size: 14px;
-            color: #666;
+            margin-top: 6px;
+            font-size: 13px;
+            color: #666666;
         }
 
-        /* NAVIGATION */
+        /* NAV / LINKS */
+
         .nav-section {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 32px;
         }
 
         .nav-section h3 {
-            font-size: 20px;
-            margin-bottom: 16px;
+            margin: 0 0 12px;
+            font-size: 18px;
         }
 
         .nav-buttons {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
         }
 
         .nav-buttons a {
-            padding: 10px 16px;
-            border-radius: 6px;
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 4px;
             border: 1px solid var(--slp-blue);
             color: var(--slp-blue);
             text-decoration: none;
-            font-size: 15px;
-            background: #fff;
+            font-size: 14px;
+            background: #ffffff;
         }
 
         .nav-buttons a:hover {
             background: var(--slp-blue);
-            color: #fff;
+            color: #ffffff;
         }
 
         .back-link {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 6px;
         }
 
         .back-link a {
             color: var(--slp-blue);
+            font-size: 14px;
             text-decoration: none;
-            font-size: 15px;
         }
 
         .back-link a:hover {
@@ -192,27 +207,43 @@
         }
 
         /* FOOTER */
+
         footer {
-            margin-top: 50px;
-            text-align: center;
-            color: #555;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--slp-gray-border);
             font-size: 14px;
             line-height: 1.6;
+            color: #555555;
         }
 
         footer p {
             max-width: 900px;
-            margin: 0 auto 12px;
+            margin: 0 auto 10px;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 28px 16px 40px;
+            }
+
+            .logo-row {
+                flex-direction: column;
+            }
+
+            .lead-line {
+                font-size: 17px;
+            }
         }
     </style>
 </head>
-
 <body>
     <div class="page-wrapper">
 
         <!-- HEADER -->
         <div class="header-block">
             <div class="logo-row">
+                <!-- Logos from /assets -->
                 <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
                 <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
             </div>
@@ -261,9 +292,9 @@
         <section class="nav-section">
             <h3>Start here:</h3>
             <div class="nav-buttons">
-                <a href="#prevents">Learn what SLP CONNECT™ prevents</a>
-                <a href="#oversight">How oversight integrates with fulfillment</a>
-                <a href="#scales">How SLP scales decentralized programs</a>
+                <a href="#prevents">Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)</a>
+                <a href="#oversight">Understand how oversight integrates with fulfillment</a>
+                <a href="#scales">Explore how SLP scales decentralized programs</a>
             </div>
         </section>
 
@@ -278,10 +309,10 @@
             </p>
             <p>
                 SLP CONNECT™ provides operational command-and-control across kitting, fulfillment, and deployment — preventing
-                delays, loss, and surprises before they impact patients, research timelines, or cost.
+                delays, loss, and surprises before they impact patients, research timelines, or cost. Strategic Lab Partners
+                supports decentralized and regulated operations with precision, traceability, and dependable support at every stage.
             </p>
         </footer>
-
     </div>
 </body>
 </html>
