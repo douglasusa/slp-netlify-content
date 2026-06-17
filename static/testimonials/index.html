@@ -24,24 +24,32 @@
         .page-wrapper {
             max-width: 960px;
             margin: 0 auto;
-            padding: 40px 20px 60px;
+            padding: 40px 20px 56px;
         }
 
-        /* HEADER */
+        /* HEADER — CONNECT™ BRAND SYSTEM */
         .header-block {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .logo-row {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 24px;
             margin-bottom: 18px;
         }
 
         .logo-row img {
             height: 48px;
+        }
+
+        .connect-tagline {
+            font-size: 14px;
+            margin-top: 4px;
+            color: #222;
+            letter-spacing: 0.03em;
         }
 
         .page-title {
@@ -59,6 +67,11 @@
             color: #444;
         }
 
+        .page-sub span {
+            font-size: 14px;
+            color: #555;
+        }
+
         .divider {
             width: 70px;
             height: 2px;
@@ -68,8 +81,8 @@
 
         /* LEAD TESTIMONIAL */
         .lead-testimonial {
-            margin: 32px 0 28px;
-            padding: 24px 24px 28px;
+            margin: 28px 0 20px;
+            padding: 22px 22px 24px;
             border-radius: 10px;
             border: 1px solid var(--slp-gray-border);
             background: #fafafa;
@@ -98,11 +111,12 @@
         }
 
         .lead-line {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 18px;
-            line-height: 1.6;
+            font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
             max-width: 680px;
             margin: 0 auto 14px;
+            color: #222;
         }
 
         .lead-attribution {
@@ -115,10 +129,34 @@
             height: 42px;
         }
 
+        /* RIBBON — REFINED TYPOGRAPHY */
+        .testimonial-ribbon {
+            margin: 20px auto 28px;
+            padding: 14px 18px;
+            border-radius: 8px;
+            border: 1px dashed var(--slp-gray-border);
+            background: #ffffff;
+            max-width: 720px;
+            text-align: center;
+        }
+
+        .ribbon-quote {
+            font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .ribbon-attr {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #666;
+        }
+
         /* NAVIGATION */
         .nav-section {
             text-align: center;
-            margin-top: 36px;
+            margin-top: 28px;
         }
 
         .nav-section h3 {
@@ -159,8 +197,8 @@
         }
 
         footer {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 32px;
+            padding-top: 18px;
             border-top: 1px solid var(--slp-gray-border);
             font-size: 14px;
             line-height: 1.6;
@@ -180,33 +218,26 @@
 
         <!-- HEADER -->
         <div class="header-block">
-    <div class="logo-row" style="justify-content:center; gap:24px;">
-        <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners" style="height:48px;">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;">
-            <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT" style="height:48px;">
-            <span style="
-                font-size:14px;
-                margin-top:4px;
-                color:#222;
-                letter-spacing:0.03em;
-            ">
-                BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
-            </span>
+            <div class="logo-row">
+                <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+
+                <div style="display:flex; flex-direction:column; align-items:flex-start;">
+                    <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+                    <span class="connect-tagline">
+                        BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
+                    </span>
+                </div>
+            </div>
+
+            <h1 class="page-title">Client Testimonials</h1>
+
+            <p class="page-sub">
+                What research leaders, CROs, and diagnostics innovators say about SLP CONNECT™<br>
+                <span>— earned through precision, consistency, and dependable support at every stage.</span>
+            </p>
+
+            <div class="divider"></div>
         </div>
-    </div>
-
-    <h1 class="page-title">Client Testimonials</h1>
-
-    <p class="page-sub">
-        What research leaders, CROs, and diagnostics innovators say about SLP CONNECT™<br>
-        <span style="font-size:14px; color:#555;">
-            — earned through precision, consistency, and dependable support at every stage.
-        </span>
-    </p>
-
-    <div class="divider"></div>
-</div>
-
 
         <!-- LEAD TESTIMONIAL -->
         <section class="lead-testimonial">
@@ -223,7 +254,20 @@
                 — Prestigious Neuroscience Founder / CMO
             </p>
 
-            </section>
+            <div class="ecosystem-logo">
+                <img src="/assets/logos/SLP%20CONNECT%E2%84%A2.png_400" alt="SLP CONNECT Ecosystem">
+            </div>
+        </section>
+
+        <!-- RIBBON -->
+        <section class="testimonial-ribbon">
+            <div class="ribbon-quote">
+                “You’re exactly what you said you would be to us — incredibly supportive, extremely helpful.”
+            </div>
+            <div class="ribbon-attr">
+                — Prestigious Neuroscience Founder / CMO
+            </div>
+        </section>
 
         <!-- NAVIGATION -->
         <section class="nav-section">
