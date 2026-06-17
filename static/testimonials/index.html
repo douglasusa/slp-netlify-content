@@ -14,24 +14,45 @@
             --slp-text: #222222;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: var(--slp-text);
-            background: #ffffff;
+            background: #f3f4f6;
+        }
+
+        .page-outer {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 32px 16px;
         }
 
         .page-wrapper {
+            width: 100%;
             max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            padding: 32px 24px 40px;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 24px 18px 32px;
+            }
         }
 
         /* HEADER */
 
         .header-block {
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             text-align: center;
         }
 
@@ -40,61 +61,63 @@
             align-items: center;
             justify-content: center;
             gap: 24px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .logo-row img {
-            height: 48px;
+            height: 44px;
         }
 
         .page-title {
-            font-size: 32px;
-            margin: 0 0 8px;
-            letter-spacing: 0.03em;
+            font-size: 28px;
+            margin: 0 0 6px;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
         .page-sub {
-            margin: 0 0 16px;
-            font-size: 16px;
-            line-height: 1.5;
-            max-width: 800px;
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 780px;
             margin-left: auto;
             margin-right: auto;
+            color: #444444;
         }
 
         .divider {
             height: 2px;
             width: 80px;
             background: var(--slp-blue);
-            margin: 12px auto 0 auto;
+            margin: 16px auto 0 auto;
         }
 
         /* LEAD TESTIMONIAL */
 
         .lead-testimonial {
-            margin-top: 40px;
-            margin-bottom: 40px;
-            padding: 24px 24px 32px;
-            border-radius: 10px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+            padding: 24px 24px 28px;
+            border-radius: 12px;
             border: 1px solid var(--slp-gray-border);
             background: #fafafa;
             text-align: center;
         }
 
-        .lead-testimonial > div {
+        .lead-meta {
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 16px;
-            text-align: center;
+            margin-bottom: 14px;
             flex-wrap: wrap;
         }
 
         .lead-label {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--slp-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
         .lead-badge {
@@ -105,70 +128,75 @@
 
         .lead-line {
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.7;
             max-width: 720px;
-            margin: 0 auto 24px;
+            margin: 0 auto 18px;
             font-family: Georgia, "Times New Roman", serif;
+            color: #222222;
+        }
+
+        .lead-attribution {
+            font-size: 14px;
+            color: #555555;
+            margin: 0 0 10px;
         }
 
         .ecosystem-logo {
             display: flex;
             justify-content: center;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .ecosystem-logo img {
             height: 40px;
         }
 
-        /* TESTIMONIAL RIBBON */
+        .lead-cta {
+            margin-top: 16px;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 4px;
+            border: none;
+            background: var(--slp-blue);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .primary-btn:hover {
+            background: var(--slp-blue-dark);
+        }
+
+        /* SHORT RIBBON */
 
         .testimonial-ribbon {
-            margin-top: 24px;
+            margin-top: 8px;
             margin-bottom: 32px;
-            padding: 16px 20px;
+            padding: 14px 18px;
             border-radius: 8px;
-            border: 1px solid var(--slp-gray-border);
+            border: 1px dashed var(--slp-gray-border);
             background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
             max-width: 720px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .ribbon-quote {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
             font-family: Georgia, "Times New Roman", serif;
             color: #333333;
         }
 
         .ribbon-attr {
-            font-size: 14px;
+            font-size: 13px;
             color: #666666;
-        }
-
-        .ribbon-divider {
-            height: 1px;
-            background: var(--slp-gray-border);
-            margin: 8px 0;
-        }
-
-        .ribbon-modal-btn {
-            align-self: center;
-            padding: 8px 14px;
-            border-radius: 4px;
-            border: none;
-            background: var(--slp-blue);
-            color: #ffffff;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .ribbon-modal-btn:hover {
-            background: var(--slp-blue-dark);
+            margin-top: 6px;
         }
 
         /* NAV / LINKS */
@@ -179,7 +207,8 @@
         }
 
         .nav-section h3 {
-            margin-bottom: 12px;
+            margin: 0 0 12px;
+            font-size: 18px;
         }
 
         .nav-buttons {
@@ -187,7 +216,7 @@
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .nav-buttons a {
@@ -198,6 +227,7 @@
             color: var(--slp-blue);
             text-decoration: none;
             font-size: 14px;
+            background: #ffffff;
         }
 
         .nav-buttons a:hover {
@@ -207,12 +237,13 @@
 
         .back-link {
             text-align: center;
+            margin-top: 4px;
             margin-bottom: 20px;
         }
 
         .back-link a {
             color: var(--slp-blue);
-            font-size: 15px;
+            font-size: 14px;
             text-decoration: none;
         }
 
@@ -223,110 +254,107 @@
         /* FOOTER */
 
         footer {
-            margin-top: 60px;
-            padding: 40px;
-            background: var(--slp-gray-light);
+            margin-top: 32px;
+            padding-top: 20px;
             border-top: 1px solid var(--slp-gray-border);
             text-align: center;
         }
 
         footer p {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto 10px auto;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .page-wrapper {
-                padding: 24px 16px 40px;
-            }
-
-            .logo-row {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .lead-line {
-                font-size: 17px;
-            }
+            font-size: 13px;
+            line-height: 1.6;
+            color: #555555;
         }
     </style>
 </head>
 <body>
-    <div class="page-wrapper">
+    <div class="page-outer">
+        <div class="page-wrapper">
 
-        <!-- HEADER -->
-        <div class="header-block">
-            <div class="logo-row">
-                <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
-                <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+            <!-- HEADER -->
+            <div class="header-block">
+                <div class="logo-row">
+                    <!-- Adjust src filenames here only if your actual assets differ -->
+                    <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+                    <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+                </div>
+
+                <h1 class="page-title">Client Testimonials</h1>
+
+                <p class="page-sub">
+                    What research leaders, CROs, and diagnostics innovators say about SLP CONNECT™ — earned through precision,
+                    consistency, and dependable support at every stage.
+                </p>
+
+                <div class="divider"></div>
             </div>
 
-            <h1 class="page-title">Client Testimonials</h1>
+            <!-- LEAD TESTIMONIAL — PRESTIGIOUS NEUROSCIENCE FOUNDER / CMO -->
+            <section class="lead-testimonial">
+                <div class="lead-meta">
+                    <span class="lead-label">&#9733;&nbsp; Featured Endorsement</span>
+                    <span class="lead-badge">&#9679;&nbsp; Neurologic Diagnostics</span>
+                </div>
 
-            <p class="page-sub">
-                What research leaders, CROs, and diagnostics innovators say about SLP CONNECT™ — earned through precision,
-                consistency, and dependable support at every stage.
-            </p>
+                <p class="lead-line">
+                    &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
+                    incredibly supportive, extremely helpful.&#8221;
+                </p>
 
-            <div class="divider"></div>
-        </div>
+                <p class="lead-attribution">
+                    &mdash; Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO
+                </p>
 
-        <!-- LEAD TESTIMONIAL — PRESTIGIOUS NEUROSCIENCE FOUNDER / CMO -->
-        <div class="lead-testimonial">
-            <div>
-                <span class="lead-label">&#9733;&nbsp; Featured Endorsement</span>
-                <span class="lead-badge">&#9679;&nbsp; Neurologic Diagnostics</span>
+                <div class="ecosystem-logo">
+                    <!-- Adjust filename if needed to match your actual ecosystem logo asset -->
+                    <img src="/assets/logos/slp-connect-ecosystem.png" alt="SLP CONNECT Ecosystem">
+                </div>
+
+                <div class="lead-cta">
+                    <a href="#full-endorsement" class="primary-btn">Read Full Endorsement</a>
+                </div>
+            </section>
+
+            <!-- SHORT RIBBON (REINFORCEMENT) -->
+            <section class="testimonial-ribbon">
+                <div class="ribbon-quote">
+                    &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
+                    incredibly supportive, extremely helpful.&#8221;
+                </div>
+                <div class="ribbon-attr">
+                    &mdash; Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO
+                </div>
+            </section>
+
+            <!-- START HERE LINKS -->
+            <section class="nav-section">
+                <h3>Start here:</h3>
+                <div class="nav-buttons">
+                    <a href="#prevents">Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)</a>
+                    <a href="#oversight">Understand how oversight integrates with fulfillment</a>
+                    <a href="#scales">Explore how SLP scales decentralized programs</a>
+                </div>
+            </section>
+
+            <!-- BACK LINK -->
+            <div class="back-link">
+                <a href="/">Return to Strategic Lab Partners</a>
             </div>
 
-            <p class="lead-line">
-                &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
-                incredibly supportive, extremely helpful.&#8221;
-            </p>
-
-            <div class="ecosystem-logo">
-                <img src="/assets/logos/slp-connect-ecosystem.png" alt="SLP CONNECT Ecosystem">
-            </div>
+            <!-- FOOTER -->
+            <footer>
+                <p>
+                    Strategic Lab Partners · SLP CONNECT™ — Operational intelligence for decentralized and distributed programs.
+                </p>
+                <p>
+                    SLP CONNECT™ provides operational command-and-control across kitting, fulfillment, and deployment — preventing
+                    delays, loss, and surprises before they impact patients, research timelines, or cost. Strategic Lab Partners
+                    supports decentralized and regulated operations with precision, traceability, and dependable support at every stage.
+                </p>
+            </footer>
         </div>
-
-        <!-- TESTIMONIAL RIBBON (SHORT FORM) -->
-        <div class="testimonial-ribbon">
-            <span class="ribbon-quote">
-                &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
-                incredibly supportive, extremely helpful.&#8221;
-            </span>
-            <span class="ribbon-attr">&#8212; Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
-            <div class="ribbon-divider"></div>
-            <button class="ribbon-modal-btn" id="openModal">Read Full Endorsement</button>
-        </div>
-
-        <!-- START HERE LINKS -->
-        <div class="nav-section">
-            <h3>Start here:</h3>
-            <div class="nav-buttons">
-                <a href="#prevents">Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)</a>
-                <a href="#oversight">Understand how oversight integrates with fulfillment</a>
-                <a href="#scales">Explore how SLP scales decentralized programs</a>
-            </div>
-        </div>
-
-        <!-- BACK LINK -->
-        <div class="back-link">
-            <a href="/">Return to Strategic Lab Partners</a>
-        </div>
-
-        <!-- FOOTER -->
-        <footer>
-            <p>
-                Strategic Lab Partners · SLP CONNECT™ — Operational intelligence for decentralized and distributed programs.
-            </p>
-            <p>
-                SLP CONNECT™ provides operational command-and-control across kitting, fulfillment, and deployment — preventing
-                delays, loss, and surprises before they impact patients, research timelines, or cost. Strategic Lab Partners
-                supports decentralized and regulated operations with precision, traceability, and dependable support at every stage.
-            </p>
-        </footer>
     </div>
 </body>
 </html>
