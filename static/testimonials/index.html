@@ -1,487 +1,317 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Strategic Lab Partners — Content Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Testimonials · Strategic Lab Partners</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 60px;
-            background: #ffffff;
-            color: #222;
-            line-height: 1.6;
+        :root {
+            --slp-blue: #005bbb;
+            --slp-blue-dark: #004999;
+            --slp-gray-light: #f5f5f5;
+            --slp-gray-border: #e0e0e0;
+            --slp-text: #222222;
         }
 
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--slp-text);
+            background: #ffffff;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* HEADER */
+
         .header-block {
-            text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .logo-row {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-bottom: 14px;
+            gap: 24px;
+            margin-bottom: 24px;
         }
 
         .logo-row img {
-            max-height: 90px;
-            width: auto;
+            height: 48px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            margin: 0 0 8px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .page-sub {
+            margin: 0 0 16px;
+            font-size: 16px;
+            line-height: 1.5;
+            max-width: 800px;
         }
 
         .divider {
-            width: 120px;
-            height: 3px;
-            background-color: #005bbb;
-            margin: 0 auto 30px auto;
-            border-radius: 2px;
+            height: 2px;
+            width: 80px;
+            background: var(--slp-blue);
+            margin-top: 12px;
         }
 
-        p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 20px auto;
-            text-align: center;
-        }
+        /* LEAD TESTIMONIAL */
 
-        .hero {
-            text-align: center;
-            margin: 30px 0 10px 0;
-        }
-
-        .hero img {
-            max-width: 520px;
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .links {
+        .lead-testimonial {
             margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 24px 24px 32px;
+            border-radius: 10px;
+            border: 1px solid var(--slp-gray-border);
+            background: #fafafa;
+        }
+
+        .lead-testimonial > div {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
             text-align: center;
+            flex-wrap: wrap;
         }
 
-        .links a {
-            display: inline-block;
-            margin: 10px 20px;
-            padding: 12px 22px;
-            background: #005bbb;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
+        .lead-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--slp-blue);
+        }
+
+        .lead-badge {
+            font-size: 13px;
+            font-weight: 500;
+            color: #555555;
+        }
+
+        .lead-line {
             font-size: 18px;
+            line-height: 1.6;
+            text-align: left;
+            max-width: 720px;
+            margin: 0 auto 24px;
+            font-family: Georgia, "Times New Roman", serif;
         }
 
-        .links a:hover {
-            background: #004999;
+        .ecosystem-logo {
+            display: flex;
+            justify-content: center;
+            margin-top: 12px;
         }
+
+        .ecosystem-logo img {
+            height: 40px;
+        }
+
+        /* TESTIMONIAL RIBBON */
+
+        .testimonial-ribbon {
+            margin-top: 24px;
+            margin-bottom: 32px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--slp-gray-border);
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .ribbon-quote {
+            font-size: 16px;
+            line-height: 1.6;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #333333;
+        }
+
+        .ribbon-attr {
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .ribbon-divider {
+            height: 1px;
+            background: var(--slp-gray-border);
+            margin: 8px 0;
+        }
+
+        .ribbon-modal-btn {
+            align-self: flex-start;
+            padding: 8px 14px;
+            border-radius: 4px;
+            border: none;
+            background: var(--slp-blue);
+            color: #ffffff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .ribbon-modal-btn:hover {
+            background: var(--slp-blue-dark);
+        }
+
+        /* NAV / LINKS */
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .nav-buttons a {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 4px;
+            border: 1px solid var(--slp-blue);
+            color: var(--slp-blue);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-buttons a:hover {
+            background: var(--slp-blue-dark);
+            color: #ffffff;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .back-link a {
+            color: var(--slp-blue);
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
 
         footer {
-            margin-top: 80px;
+            margin-top: 60px;
             padding: 40px;
-            background: #f5f5f5;
-            border-top: 1px solid #e0e0e0;
+            background: var(--slp-gray-light);
+            border-top: 1px solid var(--slp-gray-border);
         }
 
         footer p {
             text-align: left;
             max-width: 1100px;
             margin: 0 auto 10px auto;
-        }
-
-        /* ═══════════════════════════════════════════════════════
-           TESTIMONIAL RIBBON
-           Sits between the blue divider and the banner image.
-           Thin, full-width strip — one bold sentence, always visible.
-           ═══════════════════════════════════════════════════════ */
-        .testimonial-ribbon {
-            border-top: 1px solid #d9e7f7;
-            border-bottom: 1px solid #d9e7f7;
-            background: #f7faff;
-            padding: 14px 40px;
-            text-align: center;
-            margin: 0 -60px 36px -60px; /* bleed to body edges */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .ribbon-quote {
-            font-size: 15px;
-            font-weight: 700;
-            color: #005bbb;
-            line-height: 1.5;
-        }
-
-        .ribbon-attr {
-            font-size: 13px;
-            color: #888;
-            white-space: nowrap;
-        }
-
-        .ribbon-divider {
-            width: 1px;
-            height: 18px;
-            background: #d9e7f7;
-            flex-shrink: 0;
-        }
-
-        .ribbon-modal-btn {
-            background: none;
-            border: 1.5px solid #005bbb;
-            border-radius: 20px;
-            color: #005bbb;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 0.05em;
-            padding: 5px 16px;
-            cursor: pointer;
-            font-family: Arial, sans-serif;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .ribbon-modal-btn:hover {
-            background: #005bbb;
-            color: #fff;
-        }
-
-        /* ═══════════════════════════════════════════════════════
-           MODAL OVERLAY
-           Full testimonial displayed on demand — zero page cost.
-           ═══════════════════════════════════════════════════════ */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.55);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-
-        .modal-overlay.open {
-            display: flex;
-        }
-
-        .modal-card {
-            background: #fff;
-            border-radius: 12px;
-            max-width: 680px;
-            width: 100%;
-            padding: 44px 48px 40px 48px;
-            position: relative;
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22);
-            animation: modalIn 0.25s ease;
-        }
-
-        @keyframes modalIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 22px;
-            color: #888;
-            cursor: pointer;
-            line-height: 1;
-            padding: 4px 8px;
-            font-family: Arial, sans-serif;
-        }
-
-        .modal-close:hover {
-            color: #222;
-        }
-
-        .modal-badge {
-            display: inline-block;
-            background: #005bbb;
-            color: #fff;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 4px 14px;
-            border-radius: 10px;
-            margin-bottom: 22px;
-        }
-
-        .modal-quote-bg {
-            position: absolute;
-            top: 24px;
-            right: 36px;
-            font-family: Georgia, serif;
-            font-size: 80px;
-            color: #005bbb;
-            opacity: 0.07;
-            line-height: 1;
-            user-select: none;
-        }
-
-        .modal-lead {
-            font-size: 20px;
-            font-weight: 700;
-            color: #005bbb;
-            line-height: 1.5;
-            margin: 0 0 20px 0;
-            /* override global p */
-            text-align: left;
-            max-width: 100%;
-        }
-
-        .modal-body {
-            font-size: 16px;
-            color: #1a1a1a;
-            line-height: 1.82;
-            margin: 0 0 14px 0;
-            text-align: left;
-            max-width: 100%;
-        }
-
-        .modal-attr {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 24px;
-            padding-top: 18px;
-            border-top: 1px solid #d9e7f7;
-        }
-
-        .modal-attr-line {
-            width: 28px;
-            height: 2px;
-            background: #005bbb;
-            border-radius: 1px;
-            flex-shrink: 0;
-        }
-
-        .modal-attr-text {
-            font-size: 11.5px;
-            font-weight: bold;
-            letter-spacing: 0.08em;
-            color: #005bbb;
-            text-transform: uppercase;
-        }
-
-        .modal-full-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #005bbb;
             font-size: 14px;
-            text-decoration: none;
+            line-height: 1.5;
         }
 
-        .modal-full-link:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 24px 16px 40px;
+            }
+
+            .logo-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lead-line {
+                font-size: 17px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="page-wrapper">
 
-<!-- ══ HEADER / LOGO BLOCK ══ -->
-<div class="header-block">
-    <div class="logo-row">
-        <img src=".../../assets/logos/slp-full-logo.png"    alt="Strategic Lab Partners">
-        <img src=".../../assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
-    </div>
+        <!-- HEADER -->
+        <div class="header-block">
+            <div class="logo-row">
+                <img src="./../../assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+                <img src="./../../assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+            </div>
 
-    <div style="margin-top: 28px; margin-bottom: 22px;">
-        <p style="font-weight: 600; color:#005bbb; font-size: 22px; line-height: 1.3; margin-bottom: 12px;">
-            BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
-        </p>
-        <p style="color:#000; font-size: 16px; line-height: 1.55;">
-            For complex, decentralized, and regulated operations, SLP CONNECT™ provides operational
-            command&#8209;and&#8209;control across kitting, fulfillment, and deployment—so delays, loss, and surprises
-            are detected early and prevented before they impact patients, research timelines, or cost.
-        </p>
-    </div>
+            <h1 class="page-title">Client Testimonials</h1>
 
-    <div class="divider" style="margin-top: 12px; margin-bottom: 0;"></div>
-</div>
+            <p class="page-sub">
+                What research leaders, CROs, and diagnostics innovators say about SLP CONNECT™ — earned through precision,
+                consistency, and dependable support at every stage.
+            </p>
 
-
-<!-- ══════════════════════════════════════════════════════════════
-     LEAD TESTIMONIAL — PRESTIGIOUS NEUROSCIENCE FOUNDER / CMO
-     Featured first, displayed in full, no truncation.
-══════════════════════════════════════════════════════════════ -->
-<div class="lead-testimonial">
-
-    <div>
-        <span class="lead-label">&#9733;&nbsp; Featured Endorsement</span>
-        <span class="lead-badge">&#9679;&nbsp; Neurologic Diagnostics</span>
-    </div>
-
-    <span class="lead-quote-mark" aria-hidden="true">&#8220;</span>
-
-    <p class="lead-line">
-        &#8220;You’re exactly what you said you would be to us — incredibly supportive, extremely helpful.&#8221;
-    </p>
-
-</div>
-
-
-<!-- ══ HERO IMAGE ══ -->
-<div class="hero">
-    <img src=".../../assets/images/slp-web-banner-2.png" alt="SLP CONNECT Ecosystem">
-</div>
-
-
-<!-- ══ PRIMARY CTA BLOCK ══ -->
-<div style="
-    max-width: 720px;
-    margin: 40px auto 10px auto;
-    padding: 28px 32px;
-    background: #f7faff;
-    border: 1px solid #d9e7f7;
-    border-radius: 10px;
-    text-align: left;
-">
-    <p style="font-size: 20px; font-weight: 600; color:#005bbb; margin: 0 0 18px 0; text-align: left; max-width: 100%;">
-        Start here:
-    </p>
-    <ul style="list-style: none; padding-left: 0; margin: 0;">
-        <li style="margin-bottom: 14px;">
-            <a href="/faqs/what-is-slp-connect" style="color:#005bbb; font-size:17px; text-decoration:none;">
-                Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)
-            </a>
-        </li>
-        <li style="margin-bottom: 14px;">
-            <a href="/faqs/how-does-slp-connect-integrate-with-kitting-and-3pl" style="color:#005bbb; font-size:17px; text-decoration:none;">
-                Understand how oversight integrates with fulfillment
-            </a>
-        </li>
-        <li>
-            <a href="/resources/scaling/" style="color:#005bbb; font-size:17px; text-decoration:none;">
-                Explore how SLP scales decentralized programs
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-<!-- ══ NAV BUTTONS — includes ★ Testimonials link ══ -->
-<div class="links">
-    <a href="/resources/">Resources</a>
-    <a href="/faqs/">FAQs</a>
-    <a href="/case-studies/">Case Studies</a>
-    <a href="/blog/">Blog</a>
-    <a href="/testimonials/" style="background:#1a6fcf;">&#9733;&nbsp;Testimonials</a>
-</div>
-
-
-<!-- ══ FOOTER ══ -->
-<footer>
-    <p style="font-weight: bold; letter-spacing: 0.08em; font-size: 14px;">
-        MISSION | Strategic Lab Partners (SLP)
-    </p>
-    <p style="font-size: 16px; line-height: 1.6;">
-        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi&#8209;Omics,
-        and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one
-        connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized
-        Management Platform, we integrate precision kit production, global logistics, and real&#8209;time
-        digital visibility to ensure complete control from design to deployment. Our mission is to deliver
-        reliable, scalable, and compliant operations that help research sponsors and CROs run complex
-        studies with advanced&#8209;manufacturing accuracy. We elevate healthcare supply chains with universal
-        kitting, serialized tracking, and value&#8209;based logistics—strengthening quality, reducing variability,
-        and accelerating scientific discovery.
-    </p>
-    <p style="font-size: 14px; color: #666; margin-top: 20px;">
-        &copy; Strategic Lab Partners &mdash; All Rights Reserved.
-        <br>Part of the SLP CONNECT™ Ecosystem.
-    </p>
-</footer>
-
-
-<!-- ══════════════════════════════════════════════════════════════
-     MODAL OVERLAY — full testimonial on demand
-     ══════════════════════════════════════════════════════════════ -->
-<div class="modal-overlay" id="testimonialModal" role="dialog" aria-modal="true" aria-labelledby="modalLead">
-
-    <div class="modal-card">
-        <span class="modal-quote-bg" aria-hidden="true">&#8220;</span>
-        <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
-
-        <span class="modal-badge">&#9679;&nbsp; Neurologic Diagnostics &mdash; Featured Endorsement</span>
-
-        <p class="modal-lead" id="modalLead">
-            &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
-            incredibly supportive, extremely helpful.&#8221;
-        </p>
-
-        <p class="modal-body">
-            In neurologic diagnostics, you learn quickly which systems you can trust.
-            SLP CONNECT has earned that trust. It runs clean, it runs consistently,
-            and it supports the level of analytical discipline our assays require.
-            It has made our workflows smoother, our data cleaner, and our reporting
-            more dependable.
-        </p>
-
-        <p class="modal-body">
-            We don&rsquo;t give endorsements lightly in this industry, but this platform
-            has proven itself. I appreciate that, honestly, respectfully so &mdash; thank you
-            for continuing to work with us. It&rsquo;s genuinely nice to have you in our
-            court because we are now growing and need you more than ever.
-        </p>
-
-        <div class="modal-attr">
-            <div class="modal-attr-line"></div>
-            <span class="modal-attr-text">Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+            <div class="divider"></div>
         </div>
 
-        <a href="/testimonials/" class="modal-full-link">
-            View all testimonials &rarr;
-        </a>
+        <!-- LEAD TESTIMONIAL — PRESTIGIOUS NEUROSCIENCE FOUNDER / CMO -->
+        <div class="lead-testimonial">
+            <div>
+                <span class="lead-label">&#9733;&nbsp; Featured Endorsement</span>
+                <span class="lead-badge">&#9679;&nbsp; Neurologic Diagnostics</span>
+            </div>
+
+            <p class="lead-line">
+                &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
+                incredibly supportive, extremely helpful.&#8221;
+            </p>
+
+            <div class="ecosystem-logo">
+                <img src="./../../assets/logos/slp-connect-ecosystem.png" alt="SLP CONNECT Ecosystem">
+            </div>
+        </div>
+
+        <!-- TESTIMONIAL RIBBON (SHORT FORM) -->
+        <div class="testimonial-ribbon">
+            <span class="ribbon-quote">
+                &#8220;You&rsquo;re exactly what you said you would be to us &mdash;
+                incredibly supportive, extremely helpful.&#8221;
+            </span>
+            <span class="ribbon-attr">&#8212; Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+            <div class="ribbon-divider"></div>
+            <button class="ribbon-modal-btn" id="openModal">Read Full Endorsement</button>
+        </div>
+
+        <!-- START HERE LINKS -->
+        <div class="nav-section">
+            <h3>Start here:</h3>
+            <div class="nav-buttons">
+                <a href="#prevents">Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)</a>
+                <a href="#oversight">Understand how oversight integrates with fulfillment</a>
+                <a href="#scales">Explore how SLP scales decentralized programs</a>
+            </div>
+        </div>
+
+        <!-- BACK LINK -->
+        <div class="back-link">
+            <a href="/">Return to Strategic Lab Partners</a>
+        </div>
+
     </div>
 
-</div>
-
-
-<!-- ══ MODAL SCRIPT ══ -->
-<script>
-(function () {
-    var modal    = document.getElementById('testimonialModal');
-    var openBtn  = document.getElementById('openModal');
-    var closeBtn = document.getElementById('closeModal');
-
-    function openModal() {
-        modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        closeBtn.focus();
-    }
-
-    function closeModal() {
-        modal.classList.remove('open');
-        document.body.style.overflow = '';
-        openBtn.focus();
-    }
-
-    openBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-
-    /* Close on overlay click */
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal) closeModal();
-    });
-
-    /* Close on Escape key */
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-    });
-})();
-</script>
-
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            SLP CONNECT™ provides operational command-and-control across kitting, fulfillment, and deployment — preventing delays,
+            loss, and surprises before they impact patients, research timelines, or cost.
+        </p>
+        <p>
+            Strategic Lab Partners supports decentralized and regulated operations with precision, traceability, and dependable
+            support at every stage.
+        </p>
+    </footer>
 </body>
 </html>
