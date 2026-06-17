@@ -50,23 +50,17 @@ jobs:
         run: |
           BASE_URL="https://content.strategiclabpartners.com"
 
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap.xml
-          echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap.xml
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > static/sitemap-index.xml
+          echo '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> static/sitemap-index.xml
 
           for sm in static/sitemap-*.xml; do
             fname=$(basename "$sm")
-            echo "  <sitemap><loc>$BASE_URL/$fname</loc></sitemap>" >> static/sitemap.xml
+            echo "  <sitemap><loc>$BASE_URL/$fname</loc></sitemap>" >> static/sitemap-index.xml
           done
 
-          echo '</sitemapindex>' >> static/sitemap.xml
+          echo '</sitemapindex>' >> static/sitemap-index.xml
 
       - name: Ping Google and Bing
         run: |
-          curl -s "https://www.google.com/ping?sitemap=https://content.strategiclabpartners.com/sitemap.xml"
-          curl -s "https://www.bing.com/ping?sitemap=https://content.strategiclabpartners.com/sitemap.xml"
-
-      - name: Upload sitemap artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dynamic-sitemaps
-          path: static/sitemap*.xml
+          curl -s "https://www.google.com/ping?sitemap=https://content.strategiclabpartners.com/sitemap-index.xml"
+          curl
