@@ -9,13 +9,8 @@
         :root {
             --slp-blue: #005bbb;
             --slp-blue-dark: #004999;
-            --slp-gray-light: #f5f5f5;
             --slp-gray-border: #e0e0e0;
-            --slp-text: #222222;
-        }
-
-        * {
-            box-sizing: border-box;
+            --slp-text: #222;
         }
 
         body {
@@ -27,13 +22,12 @@
         }
 
         .page-wrapper {
-            max-width: 1000px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 40px 20px 56px;
+            padding: 40px 20px 60px;
         }
 
         /* HEADER */
-
         .header-block {
             text-align: center;
             margin-bottom: 32px;
@@ -42,7 +36,6 @@
         .logo-row {
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 24px;
             margin-bottom: 18px;
         }
@@ -52,32 +45,31 @@
         }
 
         .page-title {
-            font-size: 30px;
+            font-size: 28px;
             margin: 0 0 8px;
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
 
         .page-sub {
-            max-width: 760px;
+            max-width: 720px;
             margin: 0 auto;
             font-size: 15px;
             line-height: 1.6;
-            color: #444444;
+            color: #444;
         }
 
         .divider {
-            width: 80px;
+            width: 70px;
             height: 2px;
             background: var(--slp-blue);
             margin: 18px auto 0;
         }
 
         /* LEAD TESTIMONIAL */
-
         .lead-testimonial {
-            margin: 32px 0 24px;
-            padding: 24px 24px 26px;
+            margin: 32px 0 28px;
+            padding: 24px 24px 28px;
             border-radius: 10px;
             border: 1px solid var(--slp-gray-border);
             background: #fafafa;
@@ -87,13 +79,13 @@
         .lead-meta {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 14px;
+            gap: 10px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
         }
 
         .lead-label {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--slp-blue);
             text-transform: uppercase;
@@ -101,65 +93,32 @@
         }
 
         .lead-badge {
-            font-size: 13px;
-            color: #555555;
+            font-size: 12px;
+            color: #555;
         }
 
         .lead-line {
             font-family: Georgia, "Times New Roman", serif;
             font-size: 18px;
-            line-height: 1.7;
-            max-width: 720px;
+            line-height: 1.6;
+            max-width: 680px;
             margin: 0 auto 14px;
-            color: #222222;
         }
 
         .lead-attribution {
             font-size: 14px;
-            color: #555555;
-            margin: 0 0 10px;
-        }
-
-        .ecosystem-logo {
-            margin-top: 8px;
+            color: #555;
+            margin-bottom: 16px;
         }
 
         .ecosystem-logo img {
-            height: 40px;
+            height: 42px;
         }
 
-        /* SHORT RIBBON */
-
-        .testimonial-ribbon {
-            margin: 16px 0 32px;
-            padding: 16px 20px;
-            border-radius: 8px;
-            border: 1px dashed var(--slp-gray-border);
-            background: #ffffff;
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        .ribbon-quote {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 15px;
-            line-height: 1.6;
-            color: #333333;
-        }
-
-        .ribbon-attr {
-            margin-top: 6px;
-            font-size: 13px;
-            color: #666666;
-        }
-
-        /* NAV / LINKS */
-
+        /* NAVIGATION */
         .nav-section {
             text-align: center;
-            margin-top: 32px;
+            margin-top: 36px;
         }
 
         .nav-section h3 {
@@ -169,44 +128,35 @@
 
         .nav-buttons {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 16px;
         }
 
         .nav-buttons a {
-            display: inline-block;
             padding: 8px 14px;
             border-radius: 4px;
             border: 1px solid var(--slp-blue);
             color: var(--slp-blue);
             text-decoration: none;
             font-size: 14px;
-            background: #ffffff;
         }
 
         .nav-buttons a:hover {
             background: var(--slp-blue);
-            color: #ffffff;
+            color: #fff;
         }
 
         .back-link {
             text-align: center;
-            margin-top: 6px;
+            margin-top: 20px;
         }
 
         .back-link a {
             color: var(--slp-blue);
-            font-size: 14px;
             text-decoration: none;
+            font-size: 14px;
         }
-
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-
-        /* FOOTER */
 
         footer {
             margin-top: 40px;
@@ -214,36 +164,23 @@
             border-top: 1px solid var(--slp-gray-border);
             font-size: 14px;
             line-height: 1.6;
-            color: #555555;
+            color: #555;
+            text-align: center;
         }
 
         footer p {
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto 10px;
-        }
-
-        @media (max-width: 768px) {
-            .page-wrapper {
-                padding: 28px 16px 40px;
-            }
-
-            .logo-row {
-                flex-direction: column;
-            }
-
-            .lead-line {
-                font-size: 17px;
-            }
         }
     </style>
 </head>
+
 <body>
     <div class="page-wrapper">
 
         <!-- HEADER -->
         <div class="header-block">
             <div class="logo-row">
-                <!-- Logos from /assets -->
                 <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
                 <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
             </div>
@@ -274,17 +211,7 @@
             </p>
 
             <div class="ecosystem-logo">
-                <img src="/assets/logos/slp-connect-ecosystem.png" alt="SLP CONNECT Ecosystem">
-            </div>
-        </section>
-
-        <!-- SHORT RIBBON -->
-        <section class="testimonial-ribbon">
-            <div class="ribbon-quote">
-                “You’re exactly what you said you would be to us — incredibly supportive, extremely helpful.”
-            </div>
-            <div class="ribbon-attr">
-                — Prestigious Neuroscience Founder / CMO
+                <img src="/assets/logos/SLP%20CONNECT%E2%84%A2.png_400" alt="SLP CONNECT Ecosystem">
             </div>
         </section>
 
@@ -292,9 +219,9 @@
         <section class="nav-section">
             <h3>Start here:</h3>
             <div class="nav-buttons">
-                <a href="#prevents">Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)</a>
-                <a href="#oversight">Understand how oversight integrates with fulfillment</a>
-                <a href="#scales">Explore how SLP scales decentralized programs</a>
+                <a href="#prevents">Learn what SLP CONNECT™ prevents</a>
+                <a href="#oversight">How oversight integrates with fulfillment</a>
+                <a href="#scales">How SLP scales decentralized programs</a>
             </div>
         </section>
 
@@ -302,17 +229,16 @@
             <a href="/">Return to Strategic Lab Partners</a>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <p>
                 Strategic Lab Partners · SLP CONNECT™ — Operational intelligence for decentralized and distributed programs.
             </p>
             <p>
                 SLP CONNECT™ provides operational command-and-control across kitting, fulfillment, and deployment — preventing
-                delays, loss, and surprises before they impact patients, research timelines, or cost. Strategic Lab Partners
-                supports decentralized and regulated operations with precision, traceability, and dependable support at every stage.
+                delays, loss, and surprises before they impact patients, research timelines, or cost.
             </p>
         </footer>
+
     </div>
 </body>
 </html>
