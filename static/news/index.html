@@ -1,160 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head> 
-    <!-- Paste the CSS block here -->
-    <style>
-      /* Mobile header spacing */
-      @media (max-width: 600px) {
-        .news-header {
-          margin-top: 1.5rem;
-          text-align: center;
-        }
-      }
+{% include head.html %}
+{% include header.html %}
 
-      /* Mobile title sizing */
-      @media (max-width: 600px) {
-        .news-item h2 {
-          font-size: 1.25rem;
-          line-height: 1.3;
-          margin-bottom: 0.5rem;
-        }
-      }
+<div class="news-container">
 
-      /* Clamp summary to 3 lines on mobile */
-      .news-summary {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
+  <h1>Strategic Lab Partners — News</h1>
 
-      /* Optional: subtle card spacing */
-      .news-item {
-        margin-bottom: 2rem;
-      }
-    </style>
+  <!-- FIRST AND ONLY NEWS STORY -->
+  <div class="news-card">
+    <a href="/news/slp-launches-closed-kitting-ecosystem/">
+      <img src="/assets/images/kitting-ecosystem-hero.png"
+           alt="Closed Kitting Ecosystem"
+           class="news-thumb">
+    </a>
 
-</head>
+    <div class="news-card-content">
+      <h3>SLP Introduces Closed Kitting Ecosystem for Real-Time Component-Level Control</h3>
+      <p class="news-date">June 2026 • Strategic Lab Partners</p>
+      <p class="news-excerpt">
+        Strategic Lab Partners unveils a fully closed, healthcare‑grade kitting ecosystem with real‑time component‑level visibility and digital chain‑of‑custody.
+      </p>
+      <p><a href="/news/slp-launches-closed-kitting-ecosystem/">Read more →</a></p>
+    </div>
+  </div>
 
-</head>
+</div>
 
+<style>
+  .news-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #222;
-    }
+  .news-card {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 30px;
+  }
 
-    .news-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+  .news-thumb {
+    width: 280px;
+    height: auto;
+    border-radius: 6px;
+    margin-right: 20px;
+  }
 
-    h1 {
-      font-size: 32px;
-      color: #0a3d62;
-      margin-bottom: 40px;
-    }
+  .news-card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    color: #0a3d62;
+  }
 
+  .news-date {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .news-excerpt {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 600px) {
     .news-card {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 40px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 30px;
+      flex-direction: column;
     }
 
     .news-thumb {
-      width: 280px;
-      height: auto;
-      border-radius: 6px;
-      margin-right: 20px;
+      width: 100%;
+      margin: 0 0 20px 0;
     }
-
-    .news-card-content h3 {
-      margin: 0 0 10px 0;
-      font-size: 22px;
-      color: #0a3d62;
-    }
-
-    .news-date {
-      font-size: 15px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-
-    .news-excerpt {
-      font-size: 17px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-  </style>
-  <style>
-  /* Mobile header spacing */
-  @media (max-width: 600px) {
-    .news-header {
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-  }
-
-  /* Mobile title sizing */
-  @media (max-width: 600px) {
-    .news-item h2 {
-      font-size: 1.25rem;
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  /* Clamp summary to 3 lines on mobile */
-  .news-summary {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* Optional: subtle card spacing */
-  .news-item {
-    margin-bottom: 2rem;
   }
 </style>
-
-</head>
-
-<body>
-  <div class="news-header">
-  <h1>News</h1>
-  <p>Updates from Strategic Lab Partners</p>
-</div>
-
-  <div class="news-container">
-
-    <h1>Strategic Lab Partners — News</h1>
-
-    <!-- FIRST AND ONLY NEWS STORY -->
-    <div class="news-card">
-      <a href="/news/slp-launches-closed-kitting-ecosystem/">
-        <img src="/assets/images/kitting-ecosystem-hero.png"
-             alt="Closed Kitting Ecosystem"
-             class="news-thumb">
-      </a>
-
-      <div class="news-card-content">
-        <h3>SLP Introduces Closed Kitting Ecosystem for Real-Time Component-Level Control</h3>
-        <p class="news-date">June 2026 • Strategic Lab Partners</p>
-        <p class="news-excerpt">
-          Strategic Lab Partners unveils a fully closed, healthcare‑grade kitting ecosystem with real‑time component‑level visibility and digital chain‑of‑custody.
-        </p>
-        <p><a href="/news/slp-launches-closed-kitting-ecosystem/">Read more →</a></p>
-      </div>
-    </div>
-
-  </div>
-</body>
-</html>
