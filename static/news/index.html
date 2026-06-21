@@ -2,107 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strategic Lab Partners — News</title>
+  <meta name="description" content="Latest announcements, product updates, and operational advancements from Strategic Lab Partners.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SAME GLOBAL CSS USED BY FAQS -->
-  <link rel="stylesheet" href="/css/main.css">
-
-  <style>
-    /* Page container */
-    .news-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    /* News card layout */
-    .news-card {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 40px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 30px;
-    }
-
-    .news-thumb {
-      width: 280px;
-      height: auto;
-      border-radius: 6px;
-      margin-right: 20px;
-    }
-
-    .news-card-content h3 {
-      margin: 0 0 10px 0;
-      font-size: 22px;
-      color: #0a3d62;
-    }
-
-    .news-date {
-      font-size: 15px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-
-    .news-excerpt {
-      font-size: 17px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    /* Mobile layout */
-    @media (max-width: 600px) {
-      .news-card {
-        flex-direction: column;
-      }
-
-      .news-thumb {
-        width: 100%;
-        margin: 0 0 20px 0;
-      }
-    }
-  </style>
+  <!-- EXACT SAME CSS PATH AS FAQS -->
+  <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 
 <body>
 
-  <!-- SAME HEADER USED BY FAQS -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="logo">Strategic Lab Partners</a>
-      <nav class="site-nav">
-        <a href="/faqs/">FAQs</a>
-        <a href="/resources/">Resources</a>
-        <a href="/blog/">Blog</a>
-        <a href="/case-studies/">Case Studies</a>
-        <a href="/news/" class="active">News</a>
-      </nav>
-    </div>
-  </header>
+<!-- EXACT SAME HEADER AS FAQS -->
+<header class="site-header">
+  <div class="container">
+    <a href="https://content.strategiclabpartners.com/faqs/" class="logo">
+      <img src="https://content.strategiclabpartners.com/assets/logos/slp-white-full-logo.png"
+           alt="Strategic Lab Partners" width="180">
+    </a>
 
-  <!-- PAGE CONTENT -->
-  <div class="news-container">
+    <nav class="main-nav">
+      <a href="https://strategiclabpartners.com/slp-experience">About</a>
+      <a href="https://strategiclabpartners.com/3pl-management">Services</a>
+      <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>
+      <a href="https://strategiclabpartners.com/contact-slp">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-content">
+  <div class="container">
+
+    <nav class="breadcrumbs">
+      <a href="../index.html">Home</a> »
+      <span>News</span>
+    </nav>
 
     <h1>Strategic Lab Partners — News</h1>
 
-    <div class="news-card">
+    <!-- NEWS CARD -->
+    <div class="news-card" style="
+      display:flex;
+      flex-direction:row;
+      margin-bottom:40px;
+      border-bottom:1px solid #ddd;
+      padding-bottom:30px;
+    ">
       <a href="/news/slp-launches-closed-kitting-ecosystem/">
         <img src="/assets/images/kitting-ecosystem-hero.png"
              alt="Closed Kitting Ecosystem"
-             class="news-thumb">
+             style="width:280px;height:auto;border-radius:6px;margin-right:20px;">
       </a>
 
       <div class="news-card-content">
-        <h3>SLP Introduces Closed Kitting Ecosystem for Real-Time Component-Level Control</h3>
-        <p class="news-date">June 2026 • Strategic Lab Partners</p>
-        <p class="news-excerpt">
-          Strategic Lab Partners unveils a fully closed, healthcare‑grade kitting ecosystem with real‑time component‑level visibility and digital chain‑of‑custody.
+        <h3 style="margin:0 0 10px 0;font-size:22px;color:#0a3d62;">
+          SLP Introduces Closed Kitting Ecosystem for Real-Time Component-Level Control
+        </h3>
+
+        <p style="font-size:15px;color:#666;margin-bottom:10px;">
+          June 2026 • Strategic Lab Partners
         </p>
+
+        <p style="font-size:17px;line-height:1.5;margin-bottom:10px;">
+          Strategic Lab Partners unveils a fully closed, healthcare‑grade kitting ecosystem with real‑time
+          component‑level visibility and digital chain‑of‑custody.
+        </p>
+
         <p><a href="/news/slp-launches-closed-kitting-ecosystem/">Read more →</a></p>
       </div>
     </div>
 
   </div>
+</main>
 
-</body>
-</html>
+<footer style="background:#ffffff;color:#000000;padding:40px 20px;border-top:1px solid #e0e0e0;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <h3 style="color:#000000;font-size:1.1rem;font-weight:700;letter-spacing:0.05em;margin-bottom:16px;">
