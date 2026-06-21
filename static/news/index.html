@@ -1,79 +1,108 @@
-{% include head.html %}
-{% include header.html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategic Lab Partners — News</title>
 
-<div class="news-container">
+  <!-- SAME GLOBAL CSS USED BY FAQS -->
+  <link rel="stylesheet" href="/css/main.css">
 
-  <h1>Strategic Lab Partners — News</h1>
+  <style>
+    /* Page container */
+    .news-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
-  <!-- FIRST AND ONLY NEWS STORY -->
-  <div class="news-card">
-    <a href="/news/slp-launches-closed-kitting-ecosystem/">
-      <img src="/assets/images/kitting-ecosystem-hero.png"
-           alt="Closed Kitting Ecosystem"
-           class="news-thumb">
-    </a>
-
-    <div class="news-card-content">
-      <h3>SLP Introduces Closed Kitting Ecosystem for Real-Time Component-Level Control</h3>
-      <p class="news-date">June 2026 • Strategic Lab Partners</p>
-      <p class="news-excerpt">
-        Strategic Lab Partners unveils a fully closed, healthcare‑grade kitting ecosystem with real‑time component‑level visibility and digital chain‑of‑custody.
-      </p>
-      <p><a href="/news/slp-launches-closed-kitting-ecosystem/">Read more →</a></p>
-    </div>
-  </div>
-
-</div>
-
-<style>
-  .news-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-
-  .news-card {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 30px;
-  }
-
-  .news-thumb {
-    width: 280px;
-    height: auto;
-    border-radius: 6px;
-    margin-right: 20px;
-  }
-
-  .news-card-content h3 {
-    margin: 0 0 10px 0;
-    font-size: 22px;
-    color: #0a3d62;
-  }
-
-  .news-date {
-    font-size: 15px;
-    color: #666;
-    margin-bottom: 10px;
-  }
-
-  .news-excerpt {
-    font-size: 17px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-
-  /* Mobile adjustments */
-  @media (max-width: 600px) {
+    /* News card layout */
     .news-card {
-      flex-direction: column;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 30px;
     }
 
     .news-thumb {
-      width: 100%;
-      margin: 0 0 20px 0;
+      width: 280px;
+      height: auto;
+      border-radius: 6px;
+      margin-right: 20px;
     }
-  }
-</style>
+
+    .news-card-content h3 {
+      margin: 0 0 10px 0;
+      font-size: 22px;
+      color: #0a3d62;
+    }
+
+    .news-date {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .news-excerpt {
+      font-size: 17px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    /* Mobile layout */
+    @media (max-width: 600px) {
+      .news-card {
+        flex-direction: column;
+      }
+
+      .news-thumb {
+        width: 100%;
+        margin: 0 0 20px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SAME HEADER USED BY FAQS -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">Strategic Lab Partners</a>
+      <nav class="site-nav">
+        <a href="/faqs/">FAQs</a>
+        <a href="/resources/">Resources</a>
+        <a href="/blog/">Blog</a>
+        <a href="/case-studies/">Case Studies</a>
+        <a href="/news/" class="active">News</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <div class="news-container">
+
+    <h1>Strategic Lab Partners — News</h1>
+
+    <div class="news-card">
+      <a href="/news/slp-launches-closed-kitting-ecosystem/">
+        <img src="/assets/images/kitting-ecosystem-hero.png"
+             alt="Closed Kitting Ecosystem"
+             class="news-thumb">
+      </a>
+
+      <div class="news-card-content">
+        <h3>SLP Introduces Closed Kitting Ecosystem for Real-Time Component-Level Control</h3>
+        <p class="news-date">June 2026 • Strategic Lab Partners</p>
+        <p class="news-excerpt">
+          Strategic Lab Partners unveils a fully closed, healthcare‑grade kitting ecosystem with real‑time component‑level visibility and digital chain‑of‑custody.
+        </p>
+        <p><a href="/news/slp-launches-closed-kitting-ecosystem/">Read more →</a></p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
