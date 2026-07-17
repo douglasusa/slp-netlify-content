@@ -5,82 +5,324 @@
   <title>Strategic Lab Partners — News</title>
   <meta name="description" content="Latest announcements, product updates, and operational advancements from Strategic Lab Partners.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2933;
+      background: #ffffff;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #0a3d62;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(100% - 40px, 1100px);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: #0a3d62;
+      color: #ffffff;
+      padding: 18px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      flex: 0 0 auto;
+    }
+
+    .logo img {
+      width: 180px;
+      max-width: 100%;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+    }
+
+    .main-nav a {
+      color: #ffffff;
+      font-size: 15px;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    .page-content {
+      padding: 32px 0 56px;
+    }
+
+    .breadcrumbs {
+      margin-bottom: 20px;
+      color: #667085;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .breadcrumbs a {
+      color: #0a3d62;
+    }
+
+    h1 {
+      margin: 0 0 28px;
+      color: #0a3d62;
+      font-size: clamp(30px, 5vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      overflow-wrap: break-word;
+    }
+
+    .news-card {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #dddddd;
+      padding-bottom: 30px;
+    }
+
+    .news-card-image-link {
+      flex: 0 0 280px;
+      max-width: 280px;
+    }
+
+    .news-card-image {
+      width: 280px;
+      border-radius: 6px;
+      background: #eef2f6;
+    }
+
+    .news-card-content {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .news-card-title {
+      margin: 0 0 10px;
+      color: #0a3d62;
+      font-size: 22px;
+      line-height: 1.25;
+      overflow-wrap: break-word;
+    }
+
+    .news-meta {
+      margin: 0 0 10px;
+      color: #666666;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .news-summary {
+      margin: 0 0 10px;
+      color: #263238;
+      font-size: 17px;
+      line-height: 1.55;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    .read-more {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .site-footer {
+      background: #ffffff;
+      color: #000000;
+      padding: 40px 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .site-footer h3 {
+      margin: 0 0 16px;
+      color: #000000;
+      font-size: 1.1rem;
+      line-height: 1.35;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .site-footer p {
+      color: #000000;
+      overflow-wrap: break-word;
+    }
+
+    .mission-copy {
+      margin: 0 0 24px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .copyright {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 32px, 1100px);
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .main-nav {
+        justify-content: flex-start;
+        gap: 10px 16px;
+      }
+
+      .main-nav a {
+        font-size: 14px;
+      }
+
+      .page-content {
+        padding: 28px 0 44px;
+      }
+
+      .news-card {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .news-card-image-link {
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .news-card-image {
+        width: 100%;
+      }
+
+      .news-card-title {
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+      .news-summary {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        width: min(100% - 24px, 1100px);
+      }
+
+      .main-nav {
+        gap: 8px 12px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<header class="site-header">
-  <div class="container">
-    <a href="https://content.strategiclabpartners.com/faqs/" class="logo">
-      <img src="https://content.strategiclabpartners.com/assets/logos/slp-white-full-logo.png"
-           alt="Strategic Lab Partners" width="180">
-    </a>
-
-    <nav class="main-nav">
-      <a href="https://strategiclabpartners.com/slp-experience">About</a>
-      <a href="https://strategiclabpartners.com/3pl-management">Services</a>
-      <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>
-      <a href="https://strategiclabpartners.com/contact-slp">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="page-content">
-  <div class="container">
-
-    <nav class="breadcrumbs">
-      <a href="../index.html">Home</a> »
-      <span>News</span>
-    </nav>
-
-    <h1>Strategic Lab Partners — News</h1>
-
-    <div class="news-card" style="
-      display:flex;
-      flex-direction:row;
-      margin-bottom:40px;
-      border-bottom:1px solid #ddd;
-      padding-bottom:30px;
-    ">
-      <a href="/news/slp-launches-closed-kitting-ecosystem/">
-        <img src="/assets/images/kitting-ecosystem-hero.png"
-             alt="Closed Kitting Ecosystem"
-             style="width:280px;height:auto;border-radius:6px;margin-right:20px;">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="https://content.strategiclabpartners.com/faqs/" class="logo" aria-label="Strategic Lab Partners home">
+        <img src="https://content.strategiclabpartners.com/assets/logos/slp-white-full-logo.png" alt="Strategic Lab Partners" width="180">
       </a>
-
-      <div class="news-card-content">
-        <h3 style="margin:0 0 10px 0;font-size:22px;color:#0a3d62;">
-          SLP Introduces Closed Kitting Ecosystem for Real-Time Component-Level Control
-        </h3>
-
-        <p style="font-size:15px;color:#666;margin-bottom:10px;">
-          June 2026 • Strategic Lab Partners
-        </p>
-
-        <p style="font-size:17px;line-height:1.5;margin-bottom:10px;">
-          Strategic Lab Partners unveils a fully closed, healthcare‑grade kitting ecosystem with real‑time
-          component‑level visibility and digital chain‑of‑custody.
-        </p>
-
-        <p><a href="/news/slp-launches-closed-kitting-ecosystem/">Read more →</a></p>
-      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="https://strategiclabpartners.com/slp-experience">About</a>
+        <a href="https://strategiclabpartners.com/3pl-management">Services</a>
+        <a href="https://content.strategiclabpartners.com/faqs/">FAQs</a>
+        <a href="https://strategiclabpartners.com/contact-slp">Contact</a>
+      </nav>
     </div>
+  </header>
 
-  </div>
-</main>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a> &raquo;
+        <span>News</span>
+      </nav>
 
-<footer style="background:#ffffff;color:#000000;padding:40px 20px;border-top:1px solid #e0e0e0;">
-  <div style="max-width:900px;margin:0 auto;text-align:center;">
-    <h3 style="color:#000000;font-size:1.1rem;font-weight:700;letter-spacing:0.05em;margin-bottom:16px;">
-      MISSION | Strategic Lab Partners (SLP)
-    </h3>
-    <p style="color:#000000;font-size:0.95rem;line-height:1.7;margin-bottom:24px;">
-      Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics, and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one connected ecosystem.
-    </p>
-    <p style="color:#000000;font-size:0.85rem;">© 2026 Strategic Lab Partners. All rights reserved.</p>
-  </div>
-</footer>
+      <h1>Strategic Lab Partners — News</h1>
 
+      <article class="news-card">
+        <a class="news-card-image-link" href="/news/slp-launches-closed-kitting-ecosystem/" aria-label="Read more about SLP's Closed Kitting Ecosystem">
+          <img src="/assets/images/kitting-ecosystem-hero.png"
+               alt="Closed Kitting Ecosystem"
+               class="news-card-image">
+        </a>
+
+        <div class="news-card-content">
+          <h2 class="news-card-title">
+            <a href="/news/slp-launches-closed-kitting-ecosystem/">
+              SLP Introduces Closed Kitting Ecosystem for Real-Time Component-Level Control
+            </a>
+          </h2>
+
+          <p class="news-meta">June 2026 • Strategic Lab Partners</p>
+
+          <p class="news-summary">
+            Strategic Lab Partners unveils a fully closed, healthcare-grade kitting ecosystem with real-time
+            component-level visibility and digital chain-of-custody.
+          </p>
+
+          <p class="read-more">
+            <a href="/news/slp-launches-closed-kitting-ecosystem/">Read more &rarr;</a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <h3>MISSION | Strategic Lab Partners (SLP)</h3>
+      <p class="mission-copy">
+        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi-Omics,
+        and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one
+        connected ecosystem.
+      </p>
+      <p class="copyright">© 2026 Strategic Lab Partners. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
