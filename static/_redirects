@@ -1,1 +1,44 @@
+# _redirects
+# Strategic Lab Partners content subdomain — SEO canonicalization / redirect rules
+# Primary host: https://content.strategiclabpartners.com
+#
+# Contact destination: all recommended contact / email CTA links terminate at
+#   mailto:orders@strategiclabpartners.com
+#
+# NOTE: Netlify _redirects cannot set title tags, meta descriptions, canonical
+# tags, schema, or body copy. Those per-page SEO fields are implemented in the
+# page templates / HTML head (see the SEO directive documented alongside this
+# deploy). This file only carries the redirect rules needed to eliminate
+# duplicate URLs and canonicalize the content subdomain.
+#
+# Canonical form for every page: NO trailing slash, NO .html extension.
+# Netlify serves /faqs/<slug> directly from /faqs/<slug>.html (pretty URLs).
 
+# --- GLOBAL CANONICALIZATION / CLEANUP -------------------------------------
+
+# Legacy apostrophe (U+2019) variants of the innovation FAQ -> clean slug.
+# These are genuine cross-URL redirects and 301 as expected.
+/faqs/what-is-slp’s-approach-to-innovation.html            /faqs/what-is-slps-approach-to-innovation   301
+/faqs/what-is-slp%E2%80%99s-approach-to-innovation.html    /faqs/what-is-slps-approach-to-innovation   301
+
+# --- Trailing-slash duplicates: handled at the source, NOT via redirects ----
+#
+# The following FAQ pages previously existed as /faqs/<slug>/index.html, which
+# produced duplicate trailing-slash URLs:
+#   what-is-slp-connect, how-does-slp-connect-support-program-visibility,
+#   decentralized-at-home-collections,
+#   how-medical-fulfillment-improves-accuracy-and-reliability,
+#   how-medical-fulfillment-supports-distributed-healthcare-networks,
+#   how-medical-kitting-supports-multi-site-healthcare-organizations,
+#   sample-integrity-genomics-transcriptomics-proteomics-metabolomics,
+#   why-standardized-kits-are-important-for-healthcare-providers,
+#   why-standardized-logistics-are-essential-for-medical-programs
+#
+# They have been flattened to /faqs/<slug>.html and their canonical tags,
+# internal links, and sitemap entries now use the clean /faqs/<slug> form.
+#
+# A "/faqs/<slug>/  /faqs/<slug>  301" rule is intentionally NOT added:
+# Netlify treats a trailing-slash path and its non-slash form as the SAME URL
+# in redirect matching, so such a rule redirects the clean URL to itself and
+# creates an infinite 301 loop. Slash consolidation is instead handled by the
+# per-page rel="canonical" tag, which points at the non-trailing-slash URL.

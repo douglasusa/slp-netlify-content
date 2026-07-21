@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Strategic Lab Partners — Content Hub</title>
+    <link rel="canonical" href="https://content.strategiclabpartners.com/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
@@ -23,6 +24,44 @@
             background: #ffffff;
             color: var(--slp-text);
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* Ghosted editorial hero backdrop — the operations photograph sits
+           behind the opening screen and fades softly into the white page so
+           all foreground copy stays crisp and readable. */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 900px;
+            z-index: -1;
+            background-image: url("/assets/images/hero-operations-bg.jpg");
+            background-image: image-set(
+                url("/assets/images/hero-operations-bg.webp") type("image/webp"),
+                url("/assets/images/hero-operations-bg.jpg") type("image/jpeg")
+            );
+            background-position: center top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.24;
+            -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 40%, transparent 92%);
+                    mask-image: linear-gradient(to bottom, #000 0%, #000 40%, transparent 92%);
+            pointer-events: none;
+        }
+        /* Soft brand-blue wash layered over the photo for cohesion. */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 900px;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(0, 91, 187, 0.06) 0%, rgba(255, 255, 255, 0) 60%);
+            pointer-events: none;
         }
         .header-block {
             text-align: center;
@@ -384,6 +423,10 @@
             body {
                 padding: 36px 24px;
             }
+            body::before,
+            body::after {
+                height: 620px;
+            }
             h1 {
                 font-size: 30px;
             }
@@ -398,6 +441,10 @@
         @media (max-width: 600px) {
             body {
                 padding: 28px 18px;
+            }
+            body::before,
+            body::after {
+                height: 480px;
             }
             .logo-row img {
                 max-height: 72px;
@@ -439,7 +486,7 @@
     <!-- ══ HEADER / LOGO BLOCK ══ -->
     <div class="header-block">
         <div class="logo-row">
-            <img src=".../../assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+            <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
             
         </div>
 
@@ -503,7 +550,7 @@
 
     <!-- ══ HERO IMAGE ══ -->
     <div class="hero">
-        <img src=".../../assets/images/slp-web-banner-2.png" alt="SLP CONNECT Ecosystem">
+        <img src="/assets/images/slp-web-banner-2.png" alt="SLP CONNECT Ecosystem">
     </div>
 
     <!-- ══ PRIMARY CTA BLOCK ══ -->
