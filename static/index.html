@@ -154,6 +154,39 @@
             line-height: 1.55;
             text-align: left;
         }
+        /* Three-up variant of the capability grid, used for the linked
+           specialized logistics cards directly beneath the core four. */
+        .capabilities-3 {
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 14px;
+        }
+        a.capability-card {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            transition: border-color 0.18s ease, box-shadow 0.18s ease,
+                        transform 0.18s ease;
+        }
+        a.capability-card:hover,
+        a.capability-card:focus-visible {
+            border-color: var(--slp-blue);
+            box-shadow: 0 4px 14px rgba(0, 91, 187, 0.14);
+            transform: translateY(-2px);
+        }
+        a.capability-card:focus-visible {
+            outline: 2px solid var(--slp-blue);
+            outline-offset: 2px;
+        }
+        a.capability-card h2 {
+            text-decoration: none;
+        }
+        .capability-more {
+            display: block;
+            margin: 10px 0 0 0;
+            color: var(--slp-blue);
+            font-size: 13px;
+            font-weight: bold;
+        }
         .connect-note {
             max-width: 900px;
             margin: 28px auto 8px auto;
@@ -521,6 +554,24 @@
                 <h2>SLP CONNECT&trade;</h2>
                 <p>Real&#8209;time visibility across orders, inventory, shipments, documentation, exceptions, and program performance.</p>
             </div>
+      </div>
+
+        <div class="capabilities capabilities-3" aria-label="Specialized logistics programs">
+            <a class="capability-card" href="https://strategiclabpartners.com/decentralized-clinical-trial-logistics">
+                <h2>Decentralized Logistics</h2>
+                <p>Kit design, fulfillment, courier tracking, returns, and exception handling for decentralized and hybrid trials &mdash; with chain&#8209;of&#8209;custody documentation across every patient, site, and lab handoff.</p>
+                <span class="capability-more">Explore decentralized clinical trial logistics &rarr;</span>
+            </a>
+            <a class="capability-card" href="https://strategiclabpartners.com/audit-ready-chain-of-custody-logistics">
+                <h2>Audit&#8209;Ready Chain&#8209;of&#8209;Custody</h2>
+                <p>Serialized tracking, timestamped handoffs, exception history, and return closure that turn physical kit and sample movement into a structured, audit&#8209;ready operational record.</p>
+                <span class="capability-more">Explore audit&#8209;ready chain&#8209;of&#8209;custody logistics &rarr;</span>
+            </a>
+            <a class="capability-card" href="https://strategiclabpartners.com/critical-healthcare-deployment-logistics">
+                <h2>Critical Logistics</h2>
+                <p>Inventory readiness, rapid assembly, field distribution, and returns for urgent public health, diagnostics, and emergency response deployments where visibility determines control.</p>
+                <span class="capability-more">Explore critical healthcare deployment logistics &rarr;</span>
+            </a>
       </div>
 
         <div class="connect-note">
