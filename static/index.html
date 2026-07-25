@@ -153,9 +153,14 @@
             font-size: 14px;
             line-height: 1.55;
             text-align: left;
+            overflow-wrap: break-word;
         }
         /* Three-up variant of the capability grid, used for the linked
-           specialized logistics cards directly beneath the core four. */
+           specialized logistics cards directly beneath the core four.
+           The responsive collapse for this grid is declared explicitly in
+           both media queries below rather than relying on the shared
+           .capabilities rules winning on source order, so these cards stack
+           on phones exactly like the four cards above them. */
         .capabilities-3 {
             grid-template-columns: repeat(3, 1fr);
             margin-top: 14px;
@@ -164,16 +169,27 @@
             display: block;
             color: inherit;
             text-decoration: none;
+            overflow-wrap: break-word;
+            -webkit-tap-highlight-color: rgba(0, 91, 187, 0.12);
             transition: border-color 0.18s ease, box-shadow 0.18s ease,
                         transform 0.18s ease;
         }
-        a.capability-card:hover,
-        a.capability-card:focus-visible {
+        /* Hover lift is gated to true pointer devices: on iOS Safari a tapped
+           link keeps :hover until the next tap elsewhere, which would leave a
+           card stuck in the raised, shadowed state after a visitor returns. */
+        @media (hover: hover) and (pointer: fine) {
+            a.capability-card:hover {
+                border-color: var(--slp-blue);
+                box-shadow: 0 4px 14px rgba(0, 91, 187, 0.14);
+                transform: translateY(-2px);
+            }
+        }
+        a.capability-card:active {
             border-color: var(--slp-blue);
-            box-shadow: 0 4px 14px rgba(0, 91, 187, 0.14);
-            transform: translateY(-2px);
+            background: var(--slp-blue-soft);
         }
         a.capability-card:focus-visible {
+            border-color: var(--slp-blue);
             outline: 2px solid var(--slp-blue);
             outline-offset: 2px;
         }
@@ -466,6 +482,9 @@
             .capabilities {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .capabilities-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .testimonial-ribbon {
                 margin-left: -24px;
                 margin-right: -24px;
@@ -489,6 +508,9 @@
                 font-size: 16px;
             }
             .capabilities {
+                grid-template-columns: 1fr;
+            }
+            .capabilities-3 {
                 grid-template-columns: 1fr;
             }
             .primary-cta,
