@@ -42,3 +42,12 @@
 # in redirect matching, so such a rule redirects the clean URL to itself and
 # creates an infinite 301 loop. Slash consolidation is instead handled by the
 # per-page rel="canonical" tag, which points at the non-trailing-slash URL.
+
+# --- ASSET FILENAME CANONICALIZATION ---------------------------------------
+#
+# The SLP CONNECT white wordmark was originally published with spaces in its
+# filename ("25 SLP Connect newlogo-white.png"). It is now stored without
+# spaces, so the encoded legacy URL is redirected to the canonical file.
+# The rule is written %20-encoded because _redirects is whitespace-delimited
+# and a literal space would break rule parsing.
+/assets/images/25%20SLP%20Connect%20newlogo-white.png   /assets/images/25-slp-connect-logo-white.png   301
