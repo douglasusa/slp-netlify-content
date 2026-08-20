@@ -51,3 +51,10 @@
 # The rule is written %20-encoded because _redirects is whitespace-delimited
 # and a literal space would break rule parsing.
 /assets/images/25%20SLP%20Connect%20newlogo-white.png   /assets/images/25-slp-connect-logo-white.png   301
+
+# Safety net: the previously published markup requested the wordmark via a
+# relative authoring path that resolves to the URL below and 404s. The markup
+# is fixed, but visitors holding a cached copy of the old page would still
+# request it, so it is mapped to the canonical file. Safe to delete once the
+# corrected page has been live long enough for caches to turn over.
+/SLP-Netlify-Content/content/assets/images/25%20SLP%20Connect%20newlogo-white.png   /assets/images/25-slp-connect-logo-white.png   301
