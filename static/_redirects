@@ -42,3 +42,19 @@
 # in redirect matching, so such a rule redirects the clean URL to itself and
 # creates an infinite 301 loop. Slash consolidation is instead handled by the
 # per-page rel="canonical" tag, which points at the non-trailing-slash URL.
+
+# --- LEGACY LOGO PATH ------------------------------------------------------
+#
+# The SLP CONNECT white wordmark is stored and served as
+# /assets/images/25 SLP Connect newlogo-white.png -- the exact URL that has
+# been live and returning 200 since the asset was first uploaded. The page
+# markup references it %20-encoded.
+#
+# Safety net: the previously published markup requested the wordmark via a
+# relative authoring path ("../../SLP-Netlify-Content/content/assets/...")
+# that resolves to the URL below and 404s. The markup is fixed, but visitors
+# holding a cached copy of the old page still request it, so it is mapped to
+# the real file. Safe to delete once caches have turned over.
+# The rule is written %20-encoded because _redirects is whitespace-delimited
+# and a literal space would break rule parsing.
+/SLP-Netlify-Content/content/assets/images/25%20SLP%20Connect%20newlogo-white.png   /assets/images/25%20SLP%20Connect%20newlogo-white.png   301
