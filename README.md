@@ -9,23 +9,34 @@ All public-facing content is served directly from the `/static/` directory.
 ## 📁 Repository Structure
 
 /
+├── netlify.toml            # Build + publish configuration (source of truth)
 ├── static/                 # Public site root (served by Netlify)
 │   ├── index.html          # Homepage
+│   ├── compliance.html     # Compliance page
+│   ├── landing-page.html   # Landing page
+│   ├── hero-section.html   # Reusable hero markup
+│   ├── navigation-index.html # Reusable navigation markup
 │   ├── robots.txt          # SEO crawl rules
-│   ├── sitemap.xml         # Sitemap for search engines
-│   ├── _headers            # Netlify headers (ownership + attribution)
-│   ├── attribution.html    # Reusable attribution block
-│   ├── assets/             # Images, logos, media
+│   ├── sitemap-index.xml   # Sitemap index
+│   ├── sitemap-*.xml       # Per-section sitemaps (blog, faqs, news, …)
+│   ├── _redirects          # Redirect + URL canonicalization rules
+│   ├── assets/             # Static assets
+│   │   ├── css/            # Stylesheets
+│   │   ├── images/         # Images and media
+│   │   └── logos/          # Logo and wordmark files
 │   ├── blog/               # Blog posts
 │   ├── case-studies/       # Case studies
 │   ├── faqs/               # FAQs
+│   ├── news/               # News items
 │   ├── resources/          # Resources
-│   ├── css/                # Stylesheets
-│   └── js/                 # Attribution scripts
+│   └── testimonials/       # Testimonials
 │
+├── scripts/                # Maintenance scripts invoked by GitHub Actions
 ├── utilities/              # Internal tools (not served publicly)
 │   └── posts-generator.html
 │
+├── .github/workflows/      # Content automation workflows
+├── google0fb19b8638c06533.html  # Search Console verification
 └── README.md               # Documentation
 
 ---
@@ -40,10 +51,35 @@ Example:
 
 ---
 
+## 🔧 Build Configuration
+
+There is no build step. The site is hand-authored static HTML, and `netlify.toml`
+at the repo root declares the publish directory and an explicit no-op build command.
+
+Keep build settings in `netlify.toml` rather than in the Netlify UI. Settings that
+live only in the UI are unversioned, cannot be reviewed as part of a pull request,
+and can be given different values per deploy context without leaving any trace in
+the repository — which is how a deploy preview can fail on exactly the content that
+then deploys cleanly to production.
+
+The explicit build command matters: when no command is configured, Netlify falls
+back to framework auto-detection and may supply one of its own.
+
+`netlify.toml` also pins `HUGO_VERSION`. This site is not a Hugo project, and the
+variable should not exist — but it is currently defined in the Netlify UI with a
+valid value for production and an empty value for every other context, which is
+enough to break a deploy preview on content that builds cleanly in production.
+The pin holds one value across all contexts until the variable is deleted in the
+UI, at which point that block can be removed. See the comments in `netlify.toml`.
+
+---
+
 ## 🧩 SEO Files
 
-- `robots.txt` and `sitemap.xml` must remain inside `/static/`
+- `robots.txt` and the `sitemap-*.xml` files must remain inside `/static/`
 - Netlify serves them at the site root automatically
+- `_redirects` carries the redirect and canonicalization rules; see the comments
+  in that file before adding trailing-slash rules
 
 ---
 
@@ -61,11 +97,13 @@ These files are **not** deployed and should remain at the repo root.
 The following files should never exist at the repo root:
 - `/index.html`
 - `/_redirects`
-- `/netlify.toml`
 - `/robots.txt`
 - `/sitemap.xml`
 
 All public content must live inside `/static/`.
+
+`netlify.toml` is the one exception and belongs at the repo root: it is build
+configuration, is never served to visitors, and Netlify only reads it from there.
 
 ---
 

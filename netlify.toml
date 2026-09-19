@@ -1,0 +1,44 @@
+# Build and publish configuration for the SLP CONNECT™ Content Hub.
+#
+# This file is the source of truth for how the site is built. The same settings
+# previously existed only in the Netlify UI, which meant they were unversioned,
+# invisible to code review, and free to drift between deploy contexts. Keeping
+# them here makes every context build identically to what ships to production.
+#
+# There is no build step. The site is hand-authored static HTML committed under
+# static/, and Netlify serves that directory as the site root.
+#
+# The command below is an explicit no-op rather than being left empty. When no
+# command is configured, Netlify falls back to framework auto-detection and may
+# substitute a build command of its own -- which is how a stale Hugo version
+# variable on this site was able to influence builds despite the repository
+# containing no Hugo project. An explicit command removes that path entirely.
+
+[build]
+  publish = "static"
+  command = "echo 'No build step: static HTML is published directly from static/'"
+
+# The [build] block above already applies to every context (production, deploy
+# previews and branch deploys), so per-context overrides are deliberately not
+# defined here. Adding one would reintroduce exactly the production-vs-preview
+# divergence this file exists to prevent.
+
+# --- HUGO_VERSION override (shim) ------------------------------------------
+#
+# The Netlify UI defines HUGO_VERSION with DIFFERENT values per context:
+# "0.123.0" for production, but an empty string for deploy-preview,
+# branch-deploy and dev. An empty version is what made a deploy preview fail
+# while production built the identical commit successfully.
+#
+# This repository contains no Hugo project, so the variable should not exist at
+# all. It could not be deleted from here -- the build environment's credentials
+# are read-only for environment variables -- so it is pinned to a single value
+# for every context instead. File-based configuration takes precedence over the
+# UI, so no context can now receive the empty value.
+#
+# This block is a shim, not a statement that the site needs Hugo. Once
+# HUGO_VERSION is deleted in the Netlify UI
+# (Site configuration -> Environment variables), delete this block too.
+
+[build.environment]
+  HUGO_VERSION = "0.123.0"
