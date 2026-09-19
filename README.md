@@ -65,6 +65,13 @@ then deploys cleanly to production.
 The explicit build command matters: when no command is configured, Netlify falls
 back to framework auto-detection and may supply one of its own.
 
+`netlify.toml` also pins `HUGO_VERSION`. This site is not a Hugo project, and the
+variable should not exist — but it is currently defined in the Netlify UI with a
+valid value for production and an empty value for every other context, which is
+enough to break a deploy preview on content that builds cleanly in production.
+The pin holds one value across all contexts until the variable is deleted in the
+UI, at which point that block can be removed. See the comments in `netlify.toml`.
+
 ---
 
 ## 🧩 SEO Files
