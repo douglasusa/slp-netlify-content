@@ -39,6 +39,33 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SLP CONNECT™",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Supply chain visibility and traceability",
+    "url": "https://content.strategiclabpartners.com/resources/slp-connect-positioning/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Strategic Lab Partners",
+      "url": "https://strategiclabpartners.com/"
+    },
+    "isBasedOn": {
+      "@type": "SoftwareApplication",
+      "name": "NEXUS CORE™ EE",
+      "url": "https://dynamickinesis.com/architecture/",
+      "author": {
+        "@type": "Organization",
+        "name": "Dynamic Kinesis",
+        "url": "https://dynamickinesis.com/",
+        "parentOrganization": { "@type": "Organization", "name": "DOUGLAS USA LLC" }
+      }
+    }
+  }
+  </script>
+
   <style>
     :root {
       --navy: #102A43;
@@ -149,6 +176,7 @@
     .actions a:hover { opacity: 0.92; }
     .footer { padding: 28px 72px; background: var(--soft); color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
     .footer a { color: var(--blue); text-decoration: none; font-weight: 600; }
+    .section p a, .section li a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
     @media print { body { background: white; } .crumbs, .actions { display: none; } .page { max-width: none; margin: 0; box-shadow: none; border-radius: 0; } .hero { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
     @media (max-width: 760px) { .page { margin: 0; border-radius: 0; } .crumbs { padding: 0 20px; } .hero, .content, .footer { padding-left: 28px; padding-right: 28px; } .grid { grid-template-columns: 1fr; } .hero h1 { font-size: 34px; } .hero::after { display: none; } }
   </style>
@@ -297,7 +325,9 @@ Operational Truth Layer for Healthcare Supply Chain Visibility and Traceability.
           <li>Healthcare-specific infrastructure for regulated kitting, fulfillment, deployment, and specimen-related logistics.</li>
           <li>Validated real-world proof from SLP CONNECT™ deployments in decentralized healthcare logistics.</li>
           <li>Custom serialization across kits, components, shipments, specimens, returns, custody events, and transactions.</li>
-          <li>Vendor-agnostic architecture that complements existing ERP and enterprise systems.</li>
+          <li>Vendor-agnostic architecture that complements existing ERP and enterprise systems — engineered on an
+            <a href="https://dynamickinesis.com/architecture/" target="_blank" rel="noopener">API-first, asynchronous NEXUS CORE™ EE platform architecture</a>
+            that extends systems of record instead of replacing them.</li>
           <li>Integrated quality and compliance workflows within the operational transaction layer.</li>
           <li>Customer-facing visibility that goes beyond internal dashboarding.</li>
         </ul>
@@ -322,11 +352,15 @@ Operational Truth Layer for Healthcare Supply Chain Visibility and Traceability.
           <a href="/resources/slp-overview/">Read the SLP Overview</a>
           <a class="secondary" href="/resources/">Back to Resources Hub</a>
           <a class="secondary" href="https://strategiclabpartners.com/slp-connect/">Explore SLP CONNECT™</a>
+          <a class="secondary" href="https://dynamickinesis.com/architecture/" target="_blank" rel="noopener">Platform architecture behind SLP CONNECT™</a>
           <a class="secondary" href="https://strategiclabpartners.com/contact-slp">Contact SLP</a>
         </div>
       </section>
     </section>
-    <footer class="footer">Prepared by DOUGLAS USA LLC for Strategic Lab Partners and SLP CONNECT™. Return to the <a href="/resources/">Resources Hub</a> or the <a href="/resources/slp-overview/">SLP Overview</a>.</footer>
+    <footer class="footer">Prepared by DOUGLAS USA LLC for Strategic Lab Partners and SLP CONNECT™.
+      SLP CONNECT™ is delivered and governed by Strategic Lab Partners on the NEXUS CORE™ EE engine engineered by
+      <a href="https://dynamickinesis.com/partnership/" target="_blank" rel="noopener nofollow">Dynamic Kinesis, a DOUGLAS USA LLC company</a>.
+      Return to the <a href="/resources/">Resources Hub</a> or the <a href="/resources/slp-overview/">SLP Overview</a>.</footer>
   </main>
 </body>
 </html>
