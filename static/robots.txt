@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://content.strategiclabpartners.com/sitemap-index.xml
-
-# trigger automation
+Sitemap: https://slp-via-netlify-content.netlify.app/sitemap.xml
