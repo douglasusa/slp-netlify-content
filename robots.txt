@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://slp-via-netlify-content.netlify.app/sitemap.xml

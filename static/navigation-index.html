@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SLP CONNECT™ — Content Hub Navigation Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Navigate the full SLP CONNECT™ Content Hub — case studies, FAQs, resources, and blog posts for research operations leaders.">
+    <!--
+    ╔══════════════════════════════════════════════════════════════════╗
+    ║  SLP CONNECT™ — NAVIGATION INDEX                                ║
+    ║  Placement: /static/navigation-index.html                       ║
+    ║  Testimonial: Featured prominently above fold, before nav grid   ║
+    ╚══════════════════════════════════════════════════════════════════╝
+    -->
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 60px;
+            background: #ffffff;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* ── HEADER ── */
+        .header-block {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .logo-row img {
+            max-height: 90px;
+            width: auto;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+            margin: 28px 0 8px 0;
+        }
+
+        .page-sub {
+            font-size: 16px;
+            color: #555;
+            max-width: 620px;
+            margin: 0 auto 20px auto;
+        }
+
+        .divider {
+            width: 120px;
+            height: 3px;
+            background-color: #005bbb;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* ══════════════════════════════════════════════════
+           FEATURED TESTIMONIAL — PROMINENT / ABOVE-FOLD
+           ══════════════════════════════════════════════════ */
+        .featured-testimonial {
+            max-width: 860px;
+            margin: 48px auto 52px auto;
+            background: #f7faff;
+            border: 1px solid #d9e7f7;
+            border-left: 5px solid #005bbb;
+            border-radius: 8px;
+            padding: 38px 42px;
+            position: relative;
+        }
+
+        .featured-label {
+            position: absolute;
+            top: -13px;
+            left: 38px;
+            background: #005bbb;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 14px;
+            border-radius: 12px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: #e8f0fb;
+            border: 1px solid #b8d0f0;
+            color: #005bbb;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+        }
+
+        .featured-testimonial .lead-line {
+            font-size: 20px;
+            font-weight: 700;
+            color: #005bbb;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .featured-testimonial blockquote {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .featured-testimonial blockquote p {
+            font-size: 16px;
+            color: #1a1a1a;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+
+        .featured-testimonial blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .ft-attribution {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 26px;
+            padding-top: 20px;
+            border-top: 1px solid #d9e7f7;
+        }
+
+        .ft-attr-line {
+            width: 32px;
+            height: 2px;
+            background: #005bbb;
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .ft-attr-text {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            color: #005bbb;
+            text-transform: uppercase;
+        }
+
+        .ft-quote-mark {
+            position: absolute;
+            top: 28px;
+            right: 38px;
+            font-family: Georgia, serif;
+            font-size: 72px;
+            color: #005bbb;
+            opacity: 0.12;
+            line-height: 1;
+            user-select: none;
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            color: #005bbb;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* ── NAV GRID ── */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto 52px auto;
+        }
+
+        .nav-card {
+            background: #f7faff;
+            border: 1px solid #d9e7f7;
+            border-radius: 8px;
+            padding: 26px 24px;
+            text-decoration: none;
+            color: #222;
+            display: block;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .nav-card:hover {
+            border-color: #005bbb;
+            box-shadow: 0 3px 12px rgba(0,91,187,0.1);
+        }
+
+        .nav-card-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .nav-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #005bbb;
+            margin: 0 0 8px 0;
+        }
+
+        .nav-card p {
+            font-size: 14px;
+            color: #555;
+            margin: 0 0 14px 0;
+            line-height: 1.55;
+        }
+
+        .nav-card-cta {
+            font-size: 13px;
+            font-weight: bold;
+            color: #005bbb;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        /* ── SECTION DIVIDER ── */
+        .section-divider {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 36px auto;
+            height: 1px;
+            background: #e0e8f5;
+        }
+
+        /* ── QUICK-ACCESS BUTTONS ── */
+        .quick-buttons {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .quick-buttons a {
+            display: inline-block;
+            margin: 8px 14px;
+            padding: 12px 22px;
+            background: #005bbb;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .quick-buttons a:hover {
+            background: #004999;
+        }
+
+        /* ── BACK LINK ── */
+        .back-link {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .back-link a {
+            color: #005bbb;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 60px;
+            padding: 40px;
+            background: #f5f5f5;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer p {
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header-block">
+    <div class="logo-row">
+        <img src=".../../assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+        <img src=".../../assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+    </div>
+
+    <h1 class="page-title">Content Hub — Navigation Index</h1>
+    <p class="page-sub">
+        Everything you need to understand, evaluate, and deploy SLP CONNECT™
+        across your research operations.
+    </p>
+    <div class="divider"></div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FEATURED TESTIMONIAL — PROMINENT PLACEMENT ABOVE NAV
+     ══════════════════════════════════════════════════════ -->
+<div class="featured-testimonial">
+    <span class="featured-label">Featured Endorsement</span>
+    <span class="ft-quote-mark" aria-hidden="true">&#8220;</span>
+
+    <div class="featured-badge">&#9679;&nbsp; Neurologic Diagnostics</div>
+
+    <p class="lead-line">
+        &#8220;In neurologic diagnostics, you learn quickly which systems you can trust.
+        SLP CONNECT has earned that trust.&#8221;
+    </p>
+
+    <blockquote>
+        <p>
+            It runs clean, it runs consistently, and it supports the level of analytical
+            discipline our assays require. It has made our workflows smoother, our data
+            cleaner, and our reporting more dependable.
+        </p>
+        <p>
+            We don&#8217;t give endorsements lightly in this industry, but this platform has
+            proven itself. It&#8217;s genuinely nice to have you in our court because we
+            are now growing and need you more than ever.
+        </p>
+    </blockquote>
+
+    <div class="ft-attribution">
+        <div class="ft-attr-line"></div>
+        <span class="ft-attr-text">Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+    </div>
+</div>
+
+
+<!-- ══ SECTION: CONTENT AREAS ══ -->
+<p class="section-label">Explore the Content Hub</p>
+
+<div class="nav-grid">
+
+    <a href="/case-studies/" class="nav-card">
+        <span class="nav-card-icon">&#128196;</span>
+        <h3>Case Studies</h3>
+        <p>Real-world proof of SLP CONNECT™ performance across genomics, diagnostics, and precision medicine programs.</p>
+        <span class="nav-card-cta">Browse Case Studies &rarr;</span>
+    </a>
+
+    <a href="/faqs/" class="nav-card">
+        <span class="nav-card-icon">&#10067;</span>
+        <h3>FAQs</h3>
+        <p>Answers to the most critical questions about platform capability, integration, and compliance.</p>
+        <span class="nav-card-cta">View All FAQs &rarr;</span>
+    </a>
+
+    <a href="/resources/" class="nav-card">
+        <span class="nav-card-icon">&#128218;</span>
+        <h3>Resources</h3>
+        <p>Guides, frameworks, and operational tools for scaling decentralized research programs.</p>
+        <span class="nav-card-cta">Access Resources &rarr;</span>
+    </a>
+
+    <a href="/blog/" class="nav-card">
+        <span class="nav-card-icon">&#128221;</span>
+        <h3>Blog</h3>
+        <p>Insights on research operations, supply chain precision, and the future of lab logistics.</p>
+        <span class="nav-card-cta">Read the Blog &rarr;</span>
+    </a>
+
+</div>
+
+
+<div class="section-divider"></div>
+
+<!-- ══ SECTION: KEY ENTRY POINTS ══ -->
+<p class="section-label">Start Here</p>
+
+<div class="nav-grid">
+
+    <a href="/faqs/what-is-slp-connect" class="nav-card">
+        <span class="nav-card-icon">&#128270;</span>
+        <h3>What Is SLP CONNECT™?</h3>
+        <p>Learn what exceptions, losses, and inventory gaps the platform is specifically designed to prevent.</p>
+        <span class="nav-card-cta">Start Learning &rarr;</span>
+    </a>
+
+    <a href="/faqs/how-does-slp-connect-integrate-with-kitting-and-3pl" class="nav-card">
+        <span class="nav-card-icon">&#128279;</span>
+        <h3>Kitting &amp; 3PL Integration</h3>
+        <p>Understand how operational oversight integrates seamlessly with fulfillment workflows.</p>
+        <span class="nav-card-cta">See Integration Details &rarr;</span>
+    </a>
+
+    <a href="/resources/scaling/" class="nav-card">
+        <span class="nav-card-icon">&#128200;</span>
+        <h3>Scaling Decentralized Programs</h3>
+        <p>Explore how SLP CONNECT™ maintains precision and control as programs grow across sites.</p>
+        <span class="nav-card-cta">Explore Scaling &rarr;</span>
+    </a>
+
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ QUICK-ACCESS BUTTONS ══ -->
+<div class="quick-buttons">
+    <a href="/resources/">Resources</a>
+    <a href="/faqs/">FAQs</a>
+    <a href="/case-studies/">Case Studies</a>
+    <a href="/blog/">Blog</a>
+</div>
+
+<!-- ══ BACK TO HOME ══ -->
+<div class="back-link">
+    <a href="/">&larr; Back to SLP CONNECT™ Home</a>
+</div>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <p style="font-weight: bold; letter-spacing: 0.08em; font-size: 14px;">
+        MISSION | Strategic Lab Partners (SLP)
+    </p>
+    <p style="font-size: 16px; line-height: 1.6;">
+        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi&#8209;Omics,
+        and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one
+        connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized
+        Management Platform, we integrate precision kit production, global logistics, and real&#8209;time
+        digital visibility to ensure complete control from design to deployment.
+    </p>
+    <p style="font-size: 14px; color: #666; margin-top: 20px;">
+        &copy; Strategic Lab Partners — All Rights Reserved.
+        <br>Part of the SLP CONNECT™ Ecosystem.
+    </p>
+</footer>
+
+</body>
+</html>

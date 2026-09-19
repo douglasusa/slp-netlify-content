@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strategic Lab Partners — SLP CONNECT™ Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SLP CONNECT™ delivers operational command-and-control across kitting, fulfillment, and deployment for complex, decentralized, and regulated research operations.">
+    <!--
+    ╔══════════════════════════════════════════════════════════════════╗
+    ║  SLP CONNECT™ — FULL LANDING PAGE                               ║
+    ║  Placement: /static/landing-page.html  (or replace index.html)  ║
+    ║  Testimonial: Prestigious Neuroscience Founder / CMO            ║
+    ╚══════════════════════════════════════════════════════════════════╝
+    -->
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* ── SHARED CONTAINER ── */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ── HEADER / LOGO BLOCK ── */
+        .header-block {
+            padding: 52px 60px 36px 60px;
+            text-align: center;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .logo-row img {
+            max-height: 90px;
+            width: auto;
+        }
+
+        .tagline-block {
+            margin-top: 28px;
+            margin-bottom: 22px;
+        }
+
+        .tagline-block p.primary {
+            font-weight: 600;
+            color: #005bbb;
+            font-size: 22px;
+            line-height: 1.3;
+            margin: 0 0 12px 0;
+            text-align: center;
+        }
+
+        .tagline-block p.secondary {
+            color: #000;
+            font-size: 16px;
+            line-height: 1.55;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .divider {
+            width: 120px;
+            height: 3px;
+            background-color: #005bbb;
+            margin: 20px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* ══════════════════════════════════════════════════
+           NEUROSCIENCE TESTIMONIAL HERO — LEAD-OFF SECTION
+           ══════════════════════════════════════════════════ */
+        .testimonial-hero-section {
+            background: #f7faff;
+            border-top: 3px solid #005bbb;
+            border-bottom: 3px solid #005bbb;
+            padding: 60px 60px;
+            margin: 44px 0;
+            text-align: center;
+        }
+
+        .industry-badge {
+            display: inline-block;
+            background: #005bbb;
+            color: #fff;
+            border-radius: 20px;
+            padding: 5px 18px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .quote-open {
+            display: block;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 100px;
+            line-height: 0.55;
+            color: #005bbb;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            user-select: none;
+        }
+
+        .testimonial-hero-section blockquote {
+            margin: 0 auto 28px auto;
+            max-width: 780px;
+            padding: 0;
+            border: none;
+        }
+
+        .lead-quote {
+            font-size: 24px;
+            font-weight: 700;
+            color: #005bbb;
+            line-height: 1.5;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .body-quote {
+            font-size: 17px;
+            color: #1a1a1a;
+            line-height: 1.85;
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .attribution-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .attr-line {
+            width: 44px;
+            height: 2px;
+            background: #005bbb;
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .attr-text {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            color: #005bbb;
+            text-transform: uppercase;
+        }
+
+        /* ── HERO IMAGE ── */
+        .hero-image-block {
+            text-align: center;
+            padding: 0 60px 44px 60px;
+        }
+
+        .hero-image-block img {
+            max-width: 520px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* ── PRIMARY CTA CARD ── */
+        .cta-card {
+            max-width: 720px;
+            margin: 0 auto 10px auto;
+            padding: 28px 32px;
+            background: #f7faff;
+            border: 1px solid #d9e7f7;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .cta-card p.cta-heading {
+            font-size: 20px;
+            font-weight: 600;
+            color: #005bbb;
+            margin: 0 0 18px 0;
+        }
+
+        .cta-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .cta-card ul li {
+            margin-bottom: 14px;
+        }
+
+        .cta-card ul li a {
+            color: #005bbb;
+            font-size: 17px;
+            text-decoration: none;
+        }
+
+        .cta-card ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── VALUE PROPOSITIONS ── */
+        .value-section {
+            padding: 48px 60px;
+            background: #ffffff;
+        }
+
+        .value-section h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #005bbb;
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: #f7faff;
+            border: 1px solid #d9e7f7;
+            border-radius: 8px;
+            padding: 22px 20px;
+        }
+
+        .value-card-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .value-card h3 {
+            font-size: 15px;
+            font-weight: bold;
+            color: #005bbb;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin: 0 0 8px 0;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── NAV BUTTONS ── */
+        .nav-buttons {
+            margin: 16px 0 48px 0;
+            text-align: center;
+        }
+
+        .nav-buttons a {
+            display: inline-block;
+            margin: 10px 16px;
+            padding: 12px 22px;
+            background: #005bbb;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 18px;
+        }
+
+        .nav-buttons a:hover {
+            background: #004999;
+        }
+
+        /* ── CLOSING CTA STRIP ── */
+        .closing-cta {
+            background: #005bbb;
+            color: #fff;
+            text-align: center;
+            padding: 44px 60px;
+        }
+
+        .closing-cta h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+
+        .closing-cta p {
+            font-size: 16px;
+            max-width: 580px;
+            margin: 0 auto 28px auto;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .closing-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #ffffff;
+            color: #005bbb;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .closing-cta a:hover {
+            background: #e8f0fb;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 0;
+            padding: 40px 60px;
+            background: #f5f5f5;
+            border-top: 1px solid #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+
+        footer p {
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ HEADER / LOGO BLOCK ══ -->
+<div class="header-block">
+    <div class="logo-row">
+        <img src=".../../assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+        <img src=".../../assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+    </div>
+
+    <div class="tagline-block">
+        <p class="primary">
+            BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
+        </p>
+        <p class="secondary">
+            For complex, decentralized, and regulated operations, SLP CONNECT™ provides operational
+            command‑and‑control across kitting, fulfillment, and deployment—so delays, loss, and surprises
+            are detected early and prevented before they impact patients, research timelines, or cost.
+        </p>
+    </div>
+
+    <div class="divider"></div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     LEAD-OFF: NEUROSCIENCE FOUNDER / CMO TESTIMONIAL HERO
+     ══════════════════════════════════════════════════════════ -->
+<section class="testimonial-hero-section">
+
+    <span class="industry-badge">&#9679;&nbsp; Neurologic Diagnostics — Featured Endorsement</span>
+
+    <span class="quote-open" aria-hidden="true">&#8220;</span>
+
+    <blockquote>
+        <p class="lead-quote">
+            You&rsquo;re exactly what you said you would be to us&mdash;<br>
+            incredibly supportive, extremely helpful.
+        </p>
+
+        <p class="body-quote">
+            In neurologic diagnostics, you learn quickly which systems you can trust.
+            SLP CONNECT has earned that trust. It runs clean, it runs consistently,
+            and it supports the level of analytical discipline our assays require.
+            It has made our workflows smoother, our data cleaner, and our reporting
+            more dependable.
+        </p>
+
+        <p class="body-quote">
+            We don&rsquo;t give endorsements lightly in this industry, but this platform
+            has proven itself. I appreciate that, honestly, respectfully so — thank you for
+            continuing to work with us. It&rsquo;s genuinely nice to have you in our court
+            because we are now growing and need you more than ever.
+        </p>
+    </blockquote>
+
+    <div class="attribution-row">
+        <div class="attr-line"></div>
+        <span class="attr-text">Prestigious Neuroscience Founder&nbsp;/&nbsp;CMO</span>
+        <div class="attr-line"></div>
+    </div>
+
+</section>
+
+
+<!-- ══ HERO IMAGE ══ -->
+<div class="hero-image-block">
+    <img
+        src=".../../assets/images/slp-web-banner-2.png"
+        alt="SLP CONNECT Ecosystem"
+    >
+</div>
+
+
+<!-- ══ PRIMARY CTA CARD ══ -->
+<div style="padding: 0 60px 8px 60px;">
+    <div class="cta-card">
+        <p class="cta-heading">Start here:</p>
+        <ul>
+            <li>
+                <a href="/faqs/what-is-slp-connect">
+                    Learn what SLP CONNECT™ prevents (exceptions, loss, inventory gaps)
+                </a>
+            </li>
+            <li>
+                <a href="/faqs/how-does-slp-connect-integrate-with-kitting-and-3pl">
+                    Understand how oversight integrates with fulfillment
+                </a>
+            </li>
+            <li>
+                <a href="/resources/scaling/">
+                    Explore how SLP scales decentralized programs
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- ══ NAV BUTTONS ══ -->
+<div class="nav-buttons">
+    <a href="/resources/">Resources</a>
+    <a href="/faqs/">FAQs</a>
+    <a href="/case-studies/">Case Studies</a>
+    <a href="/blog/">Blog</a>
+</div>
+
+
+<!-- ══ VALUE PROPOSITIONS ══ -->
+<section class="value-section">
+    <h2>Why Regulated Teams Trust SLP CONNECT™</h2>
+    <div class="value-grid">
+        <div class="value-card">
+            <div class="value-card-icon">&#128300;</div>
+            <h3>Assay-Grade Precision</h3>
+            <p>Analytical discipline built for the most rigorous diagnostic and research workflows.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-card-icon">&#128202;</div>
+            <h3>Cleaner Data</h3>
+            <p>End-to-end traceability ensures your data is accurate, auditable, and dependable.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-card-icon">&#9881;</div>
+            <h3>Consistent Operations</h3>
+            <p>Runs reliably across complex, decentralized programs — every time, at every site.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-card-icon">&#128200;</div>
+            <h3>Scales With Growth</h3>
+            <p>Built for organizations at the moment they need more — not less — operational support.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══ CLOSING CTA STRIP ══ -->
+<div class="closing-cta">
+    <h2>Ready to earn the same trust?</h2>
+    <p>
+        Join the research leaders, CROs, and diagnostic innovators who rely on
+        SLP CONNECT™ for precision, consistency, and dependable support at every stage.
+    </p>
+    <a href="/case-studies/">Read the Case Studies</a>
+</div>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <p style="font-weight: bold; letter-spacing: 0.08em; font-size: 14px;">
+        MISSION | Strategic Lab Partners (SLP)
+    </p>
+
+    <p style="font-size: 16px; line-height: 1.6;">
+        Strategic Lab Partners (SLP) transforms research infrastructures across Genomics, Multi&#8209;Omics,
+        and Precision Medicine by unifying data precision, logistical speed, and sample integrity in one
+        connected ecosystem. Through SLP CONNECT™, our Premium Kitting Deployment and Centralized
+        Management Platform, we integrate precision kit production, global logistics, and real&#8209;time
+        digital visibility to ensure complete control from design to deployment. Our mission is to deliver
+        reliable, scalable, and compliant operations that help research sponsors and CROs run complex
+        studies with advanced&#8209;manufacturing accuracy. We elevate healthcare supply chains with universal
+        kitting, serialized tracking, and value&#8209;based logistics—strengthening quality, reducing variability,
+        and accelerating scientific discovery.
+    </p>
+
+    <p style="font-size: 14px; color: #666; margin-top: 20px;">
+        &copy; Strategic Lab Partners — All Rights Reserved.
+        <br>Part of the SLP CONNECT™ Ecosystem.
+    </p>
+</footer>
+
+</body>
+</html>

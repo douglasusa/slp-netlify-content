@@ -6,5 +6,21 @@
     "hero": "/blog/beyond-the-kit/hero.png",
     "date": "2026-04-04",
     "tags": ["kitting", "logistics", "procurement"]
-  }
+  },
+  {
+    "slug": "conquering-the-evolution",
+    "title": "Conquering the Evolution",
+    "excerpt": "How decentralized logistics evolve—and how SLP CONNECT™ stabilizes performance as complexity increases.",
+    "hero": "/blog/conquering-the-evolution/hero.png",
+    "date": "2026-04-04",
+    "tags": ["decentralized", "operations", "oversight"]
+  },
+  {
+  "slug": "kitting-and-supplies",
+  "title": "Kitting & Bulk Supplies for Healthcare Training",
+  "excerpt": "How Strategic Lab Partners – Nashville supports nursing schools, hospitals, and universities with FDA‑aligned specimen collection kits, bulk medical supplies, and CONNECT‑powered operational infrastructure for healthcare training.",
+  "heroImage": "/blog/kitting-and-bulk-supplies/hero.jpg",
+  "date": "2026-06-03",
+  "tags": ["kitting", "bulk supplies", "healthcare training", "education", "clinical labs"]
+}
 ]

@@ -1,0 +1,76 @@
+name: Fix Internal Links and Rename Unicode File
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix-links-and-rename:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fix /faqs/index.html links and rename Unicode filename
+        run: |
+          python3 << 'PYEOF'
+          import os, re
+
+          faq_dirs = [
+            'static/faqs',
+            'static/faqs/how-does-slp-kitting-work',
+            'static/faqs/what-is-slp'
+          ]
+
+          total = 0
+          changed = 0
+
+          for d in faq_dirs:
+            if not os.path.isdir(d):
+              continue
+            for fname in os.listdir(d):
+              if not fname.endswith('.html'):
+                continue
+              fpath = os.path.join(d, fname)
+              with open(fpath, 'r', encoding='utf-8') as f:
+                content = f.read()
+              total += 1
+              # Fix all /faqs/index.html links -> /faqs/
+              new_content = content.replace('/faqs/index.html', '/faqs/')
+              if new_content != content:
+                with open(fpath, 'w', encoding='utf-8') as f:
+                  f.write(new_content)
+                changed += 1
+                print(f'Fixed links in: {fpath}')
+
+          print(f'Scanned {total} files, fixed links in {changed} files')
+
+          # Rename the Unicode apostrophe filename to ASCII-safe version
+          old_name = 'static/faqs/what-is-slp\u2019s-approach-to-innovation.html'
+          new_name = 'static/faqs/what-is-slps-approach-to-innovation.html'
+          if os.path.exists(old_name):
+            os.rename(old_name, new_name)
+            print(f'Renamed: {old_name} -> {new_name}')
+
+            # Also fix the canonical tag inside the renamed file
+            with open(new_name, 'r', encoding='utf-8') as f:
+              content = f.read()
+            # Fix canonical URL (may contain encoded or raw apostrophe)
+            content = re.sub(
+              r'(href="https://content\.strategiclabpartners\.com/faqs/what-is-slp)[^"]*(-approach-to-innovation)(")',
+              r'\1s\2\3',
+              content
+            )
+            with open(new_name, 'w', encoding='utf-8') as f:
+              f.write(content)
+            print('Fixed canonical tag in renamed file')
+          else:
+            print('Unicode filename not found (may already be renamed)')
+          PYEOF
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add static/faqs/
+          git diff --cached --quiet || git commit -m "Fix indexability: replace /faqs/index.html links and rename Unicode apostrophe filename"
+          git push

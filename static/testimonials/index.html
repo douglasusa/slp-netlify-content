@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Testimonials · Strategic Lab Partners</title>
+    <link rel="canonical" href="https://content.strategiclabpartners.com/testimonials/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --slp-blue: #005bbb;
+            --slp-blue-dark: #004999;
+            --slp-gray-border: #e0e0e0;
+            --slp-text: #222;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--slp-text);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ghosted editorial hero backdrop — the operations photograph sits
+           behind the top of the page and fades softly into the white, matching
+           the opening-page treatment so all copy stays crisp and readable. */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 820px;
+            z-index: -1;
+            background-image: url("/assets/images/hero-operations-bg.jpg");
+            background-image: image-set(
+                url("/assets/images/hero-operations-bg.webp") type("image/webp"),
+                url("/assets/images/hero-operations-bg.jpg") type("image/jpeg")
+            );
+            background-position: center top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.24;
+            -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 40%, transparent 92%);
+                    mask-image: linear-gradient(to bottom, #000 0%, #000 40%, transparent 92%);
+            pointer-events: none;
+        }
+        /* Soft brand-blue wash layered over the photo for cohesion. */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 820px;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(0, 91, 187, 0.06) 0%, rgba(255, 255, 255, 0) 60%);
+            pointer-events: none;
+        }
+        @media (max-width: 900px) {
+            body::before,
+            body::after {
+                height: 560px;
+            }
+        }
+        @media (max-width: 600px) {
+            body::before,
+            body::after {
+                height: 440px;
+            }
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 56px;
+        }
+
+        /* HEADER — CONNECT™ BRAND SYSTEM */
+        .header-block {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 18px;
+        }
+
+        .logo-row img {
+            height: 48px;
+        }
+
+        .connect-tagline {
+            font-size: 14px;
+            margin-top: 4px;
+            color: #222;
+            letter-spacing: 0.03em;
+        }
+
+        .page-title {
+            font-size: 28px;
+            margin: 32px 0 8px; /* moved further down */
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .page-sub {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .page-sub span {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .divider {
+            width: 70px;
+            height: 2px;
+            background: var(--slp-blue);
+            margin: 18px auto 0;
+        }
+
+        /* LEAD TESTIMONIAL */
+        .lead-testimonial {
+            margin: 28px 0 20px;
+            padding: 22px 22px 24px;
+            border-radius: 10px;
+            border: 1px solid var(--slp-gray-border);
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .lead-meta {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .lead-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--slp-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .lead-badge {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .lead-line {
+            font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            max-width: 680px;
+            margin: 0 auto 14px;
+            color: #222;
+        }
+
+        .lead-attribution {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        /* NAVIGATION */
+        .nav-section {
+            text-align: center;
+            margin-top: 28px;
+        }
+
+        .nav-section h3 {
+            margin: 0 0 12px;
+            font-size: 18px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-buttons a {
+            padding: 8px 14px;
+            border-radius: 4px;
+            border: 1px solid var(--slp-blue);
+            color: var(--slp-blue);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-buttons a:hover {
+            background: var(--slp-blue);
+            color: #fff;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: var(--slp-blue);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 32px;
+            padding-top: 18px;
+            border-top: 1px solid var(--slp-gray-border);
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+        }
+
+        footer p {
+            max-width: 860px;
+            margin: 0 auto 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- HEADER -->
+        <div class="header-block">
+            <div class="logo-row">
+                <img src="/assets/logos/slp-full-logo.png" alt="Strategic Lab Partners">
+
+                <div style="display:flex; flex-direction:column; align-items:flex-start;">
+                    <img src="/assets/logos/slp-connect-logo.png" alt="SLP CONNECT">
+                    <span class="connect-tagline">
+                        BUILDING TRUST <span style="color:#000;">While Unlocking Discovery</span>
+                    </span>
+                </div>
+            </div>
+
+            <h1 class="page-title">Client Testimonials</h1>
+
+            <p class="page-sub">
+                What research leaders, CROs, and diagnostics innovators say about SLP CONNECT™<br>
+                <span>— earned through precision, consistency, and dependable support at every stage.</span>
+            </p>
+
+            <div class="divider"></div>
+        </div>
+
+        <!-- LEAD TESTIMONIAL -->
+        <section class="lead-testimonial">
+            <div class="lead-meta">
+                <span class="lead-label">★ Featured Endorsement</span>
+                <span class="lead-badge">● Neurologic Diagnostics</span>
+            </div>
+
+            <p class="lead-line">
+                “You’re exactly what you said you would be to us —<br>
+                incredibly supportive, extremely helpful.”
+            </p>
+
+            <p class="lead-attribution">
+                — Prestigious Neuroscience Founder / CMO
+            </p>
+        </section>
+
+        <!-- NAVIGATION -->
+        <section class="nav-section">
+            <h3>Start here:</h3>
+            <div class="nav-buttons">
+                <a href="#prevents">Learn what SLP CONNECT™ prevents</a>
+                <a href="#oversight">How oversight integrates with fulfillment</a>
+                <a href="#scales">How SLP scales decentralized programs</a>
+            </div>
+        </section>
+
+        <div class="back-link">
+            <a href="/">Return to Strategic Lab Partners</a>
+        </div>
+
+        <footer>
+            <p>
+                Strategic Lab Partners · SLP CONNECT™ — Operational intelligence for decentralized and distributed programs.
+            </p>
+            <p>
+                SLP CONNECT™ provides operational command-and-control across kitting, fulfillment, and deployment — preventing
+                delays, loss, and surprises before they impact patients, research timelines, or cost.
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
